@@ -65,21 +65,19 @@ Nama Peneliti    : Febri Muhsinin
 Tanggal          : ____________________
 
 1. Ketika membaca klaim "metode X 95% akurat":
-   - Pertanyaan pertama saya: "Berapa jumlah data (N) yang digunakan dan bagaimana pembagian training/testing set-nya?"
-   - Data yang dibutuhkan untuk verifikasi: "Berapa jumlah data (N) yang digunakan dan bagaimana pembagian training/testing set-nya?"
+   - Pertanyaan pertama saya: "Apakah hasil ini merupakan nilai optimal global atau hanya berhenti pada local optima karena siklus yang terbatas?"
+   - Data yang dibutuhkan untuk verifikasi: "Parameter lengkap algoritma (ukuran populasi, probabilitas crossover, dan mutasi) serta perbandingan hasil dengan algoritma optimasi lain sebagai baseline."
 
 2. Posisi paradigma:
    - Pendekatan: [ ] Positivis  [ ] Interpretivis  [x] Design Science  [ ] Mixed
-   - Alasan: Saya lebih banyak mengembangkan solusi teknis (seperti JavaFX/PostgreSQL) untuk memecahkan masalah spesifik.
-
+   - Alasan: Penelitian ini membangun sebuah artefak berupa prosedur optimasi menggunakan Algoritma Genetika untuk menyelesaikan masalah praktis dalam penentuan rute pengiriman barang di PT. Pos.
 3. Identifikasi distorsi:
-   - Asumsi tersembunyi: Menganggap semua pengguna memiliki perilaku yang sama saat menggunakan aplikasi.
-   - Sumber bias potensial: Data testing yang hanya diambil dari lingkungan kampus (homogen).
-   - Langkah mitigasi: Menggunakan Cross-Validation dan mengambil sampel data dari luar lingkungan utama.
-
+   - Asumsi tersembunyi: Penelitian ini membangun sebuah artefak berupa prosedur optimasi menggunakan Algoritma Genetika untuk menyelesaikan masalah praktis dalam penentuan rute pengiriman barang di PT. Pos.
+   - Sumber bias potensial: Penghentian siklus (syarat berhenti) dilakukan secara manual setelah 2 siklus hanya karena hasilnya sudah sama, yang mungkin belum mencapai konvergensi yang sebenarnya dalam algoritma stokastik.
+   - Langkah mitigasi: Menjalankan simulasi dengan jumlah iterasi yang lebih besar (misalnya 100+ generasi) menggunakan bantuan pemrograman untuk memastikan stabilitas hasil.
 4. Komitmen etika:
-   - Data yang tidak akan dimanipulasi: Menggunakan Cross-Validation dan mengambil sampel data dari luar lingkungan utama.
-   - Batasan yang diakui sejak awal: Algoritma mungkin melambat pada dataset yang bersifat high-dimensional.
+   - Data yang tidak akan dimanipulasi: Jarak antar titik lokasi yang diperoleh dari Google Maps dan nilai fitness yang dihitung dari panjang lintasan.
+   - Batasan yang diakui sejak awal: Hasil penelitian ini bergantung pada ukuran populasi, besar generasi, serta nilai peluang crossover dan mutasi yang digunakan.
 ```
 
 ---
@@ -93,54 +91,54 @@ Pilih satu paper riset di bidang TI yang mengklaim "metode X meningkatkan perfor
 > **Contoh domain TI:** "Deteksi anomali lalu-lintas jaringan menggunakan CNN — akurasi meningkat 94% vs baseline SVM 87%." Distorsi potensial: apakah dataset normal/anomali seimbang? Apakah hanya diuji pada satu vendor traffic?
 
 **Paper yang dipilih:**
-> Judul: Optimasi Penjadwalan Mata Kuliah Menggunakan Algoritma Genetika (Studi Kasus: Fakultas Teknologi Informasi)
-> Penulis (Tahun): R. Helilintar, dkk. (2021)
-> Sumber/Link DOI: Jurnal Teknologi Informasi dan Terintegrasi (JITIKA)
+> Judul: Penerapan Algoritma Genetika Dalam Menentukan Rute Terpendek PT. Pos Cabang Lamongan
+> Penulis (Tahun): Ahmad Tohari & Yuliani Puji Astuti (2023)
+> Sumber/Link DOI: MATHunesa: MATHunesa, Vol 11 No 03
 
 | Tahap | Apa yang Dilakukan | Potensi Distorsi |
 |-------|-------------------|-----------------|
-| Reality → Data | *Mengambil data mata kuliah, dosen, dan ketersediaan ruangan di kampus.* | *Sampling Bias: Data mungkin hanya diambil dari satu semester yang "ideal", tidak mencakup semester sibuk.* |
-| Data → Processing | *Representasi data ke dalam bentuk kromosom dan penentuan parameter (Populasi, Mutasi, Crossover).*  | *Data Cleaning Bias: Menghapus mata kuliah yang sulit dijadwalkan secara manual agar algoritma terlihat lebih cepat konvergen.*  |
-| Processing → Analysis | *Menjalankan iterasi algoritma untuk meminimalkan bentrok (fitness function).*  | *Hardware Bias: Kecepatan eksekusi hanya diukur pada satu PC spesifik tanpa mempertimbangkan variasi beban server.*  |
-| Analysis → Inference | *Menyimpulkan bahwa algoritma genetika lebih efektif daripada penjadwalan manual.*  | *Cherry-picking: Hanya menampilkan hasil iterasi terbaik, sementara hasil yang gagal/stuck di lokal optimum tidak dibahas.*  |
-| Inference → Knowledge |*Mengklaim metode ini adalah solusi terbaik untuk semua kasus penjadwalan serupa.*  | *Over-generalization: Belum tentu efektif jika jumlah ruangan sangat terbatas atau kendala (constraint) ditambah.*  |
+| Reality → Data | *Mengumpulkan 19 titik lokasi kantor pos dan mencari koordinat serta jarak menggunakan Google Maps* | *Sampling Bias: Hanya menggunakan 19 titik tertentu, mungkin tidak mencakup seluruh variasi rute harian yang sebenarnya dihadapi kurir.* |
+| Data → Processing | *Jarak diubah menjadi bilangan integer dalam satuan kilometer untuk perhitungan.*  | *Rounding Error: Pembulatan ke integer terdekat dapat menghilangkan akurasi jarak presisi (meter) yang krusial untuk optimasi.*  |
+| Processing → Analysis | *Menjalankan Algoritma Genetika melalui 2 siklus dengan parameter populasi, crossover, dan mutasi.*  | *Algorithmic Bias: Hasil sangat bergantung pada ukuran populasi dan peluang mutasi/crossover yang ditentukan peneliti.*  |
+| Analysis → Inference | *Menentukan rute A-L-K-J-I-H-G-F-E-D-C-B-A sebagai yang terpendek (158 km).*  | *Local Optima: Karena hanya dilakukan 2 siklus, ada kemungkinan algoritma terjebak di solusi "cukup baik" tapi bukan yang terbaik global.*  |
+| Inference → Knowledge |*Menyimpulkan biaya operasional sebesar Rp 158.000 berdasarkan konsumsi BBM rata-rata*  | *Generalization Bias: Mengasumsikan harga BBM dan konsumsi kendaraan tetap (10km/liter), padahal kondisi jalan memengaruhi realitas.*  |
 
-**Distorsi paling besar di tahap:** Data → Processing (Penentuan bobot fitness function yang subjektif).
+**Distorsi paling besar di tahap:** Generalization Bias: Mengasumsikan harga BBM dan konsumsi kendaraan tetap (10km/liter), padahal kondisi jalan memengaruhi realitas.
 
 **Dua distorsi spesifik yang teridentifikasi:**
-1. Algorithmic Bias: Penentuan nilai probabilitas mutasi dan crossover yang dilakukan secara trial-error tanpa justifikasi matematis yang kuat.
-2. Measurement Bias: Mengukur kesuksesan hanya dari ketiadaan bentrok, namun mengabaikan preferensi dosen (aspek kualitatif).
+1. Convergence Bias: Penghentian eksperimen hanya pada 2 siklus karena hasil sudah sama, padahal algoritma genetika bersifat acak dan mungkin butuh lebih banyak iterasi untuk validitas maksimal.
+2. Environmental Distortion: Perhitungan jarak menggunakan Google Maps tidak memperhitungkan faktor realitas seperti kemacetan atau perbaikan jalan yang bisa mengubah "rute terpendek" menjadi "rute terlama".
 
 ---
 
 ## Latihan 2 — Analisis Kasus Etika
 
-Skenario: Seorang peneliti menemukan bahwa jika 3 data point outlier dihapus, hasil eksperimennya menjadi signifikan. Dengan outlier, hasilnya tidak signifikan.
+Skenario: Peneliti menghentikan siklus pada iterasi ke-2 karena hasilnya sudah sama (konvergen).
 
 | Perspektif | Analisis |
 |------------|---------|
-| Kejujuran ilmiah | *Menghapus outlier tanpa penjelasan adalah bentuk manipulasi data. Peneliti harus jujur bahwa data tidak seragam.* |
-| Transparansi | *Peneliti wajib menjelaskan mengapa outlier tersebut muncul (apakah karena kesalahan sensor atau anomali nyata).* |
-| Peer review | *Jika disembunyikan, reviewer tidak bisa memvalidasi kebenaran klaim. Transparansi justru meningkatkan kepercayaan reviewer.* |
+| Kejujuran ilmiah | *Peneliti menghentikan siklus pada iterasi ke-2 karena hasilnya sudah sama (konvergen).* |
+| Transparansi | *Peneliti secara transparan menyebutkan bahwa sifat algoritma genetika adalah random dan tidak diketahui pasti kapan hasil optimal muncul.* |
+| Peer review | *Penelaah mungkin akan mempertanyakan apakah 2 siklus cukup untuk populasi yang kompleks, sehingga peneliti harus menyediakan data mentah setiap siklus.* |
 
 **Keputusan akhir dan justifikasi:**
-> Tetap menyertakan outlier dalam laporan. Jika outlier memang disebabkan oleh kesalahan teknis (misal: noise perangkat), jelaskan alasan penghapusannya secara eksplisit. Namun, jika outlier adalah bagian dari fenomena nyata, gunakan metode statistik yang robust (tahan outlier) agar hasil riset tetap valid tanpa berbohong.
+> Peneliti tetap melaporkan hasil 158 km tersebut namun memberikan limitasi bahwa hasil ini bergantung pada parameter yang disetel. Justifikasinya adalah efisiensi komputasi untuk studi kasus spesifik ini.
 ---
 
 ## Latihan 3 — Posisi Paradigma
 
-**Topik riset:** ________________________________________
+**Topik riset:**Optimasi Rute Distribusi Logistik Menggunakan Algoritma Evolusioner.
 
 > **Skala 1–5:** 1 = tidak sesuai sama sekali dengan topik ini, 5 = sangat sesuai dan dominan digunakan pada riset bertopik serupa.
 
 | Kriteria | Positivis | Interpretivis | Design Science |
 |----------|-----------|---------------|----------------|
-| Kesesuaian dengan topik (1–5) | * 4 * | * 2 * | * 5 * |
-| Jenis data yang dikumpulkan | *Akurasi rekomendasi, nilai fitness, waktu eksekusi.* | *Kepuasan emosional pengguna saat memilih baju.* | *Artefak berupa sistem/aplikasi rekomendasi outfit.* |
-| Limitasi paradigma |  *Mengabaikan selera fashion yang subjektif.* | *Sulit direplikasi secara sistematis/massal.* |  *Fokus sering bergeser ke pembuatan aplikasi (coding), bukan temuan ilmiah.* |
+| Kesesuaian dengan topik (1–5) | 4 (Fokus pada pengukuran objektif jarak dan biaya). | 1 (Tidak berfokus pada pengalaman subjektif kurir). | 5 (Membangun model/algoritma sebagai solusi masalah praktis). |
+| Jenis data yang dikumpulkan | Jarak (km), Nilai Fitness, Biaya (Rp). | - | Hasil iterasi kromosom dan rute optimal.* |
+| Limitasi paradigma |  Mengabaikan faktor manusia/cuaca di lapangan. | Mengabaikan faktor manusia/cuaca di lapangan. |  Mengabaikan faktor manusia/cuaca di lapangan. |
 
-**Paradigma yang dipilih:**Design Science Research (DSR)
-**Alasan:** Riset ini bertujuan membangun sebuah artefak (algoritma optimasi) untuk memecahkan masalah praktis (kebingungan memilih outfit). Keberhasilan diukur dari seberapa baik artefak tersebut bekerja melalui pengujian fungsionalitas dan kinerja.
+**Paradigma yang dipilih:**Design Science Research (DSR) diperkuat Positivis.
+**Alasan:**Penelitian ini bertujuan memecahkan masalah nyata (rute PT. Pos) dengan membangun artefak berupa prosedur Algoritma Genetika dan menguji validitasnya secara kuantitatif melalui perhitungan jarak dan fitness.
 
 
 ---
@@ -150,4 +148,4 @@ Skenario: Seorang peneliti menemukan bahwa jika 3 data point outlier dihapus, ha
 > Sebelum membaca materi ini, apakah pernah mempertanyakan klaim "95% akurat"? Setelah memahami rantai distorsi, pertanyaan apa yang sekarang akan diajukan saat membaca paper?
 
 **Jawaban:**
-> Dulu saya sering menelan mentah-mentah angka akurasi yang tinggi sebagai indikator keberhasilan mutlak. Setelah memahami rantai distorsi, saya kini akan bertanya: "Di tahap mana data ini mungkin bias?" dan "Apakah hasil ini bisa direproduksi (reproducible) di lingkungan yang berbeda?" Saya menjadi lebih kritis terhadap validitas internal sebelum mempercayai sebuah kesimpulan.
+> Sebelumnya, saya mungkin menganggap rute dari Google Maps adalah mutlak benar. Setelah memahami rantai distorsi, saya sekarang akan mempertanyakan: "Apakah pembulatan jarak ke integer memengaruhi akurasi rute?" atau "Apakah 2 siklus cukup untuk menjamin bahwa tidak ada rute yang lebih pendek lagi?".
