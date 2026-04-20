@@ -137,7 +137,8 @@ Skenario: Seorang peneliti menemukan bahwa jika 3 data point outlier dihapus, ha
 |----------|-----------|---------------|----------------|
 | Kesesuaian dengan topik (1–5) | * 4 * | * 2 * | * 5 * |
 | Jenis data yang dikumpulkan | *Akurasi rekomendasi, nilai fitness, waktu eksekusi.* | *Kepuasan emosional pengguna saat memilih baju.* | *Artefak berupa sistem/aplikasi rekomendasi outfit.* |
-| Limitasi paradigma |  *Mengabaikan selera fashion yang subjektif.* | *Sulit direplikasi secara sistematis/massal.* |  *Fokus sering bergeser ke pembuatan aplikasi (coding), bukan temuan ilmiah.*
+| Limitasi paradigma |  *Mengabaikan selera fashion yang subjektif.* | *Sulit direplikasi secara sistematis/massal.* |  *Fokus sering bergeser ke pembuatan aplikasi (coding), bukan temuan ilmiah.* |
+
 **Paradigma yang dipilih:**Design Science Research (DSR)
 **Alasan:** Riset ini bertujuan membangun sebuah artefak (algoritma optimasi) untuk memecahkan masalah praktis (kebingungan memilih outfit). Keberhasilan diukur dari seberapa baik artefak tersebut bekerja melalui pengujian fungsionalitas dan kinerja.
 
