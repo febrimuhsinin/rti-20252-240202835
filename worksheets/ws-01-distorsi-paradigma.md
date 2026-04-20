@@ -62,7 +62,7 @@ Dalam DSR, artefak **bukan tujuan akhir** — ia adalah instrumen untuk menghasi
 
 ```
 Nama Peneliti    : Febri Muhsinin
-Tanggal          : ____________________
+Tanggal          : 20 April 2026
 
 1. Ketika membaca klaim "metode X 95% akurat":
    - Pertanyaan pertama saya: "Apakah hasil ini merupakan nilai optimal global atau hanya berhenti pada local optima karena siklus yang terbatas?"
