@@ -1,0 +1,23 @@
+[33mcommit edca743fabf69e2007622d4d03481b7249221094[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: hb_alim <m.helmibahara@gmail.com>
+Date:   Mon Apr 13 15:02:20 2026 +0700
+
+    fix(worksheets): improve content quality WS-01, 03, 06, 08, 09
+    
+    - WS-01: clarify DSR vs Positivis paradigm table, add paper search
+      guidance with domain IT examples, add Likert scale explanation
+    - WS-03: add concept-centric vs author-centric comparison table,
+      expand snowballing steps, add database access notes and Boolean
+      query guidance
+    - WS-06: add YAML feature toggles example, add ablation study
+      condition count guidance
+    - WS-08: operationalize red thread diagram, add Cognitive Trap
+      Checklist, add concrete rubric scoring criteria per level
+    - WS-09: add reproducibility conceptual framing, explain Docker,
+      add dependency locking section, list common non-repeatability causes
+
+worksheets/ws-01-distorsi-paradigma.md
+worksheets/ws-03-literature-gap.md
+worksheets/ws-06-system-experiment.md
+worksheets/ws-08-proposal-integration.md
+worksheets/ws-09-implementation.md
