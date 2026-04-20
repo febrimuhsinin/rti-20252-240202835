@@ -61,7 +61,7 @@ Dalam DSR, artefak **bukan tujuan akhir** — ia adalah instrumen untuk menghasi
 ## Template A.1 — Research Mindset Self-Assessment
 
 ```
-Nama Peneliti    : Febri Muhsinin
+Nama Peneliti    : Febri Muhsinin 
 Tanggal          : 20 April 2026 
 
 1. Ketika membaca klaim "metode X 95% akurat":
