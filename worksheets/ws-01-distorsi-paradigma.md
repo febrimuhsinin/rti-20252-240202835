@@ -93,7 +93,7 @@ Pilih satu paper riset di bidang TI yang mengklaim "metode X meningkatkan perfor
 **Paper yang dipilih:**
 > Judul: Penerapan Algoritma Genetika Dalam Menentukan Rute Terpendek PT. Pos Cabang Lamongan
 > Penulis (Tahun): Ahmad Tohari & Yuliani Puji Astuti (2023)
-> Sumber/Link DOI: MATHunesa: MATHunesa, Vol 11 No 03
+> Sumber/Link DOI: MATHunesa, Vol 11 No 03
 
 | Tahap | Apa yang Dilakukan | Potensi Distorsi |
 |-------|-------------------|-----------------|
