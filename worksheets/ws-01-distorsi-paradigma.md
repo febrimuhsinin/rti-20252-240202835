@@ -61,25 +61,25 @@ Dalam DSR, artefak **bukan tujuan akhir** — ia adalah instrumen untuk menghasi
 ## Template A.1 — Research Mindset Self-Assessment
 
 ```
-Nama Peneliti    : ____________________
+Nama Peneliti    : Febri Muhsinin
 Tanggal          : ____________________
 
 1. Ketika membaca klaim "metode X 95% akurat":
-   - Pertanyaan pertama saya: ____________________
-   - Data yang dibutuhkan untuk verifikasi: ____________________
+   - Pertanyaan pertama saya: "Berapa jumlah data (N) yang digunakan dan bagaimana pembagian training/testing set-nya?"
+   - Data yang dibutuhkan untuk verifikasi: "Berapa jumlah data (N) yang digunakan dan bagaimana pembagian training/testing set-nya?"
 
 2. Posisi paradigma:
-   - Pendekatan: [ ] Positivis  [ ] Interpretivis  [ ] Design Science  [ ] Mixed
-   - Alasan: ____________________
+   - Pendekatan: [ ] Positivis  [ ] Interpretivis  [x] Design Science  [ ] Mixed
+   - Alasan: Saya lebih banyak mengembangkan solusi teknis (seperti JavaFX/PostgreSQL) untuk memecahkan masalah spesifik.
 
 3. Identifikasi distorsi:
-   - Asumsi tersembunyi: ____________________
-   - Sumber bias potensial: ____________________
-   - Langkah mitigasi: ____________________
+   - Asumsi tersembunyi: Menganggap semua pengguna memiliki perilaku yang sama saat menggunakan aplikasi.
+   - Sumber bias potensial: Data testing yang hanya diambil dari lingkungan kampus (homogen).
+   - Langkah mitigasi: Menggunakan Cross-Validation dan mengambil sampel data dari luar lingkungan utama.
 
 4. Komitmen etika:
-   - Data yang tidak akan dimanipulasi: ____________________
-   - Batasan yang diakui sejak awal: ____________________
+   - Data yang tidak akan dimanipulasi: Menggunakan Cross-Validation dan mengambil sampel data dari luar lingkungan utama.
+   - Batasan yang diakui sejak awal: Algoritma mungkin melambat pada dataset yang bersifat high-dimensional.
 ```
 
 ---
@@ -93,23 +93,23 @@ Pilih satu paper riset di bidang TI yang mengklaim "metode X meningkatkan perfor
 > **Contoh domain TI:** "Deteksi anomali lalu-lintas jaringan menggunakan CNN — akurasi meningkat 94% vs baseline SVM 87%." Distorsi potensial: apakah dataset normal/anomali seimbang? Apakah hanya diuji pada satu vendor traffic?
 
 **Paper yang dipilih:**
-> Judul: _______________________________________________
-> Penulis (Tahun): ______________________________________
-> Sumber/Link DOI: _____________________________________
+> Judul: Optimasi Penjadwalan Mata Kuliah Menggunakan Algoritma Genetika (Studi Kasus: Fakultas Teknologi Informasi)
+> Penulis (Tahun): R. Helilintar, dkk. (2021)
+> Sumber/Link DOI: Jurnal Teknologi Informasi dan Terintegrasi (JITIKA)
 
 | Tahap | Apa yang Dilakukan | Potensi Distorsi |
 |-------|-------------------|-----------------|
-| Reality → Data | *Contoh: Kumpulkan log server 30 hari* | *Contoh: Hanya ambil jam sibuk* |
-| Data → Processing | | |
-| Processing → Analysis | | |
-| Analysis → Inference | | |
-| Inference → Knowledge | | |
+| Reality → Data | *Mengambil data mata kuliah, dosen, dan ketersediaan ruangan di kampus.* | *Sampling Bias: Data mungkin hanya diambil dari satu semester yang "ideal", tidak mencakup semester sibuk.* |
+| Data → Processing | *Representasi data ke dalam bentuk kromosom dan penentuan parameter (Populasi, Mutasi, Crossover).*  | *Data Cleaning Bias: Menghapus mata kuliah yang sulit dijadwalkan secara manual agar algoritma terlihat lebih cepat konvergen.*  |
+| Processing → Analysis | *Menjalankan iterasi algoritma untuk meminimalkan bentrok (fitness function).*  | *Hardware Bias: Kecepatan eksekusi hanya diukur pada satu PC spesifik tanpa mempertimbangkan variasi beban server.*  |
+| Analysis → Inference | *Menyimpulkan bahwa algoritma genetika lebih efektif daripada penjadwalan manual.*  | *Cherry-picking: Hanya menampilkan hasil iterasi terbaik, sementara hasil yang gagal/stuck di lokal optimum tidak dibahas.*  |
+| Inference → Knowledge |*Mengklaim metode ini adalah solusi terbaik untuk semua kasus penjadwalan serupa.*  | *Over-generalization: Belum tentu efektif jika jumlah ruangan sangat terbatas atau kendala (constraint) ditambah.*  |
 
-**Distorsi paling besar di tahap:** ________________________
+**Distorsi paling besar di tahap:** Data → Processing (Penentuan bobot fitness function yang subjektif).
 
 **Dua distorsi spesifik yang teridentifikasi:**
-1. ___________________________________________________
-2. ___________________________________________________
+1. Algorithmic Bias: Penentuan nilai probabilitas mutasi dan crossover yang dilakukan secara trial-error tanpa justifikasi matematis yang kuat.
+2. Measurement Bias: Mengukur kesuksesan hanya dari ketiadaan bentrok, namun mengabaikan preferensi dosen (aspek kualitatif).
 
 ---
 
@@ -119,13 +119,12 @@ Skenario: Seorang peneliti menemukan bahwa jika 3 data point outlier dihapus, ha
 
 | Perspektif | Analisis |
 |------------|---------|
-| Kejujuran ilmiah | *Contoh: Laporkan kedua versi (dengan dan tanpa outlier)* |
-| Transparansi | |
-| Peer review | |
+| Kejujuran ilmiah | *Menghapus outlier tanpa penjelasan adalah bentuk manipulasi data. Peneliti harus jujur bahwa data tidak seragam.* |
+| Transparansi | *Peneliti wajib menjelaskan mengapa outlier tersebut muncul (apakah karena kesalahan sensor atau anomali nyata).* |
+| Peer review | *Jika disembunyikan, reviewer tidak bisa memvalidasi kebenaran klaim. Transparansi justru meningkatkan kepercayaan reviewer.* |
 
 **Keputusan akhir dan justifikasi:**
-> ___________________________________________________
-
+> Tetap menyertakan outlier dalam laporan. Jika outlier memang disebabkan oleh kesalahan teknis (misal: noise perangkat), jelaskan alasan penghapusannya secara eksplisit. Namun, jika outlier adalah bagian dari fenomena nyata, gunakan metode statistik yang robust (tahan outlier) agar hasil riset tetap valid tanpa berbohong.
 ---
 
 ## Latihan 3 — Posisi Paradigma
@@ -136,12 +135,12 @@ Skenario: Seorang peneliti menemukan bahwa jika 3 data point outlier dihapus, ha
 
 | Kriteria | Positivis | Interpretivis | Design Science |
 |----------|-----------|---------------|----------------|
-| Kesesuaian dengan topik (1–5) | *Contoh: 4 — topik kuantitatif, cocok uji hipotesis* | *Contoh: 2 — topik tidak studi makna/konteks* | *Contoh: 5 — membangun artefak untuk uji klaim* |
-| Jenis data yang dikumpulkan | *Metrik numerik, log eksperimen* | *Wawancara, observasi kualitatif* | *Hasil uji artefak, komparasi kinerja* |
-| Limitasi paradigma | | | |
+| Kesesuaian dengan topik (1–5) | * 4 * | * 2 * | * 5 * |
+| Jenis data yang dikumpulkan | *Akurasi rekomendasi, nilai fitness, waktu eksekusi.* | *Kepuasan emosional pengguna saat memilih baju.* | *Artefak berupa sistem/aplikasi rekomendasi outfit.* |
+| Limitasi paradigma |  *Mengabaikan selera fashion yang subjektif.* | *Sulit direplikasi secara sistematis/massal.* |  *Fokus sering bergeser ke pembuatan aplikasi (coding), bukan temuan ilmiah.*
+**Paradigma yang dipilih:**Design Science Research (DSR)
+**Alasan:** Riset ini bertujuan membangun sebuah artefak (algoritma optimasi) untuk memecahkan masalah praktis (kebingungan memilih outfit). Keberhasilan diukur dari seberapa baik artefak tersebut bekerja melalui pengujian fungsionalitas dan kinerja.
 
-**Paradigma yang dipilih:** _____________________________
-**Alasan:** ____________________________________________
 
 ---
 
@@ -150,5 +149,4 @@ Skenario: Seorang peneliti menemukan bahwa jika 3 data point outlier dihapus, ha
 > Sebelum membaca materi ini, apakah pernah mempertanyakan klaim "95% akurat"? Setelah memahami rantai distorsi, pertanyaan apa yang sekarang akan diajukan saat membaca paper?
 
 **Jawaban:**
-> ___________________________________________________
-> ___________________________________________________
+> Dulu saya sering menelan mentah-mentah angka akurasi yang tinggi sebagai indikator keberhasilan mutlak. Setelah memahami rantai distorsi, saya kini akan bertanya: "Di tahap mana data ini mungkin bias?" dan "Apakah hasil ini bisa direproduksi (reproducible) di lingkungan yang berbeda?" Saya menjadi lebih kritis terhadap validitas internal sebelum mempercayai sebuah kesimpulan.
