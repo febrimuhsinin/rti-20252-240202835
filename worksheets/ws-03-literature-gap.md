@@ -77,39 +77,44 @@ Membandingkan deep learning 2024 dengan decision tree sederhana tanpa justifikas
 ```
 LITERATURE MAPPING
 
-Topik      : ____________________
-Database   : ____________________
-Query      : ____________________
-Tahun      : ____________________
-Hasil awal : ____ paper → Screening → ____ paper final
+Topik      : Analisis Usability dan Pengaruh Dark Patterns pada Aplikasi Shopee Menggunakan Metode System Usability Scale (SUS)
+Database   : Google Scholar, IJOINT, MALCOM, Jurnal Simkom, JAIC
+Query      : ("System Usability Scale" OR "SUS") AND "Shopee" AND ("Dark Patterns" OR "User Experience")
+Tahun      : 2021 – 2026
+Hasil awal : 10 paper → Screening → 5 paper final
 
 Literature Matrix (concept-centric):
 
 | Study | Tahun | Method | Data | Result | Limitation |
 |-------|-------|--------|------|--------|------------|
-|       |       |        |      |        |            |
+|   Lim et al.    |   2025    |    SUS (Comparative)    |   411 Gen Z (Batam)   |    90.06 (Best Imaginable)    |      Identifikasi dark patterns (pop-up) masih bersifat kualitatif.      |
+|   Aisyah S. et al.    |   2025    |   SUS + UTAUT2     |   190 Mahasiswa (Unhas)   |    68.58 (Marginal High)    |      Faktor pengaruh sosial memiliki persentase terendah (73.26%).      |
+|   Sagala & Pakaja   |    2024   |    UT + SUS    |  30 Active Users    |   70 (Acceptable/Good)     |      Kebingungan user pada fitur voucher dan metode pembayaran.      |
+|   Huda et al.    |    2023   |    SUS    |   10 Users   |    76 (Good/Acceptable)       |      Sampel sangat kecil dan terbatas pada fitur belanja dasar.      |
+|   Sembodo et al.   |    2021   |    SUS    |   30 Users   |    67.08 (OK)    |     Fokus pada platform website, bukan mobile.       |
 
 Pola yang ditemukan:
-  Metode dominan     : ____________________
-  Dataset umum       : ____________________
-  Limitasi berulang  : ____________________
+  Metode dominan     : Penggunaan kuesioner SUS
+  Dataset umum       : Responden didominasi oleh Generasi Z dan Mahasiswa.
+  Limitasi berulang  : Analisis seringkali bersifat deskriptif umum tanpa mengaitkan elemen desain spesifik (seperti dark patterns) terhadap skor kepuasan secara kuantitatif.
 
 GAP IDENTIFICATION
 
 Gap 1: [Jenis: performance / method / data / context]
-  Deskripsi    : ____________________
-  Bukti        : ____________________
-  Signifikansi : ____________________
+  Deskripsi    : Belum adanya integrasi pengukuran dampak manipulatif dark patterns (seperti forced continuity atau urgency) terhadap fluktuasi skor SUS.
+  Bukti        : Lim et al. (2025) menyebutkan pop-up yang mengganggu sebagai isu, namun tidak mengukur korelasi spesifiknya terhadap skor 90.06 yang dihasilkan.
+  Signifikansi : Penting untuk mengetahui apakah kemudahan penggunaan (usability) tinggi justru "dipaksakan" oleh desain yang manipulatif.
 
-Gap 2: [Jenis: ____]
-  Deskripsi    : ____________________
-  Bukti        : ____________________
-  Signifikansi : ____________________
+Gap 2: [Jenis: Performance Gap]
+  Deskripsi    : Ketidakkonsistenan performa pada alur transaksi kritis (pembayaran dan voucher) dibandingkan navigasi belanja umum.
+  Bukti        : Sagala & Pakaja (2024) mencatat user merasa tersesat/bingung saat mengganti metode pembayaran meskipun skor total masuk kategori "Good".
+  Signifikansi : Perbaikan pada aspek teknis fitur pembayaran dapat secara signifikan meningkatkan retensi user.
 
 Baseline Selection:
 | Baseline | Relevansi | Representatif | Source |
 |----------|-----------|---------------|--------|
-|          |           |               |        |
+|    Skor SUS Shopee Gen Z (2025)      |     Menunjukkan performa terbaru pada target demografi Gen Z.      |       Sampel besar (411 responden).        |    Lim et al., 2025    |
+|    Skor SUS Shopee Nasional (2023)      |     Mewakili penggunaan umum e-commerce di Indonesia.      |       Menjadi rujukan kategori "OK" ke "Good".        |   Huda et al., 2023     |
 ```
 
 ---
@@ -123,20 +128,20 @@ Gunakan topik riset dari WS-02. Cari minimal 5 paper relevan menggunakan databas
 > - Tulis query Boolean yang digunakan: contoh `("object detection" OR "image classification") AND ("edge computing") NOT ("medical")`. Dokumentasikan query secara eksplisit.
 > - Akses gratis: buka Google Scholar → cari judul paper → klik [PDF] jika tersedia, atau akses lewat campus VPN
 
-**Topik riset:** ________________________________________
-**Query pencarian:** ____________________________________
-**Database:** ___________________________________________
+**Topik riset:** Analisis Usability dan Pengaruh Dark Patterns pada Shopee.
+**Query pencarian:** ("SUS") AND "Shopee" AND "Dark Patterns"
+**Database:** IJOINT, MALCOM, Jurnal Simkom.
 
 | # | Study | Tahun | Method | Dataset | Result | Limitasi |
 |---|-------|-------|--------|---------|--------|----------|
-| 1 | *Contoh: Rahman et al.* | *2023* | *CNN* | *ImageNet subset* | *Acc 91%* | *Hanya 3 kelas* |
-| 2 | | | | | | |
-| 3 | | | | | | |
-| 4 | | | | | | |
-| 5 | | | | | | |
+| 1 | *Lim et al.* | *2025* | *SUS* | *411 Gen Z* | *90.06* | *Mengabaikan faktor finansial user.* |
+| 2 | *Aisyah S. et al.* | *2025* | *UTAUT2* | *190 Mahasiswa* | *Habit 87%* | *Pengaruh sosial belum kuat.* |
+| 3 | *Sagala & Pakaja* | *2024* | *UT+SUS* | *30 User* | *70 (OK)* | *Isu navigasi pembayaran.* |
+| 4 | *Huda et al.* | *2023* | *SUS* | *10 User* | *76* | *Sampel tidak representatif.* |
+| 5 | *Sembodo et al.* | *2021* | *SUS* | *30 User* | *67.08* | *Belum menguji versi aplikasi.* |
 
-**Pola yang terlihat — Metode dominan:** ___________________
-**Limitasi yang berulang:** ______________________________
+**Pola yang terlihat — Metode dominan:** Kuesioner SUS yang sering dikombinasikan dengan metode kualitatif seperti wawancara atau Usability Testing (UT).
+**Limitasi yang berulang:** Studi terfokus pada kemudahan belajar (learnability), namun sering mengabaikan aspek kenyamanan visual jangka panjang akibat iklan berlebihan.
 
 ---
 
@@ -146,14 +151,14 @@ Berdasarkan tabel di Latihan 1, identifikasi gap.
 
 | Jenis Gap | Ditemukan? | Gap Statement |
 |-----------|-----------|---------------|
-| Performance Gap | [ ] Ya / [ ] Tidak | *Contoh: Akurasi turun di bawah 80% untuk kelas minoritas* |
-| Method Gap | [ ] Ya / [ ] Tidak | |
-| Data Gap | [ ] Ya / [ ] Tidak | |
-| Context Gap | [ ] Ya / [ ] Tidak | |
+| Performance Gap | [x] Ya / [ ] Tidak | *Alur voucher yang tidak intuitif memperlambat efisiensi user hingga 22.8% error rate.* |
+| Method Gap | [x] Ya / [ ] Tidak | *Kurangnya penggunaan metrik Dark Pattern yang terukur bersamaan dengan SUS.* |
+| Data Gap | [ ] Ya / [ ] Tidak | *Data responden mahasiswa sudah cukup solid.* |
+| Context Gap | [x] Ya / [ ] Tidak | *Penelitian fokus di kota besar/universitas, belum menyentuh user di daerah pelosok.* |
 
-**Gap utama yang dipilih:** _____________________________
+**Gap utama yang dipilih:** Pengaruh elemen Dark Patterns (seperti iklan pop-up berulang) terhadap persepsi kepuasan (SUS) pada segmen pengguna dengan frekuensi penggunaan tinggi.
 **Mengapa gap ini penting (bukan sekadar "belum ada yang meneliti")?**
-> ___________________________________________________
+> Gap ini penting karena skor SUS yang tinggi bisa menutupi masalah etika desain. Jika user merasa aplikasi "mudah" tapi "menjebak", kepuasan yang terukur melalui SUS mungkin bias oleh faktor kebiasaan (habit). Memahami hubungan ini akan membantu desainer menciptakan UI yang tidak hanya fungsional tapi juga etis.
 
 ---
 
@@ -163,11 +168,11 @@ Pilih 2 baseline dari literatur yang sudah dibaca.
 
 | # | Baseline | Mengapa Relevan | Mengapa Representatif | Apakah SOTA? | Sumber |
 |---|----------|----------------|----------------------|-------------|--------|
-| 1 | *Contoh: RF + TF-IDF* | *Task sama: klasifikasi teks* | *Dipakai 6 dari 10 paper* | *Bukan, tapi common practice* | *Lee et al., 2022* |
-| 2 | | | | | |
+| 1 | *SUS Score 90.06* | *Objek sama (Shopee) dan target Gen Z.* | *Sampel terbesar di antara literatur.* | *Ya (2025)* | *Lim et al.* |
+| 2 | *SUS Score 70.0* | *Fokus pada layanan spesifik (Shopee Food).* | *Menggunakan kombinasi kualitatif (UT) & kuantitatif (SUS).* | *Ya (2024)* | *Sagala & Pakaja   * |
 
-**Apakah pemilihan baseline ini bisa dianggap straw man?** [ ] Ya / [ ] Tidak
-> Justifikasi: ________________________________________
+**Apakah pemilihan baseline ini bisa dianggap straw man?** [ ] Ya / [x] Tidak
+> Justifikasi: Baseline yang dipilih adalah penelitian terbaru (2024-2025) dengan metodologi yang ketat dan sampel yang representatif, bukan membandingkan dengan sistem yang sengaja dibuat buruk.
 
 ---
 
@@ -176,5 +181,5 @@ Pilih 2 baseline dari literatur yang sudah dibaca.
 > Apa perbedaan antara "belum ada yang meneliti ini" (klaim tanpa bukti) dengan research gap yang valid? Bagaimana cara membuktikan bahwa sebuah gap benar-benar ada?
 
 **Jawaban:**
-> ___________________________________________________
-> ___________________________________________________
+> Perbedaan antara klaim tanpa bukti dengan research gap yang valid terletak pada dokumen bukti pencarian. Klaim "belum ada yang meneliti" seringkali hanya asumsi, sementara research gap yang valid didasarkan pada analisis matriks literatur yang menunjukkan bahwa meskipun topik A sudah diteliti, namun aspek B atau metode C belum pernah dikombinasikan.
+> Cara membuktikannya adalah dengan menyajikan tabel concept-centric seperti di atas, yang menunjukkan limitasi berulang dari para peneliti sebelumnya secara eksplisit. Bukti pencarian Boolean query yang didokumentasikan juga memperkuat bahwa gap tersebut benar-benar ada secara ilmiah.
