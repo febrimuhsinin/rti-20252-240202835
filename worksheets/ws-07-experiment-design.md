@@ -159,4 +159,4 @@ Mengapa?
 Jika sebuah paper mengklaim metodenya mengalahkan semua baseline, 3 pertanyaan kritis untuk mengevaluasi klaim tersebut adalah:
 1. Siapa baselinenya? Apakah baseline yang dipilih adalah metode State-of-the-Art (SOTA) terbaru atau hanya metode usang yang sengaja dipilih agar terlihat lemah (straw man comparison)?
 2. Apakah kondisinya identik? Apakah baseline dijalankan dengan tuning parameter yang maksimal, atau hanya menggunakan pengaturan default sementara metode baru dioptimalkan secara agresif?
-3. Seberapa signifikan perbedaannya secara statistik? Apakah kenaikan performa tersebut memiliki p-value yang rendah dan effect size yang cukup besar, atau hanya kenaikan angka marjinal yang bisa terjadi karena faktor kebetulan?
+3. Seberapa signifikan perbedaannya secara statistik? Apakah kenaikan performa tersebut memiliki p-value yang rendah dan effect size yang cukup besar, atau hanya kenaikan angka marjinal yang bisa terjadi karena faktor kebetulan? 
