@@ -65,19 +65,19 @@ Nama Peneliti    : Febri Muhsinin
 Tanggal          : 20 April 2026 
 
 1. Ketika membaca klaim "metode X 95% akurat":
-   - Pertanyaan pertama saya: "Apakah hasil ini merupakan nilai optimal global atau hanya berhenti pada local optima karena siklus yang terbatas?"
-   - Data yang dibutuhkan untuk verifikasi: "Parameter lengkap algoritma (ukuran populasi, probabilitas crossover, dan mutasi) serta perbandingan hasil dengan algoritma optimasi lain sebagai baseline."
+   - Apakah dataset yang digunakan seimbang (balanced) dan bagaimana performa metode tersebut dibandingkan dengan baseline yang sudah ada?
+   - Data yang dibutuhkan untuk verifikasi: Matriks konfusi (Confusion Matrix), distribusi kelas pada dataset, dan kondisi lingkungan eksperimen (perangkat/koneksi).
 
 2. Posisi paradigma:
-   - Pendekatan: [ ] Positivis  [ ] Interpretivis  [x] Design Science  [ ] Mixed
-   - Alasan: Penelitian ini membangun sebuah artefak berupa prosedur optimasi menggunakan Algoritma Genetika untuk menyelesaikan masalah praktis dalam penentuan rute pengiriman barang di PT. Pos.
+   - Pendekatan: [x] Positivis [ ] Interpretivis [x] Design Science [ ] Mixed
+   - Alasan: Usability dapat diukur secara objektif melalui metrik kuantitatif (SUS), dan penelitian ini sering kali melibatkan evaluasi artefak digital (aplikasi) untuk membuktikan proposisi kemudahan penggunaan.
 3. Identifikasi distorsi:
-   - Asumsi tersembunyi: Penelitian ini membangun sebuah artefak berupa prosedur optimasi menggunakan Algoritma Genetika untuk menyelesaikan masalah praktis dalam penentuan rute pengiriman barang di PT. Pos.
-   - Sumber bias potensial: Penghentian siklus (syarat berhenti) dilakukan secara manual setelah 2 siklus hanya karena hasilnya sudah sama, yang mungkin belum mencapai konvergensi yang sebenarnya dalam algoritma stokastik.
-   - Langkah mitigasi: Menjalankan simulasi dengan jumlah iterasi yang lebih besar (misalnya 100+ generasi) menggunakan bantuan pemrograman untuk memastikan stabilitas hasil.
+   - Asumsi tersembunyi: Pengguna Generasi Z dianggap mewakili seluruh populasi pengguna e-commerce.
+   - Sumber bias potensial: Sampling bias (responden hanya dari satu wilayah/universitas) dan social desirability bias (responden memberi skor tinggi karena menyukai brand).
+   - Langkah mitigasi: Melakukan teknik random sampling yang lebih luas dan menegaskan anonimitas responden saat pengisian kuesioner.
 4. Komitmen etika:
-   - Data yang tidak akan dimanipulasi: Jarak antar titik lokasi yang diperoleh dari Google Maps dan nilai fitness yang dihitung dari panjang lintasan.
-   - Batasan yang diakui sejak awal: Hasil penelitian ini bergantung pada ukuran populasi, besar generasi, serta nilai peluang crossover dan mutasi yang digunakan.
+   - Data yang tidak akan dimanipulasi: Skor asli dari setiap responden dalam kuesioner SUS meskipun hasilnya tidak signifikan.
+   - Batasan yang diakui sejak awal: Keterbatasan jumlah sampel dan spesifikasi perangkat yang digunakan oleh responden.   
 ```
 
 ---
@@ -91,55 +91,55 @@ Pilih satu paper riset di bidang TI yang mengklaim "metode X meningkatkan perfor
 > **Contoh domain TI:** "Deteksi anomali lalu-lintas jaringan menggunakan CNN — akurasi meningkat 94% vs baseline SVM 87%." Distorsi potensial: apakah dataset normal/anomali seimbang? Apakah hanya diuji pada satu vendor traffic?
 
 **Paper yang dipilih:**
-> Judul: Penerapan Algoritma Genetika Dalam Menentukan Rute Terpendek PT. Pos Cabang Lamongan
-> Penulis (Tahun): Ahmad Tohari & Yuliani Puji Astuti (2023)
-> Sumber/Link DOI: MATHunesa, Vol 11 No 03
+> Judul: Analisis Aplikasi E-Commerce pada Generasi Z dengan  
+Pendekatan System Usability Scale
+> Penulis (Tahun): Lim et al. (2025)
+> Sumber/Link DOI: IRPI - MALCOM Journal
 
 | Tahap | Apa yang Dilakukan | Potensi Distorsi |
 |-------|-------------------|-----------------|
-| Reality → Data | *Mengumpulkan 19 titik lokasi kantor pos dan mencari koordinat serta jarak menggunakan Google Maps* | *Sampling Bias: Hanya menggunakan 19 titik tertentu, mungkin tidak mencakup seluruh variasi rute harian yang sebenarnya dihadapi kurir.* |
-| Data → Processing | *Jarak diubah menjadi bilangan integer dalam satuan kilometer untuk perhitungan.*  | *Rounding Error: Pembulatan ke integer terdekat dapat menghilangkan akurasi jarak presisi (meter) yang krusial untuk optimasi.*  |
-| Processing → Analysis | *Menjalankan Algoritma Genetika melalui 2 siklus dengan parameter populasi, crossover, dan mutasi.*  | *Algorithmic Bias: Hasil sangat bergantung pada ukuran populasi dan peluang mutasi/crossover yang ditentukan peneliti.*  |
-| Analysis → Inference | *Menentukan rute A-L-K-J-I-H-G-F-E-D-C-B-A sebagai yang terpendek (158 km).*  | *Local Optima: Karena hanya dilakukan 2 siklus, ada kemungkinan algoritma terjebak di solusi "cukup baik" tapi bukan yang terbaik global.*  |
-| Inference → Knowledge |*Menyimpulkan biaya operasional sebesar Rp 158.000 berdasarkan konsumsi BBM rata-rata*  | *Generalization Bias: Mengasumsikan harga BBM dan konsumsi kendaraan tetap (10km/liter), padahal kondisi jalan memengaruhi realitas.*  |
+| Reality → Data | *Mengumpulkan persepsi pengguna Gen Z di Batam.* | *Sampling Bias: Hasil di Batam mungkin tidak mencerminkan perilaku pengguna di pedesaan.* |
+| Data → Processing | *Mengonversi skala Likert 1-5 menjadi skor SUS.*  | *Error Distorsi: Kesalahan rumus manual jika tidak menggunakan alat bantu otomatis.*  |
+| Processing → Analysis | *Menghitung rata-rata skor (90.06).*  | *Outlier Distortion: Nilai ekstrem dari satu responden bisa menarik rata-rata terlalu tinggi.*  |
+| Analysis → Inference | *Menyimpulkan Shopee "Best Imaginable".*  | *External Validity: Klaim terlalu luas hanya berdasarkan satu kelompok demografi.*  |
+| Inference → Knowledge |*Menetapkan standar usability Gen Z.*  | *Construct Validity: SUS hanya mengukur persepsi, bukan efisiensi teknis nyata.*  |
 
-**Distorsi paling besar di tahap:** Generalization Bias: Mengasumsikan harga BBM dan konsumsi kendaraan tetap (10km/liter), padahal kondisi jalan memengaruhi realitas.
+**Distorsi paling besar di tahap:** Reality → Data (Sampling Bias).
 
 **Dua distorsi spesifik yang teridentifikasi:**
-1. Convergence Bias: Penghentian eksperimen hanya pada 2 siklus karena hasil sudah sama, padahal algoritma genetika bersifat acak dan mungkin butuh lebih banyak iterasi untuk validitas maksimal.
-2. Environmental Distortion: Perhitungan jarak menggunakan Google Maps tidak memperhitungkan faktor realitas seperti kemacetan atau perbaikan jalan yang bisa mengubah "rute terpendek" menjadi "rute terlama".
+1. Selection Bias: Hanya melibatkan responden dari satu kota (Batam), sehingga generalisasi secara nasional lemah.
+2. Homogeneity Bias: Fokus hanya pada Gen Z yang secara alami lebih mahir teknologi, sehingga skor 90.06 mungkin terlalu optimis jika diterapkan pada pengguna lansia.
 
 ---
 
 ## Latihan 2 — Analisis Kasus Etika
 
-Skenario: Peneliti menghentikan siklus pada iterasi ke-2 karena hasilnya sudah sama (konvergen).
+Skenario: Peneliti menghapus 3 outlier agar hasil signifikan.
 
 | Perspektif | Analisis |
 |------------|---------|
-| Kejujuran ilmiah | *Peneliti menghentikan siklus pada iterasi ke-2 karena hasilnya sudah sama (konvergen).* |
-| Transparansi | *Peneliti secara transparan menyebutkan bahwa sifat algoritma genetika adalah random dan tidak diketahui pasti kapan hasil optimal muncul.* |
-| Peer review | *Penelaah mungkin akan mempertanyakan apakah 2 siklus cukup untuk populasi yang kompleks, sehingga peneliti harus menyediakan data mentah setiap siklus.* |
+| Kejujuran ilmiah | *Menghapus data tanpa justifikasi metodologis yang jelas adalah bentuk fabrikasi halus yang merusak integritas riset.* |
+| Transparansi | *Peneliti harus menjelaskan kriteria mengapa data tersebut dianggap outlier (misal: pengisian asal-asalan) dalam bab metodologi.* |
+| Peer review | *Reviewer berhak melihat data mentah untuk memastikan penghapusan outlier tidak dilakukan hanya demi mendapatkan nilai p < 0.05.* |
 
 **Keputusan akhir dan justifikasi:**
-> Peneliti tetap melaporkan hasil 158 km tersebut namun memberikan limitasi bahwa hasil ini bergantung pada parameter yang disetel. Justifikasinya adalah efisiensi komputasi untuk studi kasus spesifik ini.
+> Tetap melaporkan seluruh data. Jika outlier dihapus, berikan alasan teknis (misal: responden mengisi pola zigzag yang tidak valid). Idealnya, laporkan hasil dengan dan tanpa outlier agar pembaca mendapatkan gambaran yang jujur mengenai variansi data.
 ---
 
 ## Latihan 3 — Posisi Paradigma
 
-**Topik riset:**Optimasi Rute Distribusi Logistik Menggunakan Algoritma Evolusioner.
+**Topik riset:**Evaluasi Usability dan User Experience Aplikasi Shopee Menggunakan Metode System Usability Scale (SUS).
 
 > **Skala 1–5:** 1 = tidak sesuai sama sekali dengan topik ini, 5 = sangat sesuai dan dominan digunakan pada riset bertopik serupa.
 
 | Kriteria | Positivis | Interpretivis | Design Science |
 |----------|-----------|---------------|----------------|
-| Kesesuaian dengan topik (1–5) | 4 (Fokus pada pengukuran objektif jarak dan biaya). | 1 (Tidak berfokus pada pengalaman subjektif kurir). | 5 (Membangun model/algoritma sebagai solusi masalah praktis). |
-| Jenis data yang dikumpulkan | Jarak (km), Nilai Fitness, Biaya (Rp). | - | Hasil iterasi kromosom dan rute optimal.* |
-| Limitasi paradigma |  Mengabaikan faktor manusia/cuaca di lapangan. | Mengabaikan faktor manusia/cuaca di lapangan. |  Mengabaikan faktor manusia/cuaca di lapangan. |
+| *Kesesuaian dengan topik (1–5)* | *5* | *2* | *4* |
+| *Jenis data yang dikumpulkan* | *Skor SUS (Numerik).* | *Hasil wawancara mendalam.* | *Performa prototipe baru.* |
+| *Limitasi paradigma* | *Mengabaikan perasaan subjektif yang tidak terwakili angka.* | *Sulit untuk digeneralisasi.* | *Fokus pada pembuatan alat, bukan hanya pemahaman.* |
 
-**Paradigma yang dipilih:**Design Science Research (DSR) diperkuat Positivis.
-**Alasan:**Penelitian ini bertujuan memecahkan masalah nyata (rute PT. Pos) dengan membangun artefak berupa prosedur Algoritma Genetika dan menguji validitasnya secara kuantitatif melalui perhitungan jarak dan fitness.
-
+**Paradigma yang dipilih:**Positivis diperkuat dengan Design Science Research.
+**Alasan:**Topik ini menuntut pembuktian objektif terhadap tingkat usability yang dapat diukur secara statistik (Positivis), namun juga bertujuan untuk memberikan rekomendasi perbaikan desain pada artefak aplikasi (Design Science).
 
 ---
 
@@ -148,4 +148,4 @@ Skenario: Peneliti menghentikan siklus pada iterasi ke-2 karena hasilnya sudah s
 > Sebelum membaca materi ini, apakah pernah mempertanyakan klaim "95% akurat"? Setelah memahami rantai distorsi, pertanyaan apa yang sekarang akan diajukan saat membaca paper?
 
 **Jawaban:**
-> Sebelumnya, saya mungkin menganggap rute dari Google Maps adalah mutlak benar. Setelah memahami rantai distorsi, saya sekarang akan mempertanyakan: "Apakah pembulatan jarak ke integer memengaruhi akurasi rute?" atau "Apakah 2 siklus cukup untuk menjamin bahwa tidak ada rute yang lebih pendek lagi?".
+> Sebelum memahami materi ini, saya cenderung menerima angka "95% akurat" sebagai kebenaran mutlak. Namun, setelah memahami Rantai Distorsi, pertanyaan yang akan saya ajukan adalah: "Bagaimana distribusi datanya? Apakah ada bias dalam pemilihan sampel? Dan apakah metrik tersebut benar-benar mencerminkan pengalaman nyata pengguna atau hanya angka di atas kertas?" Pemahaman ini membuat saya lebih kritis dalam melihat setiap klaim riset, terutama di bidang TI yang sangat dinamis.
