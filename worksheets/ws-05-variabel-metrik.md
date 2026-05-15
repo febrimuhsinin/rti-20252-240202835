@@ -137,7 +137,8 @@ Bayangkan data yang akan dikumpulkan dari eksperimen. Evaluasi 4 dimensi kualita
 
 **Jawaban:**
 > Memilih metrik setelah melihat data dianggap p-hacking karena peneliti cenderung "mencari-cari" metrik yang hanya menunjukkan hasil signifikan (nilai p < 0.05) untuk mendukung hipotesis mereka, sambil mengabaikan metrik lain yang tidak signifikan. Ini adalah bentuk manipulasi ilmiah yang merusak objektivitas.
-> Perbedaannya dengan eksplorasi data yang sah:
+
+Perbedaannya dengan eksplorasi data yang sah:
 
 Eksplorasi Sah: Peneliti menganalisis data secara luas untuk menemukan pola baru atau tren menarik tanpa mengklaimnya sebagai pembuktian hipotesis awal. Temuan ini biasanya dilaporkan sebagai insight tambahan untuk riset masa depan.
 
