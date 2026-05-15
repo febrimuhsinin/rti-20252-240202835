@@ -80,25 +80,25 @@ Jika variabel tidak bisa di-map ke komponen apapun → arsitektur perlu didesain
 ```
 SYSTEM-EXPERIMENT MAPPING
 
-Research Question: ____________________
+Research Question: Apakah terdapat perbedaan skor System Usability Scale (SUS) yang signifikan antara alur transaksi belanja umum dengan alur transaksi pada fitur Shopee Food bagi pengguna Generasi Z?
 
 Variable → Component Mapping:
 | Variabel | Tipe | Komponen Sistem | Cara Manipulasi/Pengukuran |
 |----------|------|-----------------|---------------------------|
-|          | IV   |                 |                           |
-|          | DV   |                 |                           |
-|          | CV   |                 |                           |
+| Variabel       | IV   | Task Scenario Module        | Toggle antara Skenario A (Belanja Reguler) dan Skenario B (Shopee Food).                      |
+| Alur Transaksi | DV   | Digital Questionnaire (SUS) | Pengisian kuesioner otomatis setelah tugas selesai menggunakan alat survei digital.         |
+| Skor Usability | CV   | User Screening Filter       | Penentuan kriteria responden (Gen Z, minimal 1 tahun penggunaan Shopee) di awal pendaftaran.|
 
 4 Prinsip Desain:
-  [ ] Traceability — Setiap komponen bisa ditelusuri ke variabel
-  [ ] Variable Isolation — IV bisa diubah tanpa mengubah CV
-  [ ] Measurement Integration — Pengukuran DV built-in
-  [ ] Reproducibility — Setup bisa direkonstruksi
+  [x] Traceability — Setiap tugas dalam skenario dirancang untuk memicu instrumen penilaian SUS tertentu.
+  [x] Variable Isolation — Perbedaan hanya terletak pada alur fitur; antarmuka dasar (navbar, header) tetap konstan.
+  [x] Measurement Integration — Sistem survei merekam waktu penyelesaian tugas secara otomatis bersamaan dengan input SUS.
+  [x] Reproducibility — Skenario tugas didokumentasikan dalam format teks yang bisa diulang oleh peneliti lain.
 
 Experimental Setup:
-  Input data     : ____________________
-  Parameter      : ____________________
-  Output format  : ____________________
+  Input data     : 2 set skenario tugas (Belanja Barang vs Pesan Makan).
+  Parameter      : Responden Gen Z (N=30+), Perangkat Mobile (iOS/Android).
+  Output format  : Dataset CSV berisi Skor SUS per responden dan Time on Task.
 ```
 
 ---
@@ -107,15 +107,16 @@ Experimental Setup:
 
 Gunakan RQ dan variabel dari WS-05. Petakan ke komponen sistem.
 
-**RQ:** __________________________________________________
+**RQ:** Bagaimana efisiensi alur transaksi Shopee Food dibandingkan dengan alur belanja reguler bagi pengguna yang sudah terbiasa dengan ekosistem Shopee?
 
 | Variabel | Tipe | Komponen Sistem | Cara Manipulasi / Pengukuran |
 |----------|------|-----------------|---------------------------|
-| *Contoh: Jenis model* | *IV* | *Modul classifier (swap RF ↔ CNN)* | *Ganti config `model_type`* |
-| | DV | | |
-| | CV | | |
+| *Jenis Fitur* | *IV* | *Interactive Prototype (Figma) / Task Set* | *Mengarahkan user ke alur yang berbeda (Reguler ↔ Food).* |
+| *Skor Usability* | *DV* | *SUS Matrix Collector* | *Kalkulasi otomatis dari 10 pertanyaan skala Likert.* |
+| *Tingkat Kesalahan* | *DV2* | *Error Log Tracker* | *Mencatat berapa kali user salah menekan tombol (miss-click).* |
+| *Jenis Koneksi* | *CV* | *Fixed Network Environment* | *Pengujian dilakukan pada jaringan Wi-Fi yang sama untuk semua user.* |
 
-**Apakah semua variabel bisa di-map?** [ ] Ya / [ ] Tidak
+**Apakah semua variabel bisa di-map?** [x] Ya / [ ] Tidak
 > Jika tidak, komponen apa yang perlu ditambahkan? _________
 
 ---
@@ -126,34 +127,34 @@ Evaluasi desain sistem terhadap 4 prinsip.
 
 | Prinsip | Status | Bukti / Penjelasan |
 |---------|--------|-------------------|
-| Traceability | *Contoh: ✅ — setiap modul punya label variabel* | |
-| Modularity | | |
-| Controllability | | |
-| Measurability | | |
+| Traceability | *✅* | *Setiap tombol di prototipe terkait dengan success rate yang menjadi bagian dari efektivitas (aspek SUS).* |
+| Modularity | *✅* | *Modul kuesioner terpisah dari modul skenario tugas; bisa diganti dengan kuesioner lain (misal: UEQ) tanpa mengubah tugas.* |
+| Controllability | *✅* | *Pengguna tidak bisa berpindah alur secara bebas; sistem mengunci user pada satu skenario hingga selesai.* |
+| Measurability | *✅* | *Data waktu terekam hingga satuan milidetik menggunakan perangkat lunak tracking.* |
 
-**Prinsip mana yang paling sulit dipenuhi?** _______________
+**Prinsip mana yang paling sulit dipenuhi?** Controllability (Kontrol Variabel).
 **Strategi untuk mengatasinya:**
-> ___________________________________________________
+> Memastikan lingkungan fisik (ruangan, pencahayaan) dan perangkat yang digunakan tetap sama untuk setiap responden guna menghindari faktor eksternal yang memengaruhi persepsi kemudahan.
 
 ---
 
 ## Latihan 3 — Ablation Study Planning
 
-Jika sistem memiliki 3 komponen utama, rencanakan ablation study.
+Dalam konteks UX, ablation study dilakukan dengan melepas atau mematikan fitur spesifik untuk melihat dampaknya terhadap skor usability.
 
 > **Panduan jumlah kondisi:** Untuk 3 komponen (A, B, C), kondisi minimal yang direkomendasikan:
 > Full + (-A) + (-B) + (-C) = **4 kondisi dasar**. Jika waktu memungkinkan, tambahkan kombinasi ganda: (-A,-B), (-A,-C), (-B,-C) = **7 kondisi**. Sesuaikan dengan *computational cost* dan tenggat waktu penelitian.
 
 | Kondisi | Komponen A | Komponen B | Komponen C | Hasil yang Diharapkan |
 |---------|-----------|-----------|-----------|----------------------|
-| Full | *Contoh: ✅ CNN* | *Contoh: ✅ Temporal features* | *Contoh: ✅ Z-score norm* | *Baseline penuh* |
-| – A | ❌ (ganti RF) | ✅ | ✅ | |
-| – B | ✅ | ❌ (tanpa temporal) | ✅ | |
-| – C | ✅ | ✅ | ❌ (tanpa normalisasi) | |
+| Full | *✅ Aktif* | *✅ Aktif (Dark Pattern)* | *✅ Standart* | *Baseline kepuasan saat ini.* |
+| – A | *❌ (Manual Input)* | *✅* | *✅* | *Mengukur dampak kemudahan voucher.* |
+| – B | *✅* | *❌ (Clean Interface)* | *✅* | *Mengukur dampak dark patterns terhadap SUS.* |
+| – C | *✅* | *✅* | *❌ (Hamburger Menu)* | *Mengukur efisiensi struktur navigasi.* |
 
-**Komponen mana yang diprediksi paling berkontribusi?** _____
+**Komponen mana yang diprediksi paling berkontribusi?** Komponen B (Pop-up Promosi).
 **Mengapa?**
-> ___________________________________________________
+> Berdasarkan literatur, dark patterns seperti iklan pop-up yang sulit ditutup seringkali menurunkan skor "Kepuasan" (aspek afektif) pada instrumen SUS, meskipun alur teknisnya mudah digunakan.
 
 ---
 
@@ -162,5 +163,8 @@ Jika sistem memiliki 3 komponen utama, rencanakan ablation study.
 > Apa risiko jika sistem dibangun seperti produk (monolitik, fitur lengkap) lalu baru dilakukan eksperimen? Mengapa arsitektur modular penting untuk riset?
 
 **Jawaban:**
-> ___________________________________________________
+> Risiko utama membangun sistem monolitik adalah kebingungan dalam mengisolasi variabel (Variable Confounding). Jika sistem memiliki terlalu banyak fitur yang saling bertumpuk, peneliti tidak akan tahu fitur mana yang sebenarnya menyebabkan kenaikan atau penurunan skor usability. Apakah karena warnanya? Apakah karena letak tombolnya? Atau karena alur datanya?
+
+Pentingnya arsitektur modular:
+Dalam riset, arsitektur modular memungkinkan peneliti untuk melakukan Variable Isolation. Peneliti dapat mengganti satu modul (misalnya mengganti metode pembayaran) tanpa merusak bagian sistem lainnya. Hal ini menjamin bahwa perbedaan hasil yang didapatkan memang benar-benar disebabkan oleh manipulasi pada variabel independen (IV), sehingga validitas internal penelitian tetap terjaga.
 > ___________________________________________________
