@@ -67,33 +67,32 @@ Masalah riset yang layak harus memenuhi 5 kriteria:
 PROBLEM STATEMENT BUILDER
 
 Domain & Konteks
-  Domain   : Optimasi Logistik dan Transportasi
-  Konteks  : Penentuan rute distribusi barang pada PT. Pos Indonesia Cabang Lamongan menuju 12 drop point kecamatan
+  Domain   : Human-Computer Interaction (HCI) / Interaksi Manusia dan Komputer.
+  Konteks  : Evaluasi pengalaman pengguna (User Experience) pada aplikasi mobile commerce.
 
 System Context
-  Input       : 19 titik lokasi kantor pos dan jarak antar titik (dalam satuan kilometer).
-  Process     : Iterasi Algoritma Genetika (populasi awal, evaluasi fitness, seleksi roulette wheel, crossover, mutasi)
-  Output      : Urutan rute terpendek yang harus dilalui kurir.
-  Outcome     : Meminimalkan waktu tempuh dan meminimalkan biaya bahan bakar kendaraan operasional.
-  Constraints : Kurir harus mengunjungi setiap kantor tepat satu kali dan kembali ke lokasi awal keberangkatan.
-  Stakeholders: PT. Pos Indonesia Cabang Lamongan, Kurir ekspedisi, Pelanggan layanan PosAja.
-
+  Input       : Interaksi navigasi pengguna, input data pencarian, dan pemilihan produk.
+  Process     : Rendering antarmuka, pemrosesan filter, alur penggunaan fitur (task flow).
+  Output      : Penyelesaian tugas (misal: sukses checkout atau klaim voucher).
+  Outcome     : Tingkat kepuasan pengguna dan persepsi kemudahan penggunaan.
+  Constraints : Keterbatasan layar perangkat mobile, kecepatan koneksi internet, dan beban kognitif pengguna.
+  Stakeholders: Pengguna akhir (Gen Z), Tim UI/UX Shopee, dan Pengembang Aplikasi.
 Fenomena → Problem
-  Fenomena yang diamati             : Perusahaan logistik dihadapkan pada banyaknya rute pengiriman yang harus dilalui ke berbagai kecamatan.
-  Gejala (symptom) yang terukur     : Proses distribusi berisiko dilakukan hanya berdasarkan insting petugas pos, sehingga jarak tempuh dan biaya perjalanan tidak minimum.
-  Masalah yang didiagnosis          : Penentuan rute logistik ini merupakan masalah kombinatorial kompleks yang dikenal sebagai Travelling Salesman Problem (TSP) yang sulit diselesaikan tanpa bantuan algoritma optimasi.
-  Masalah riset (researchable)      : Bagaimana penerapan Algoritma Genetika untuk mengoptimasi rute terpendek dan menekan biaya perjalanan kurir di PT. Pos Cabang Lamongan?
-  Variabel yang terukur             : Total jarak tempuh (km) dan Biaya perjalanan (Rupiah)
+  Fenomena yang diamati             : Shopee merupakan aplikasi dengan fitur yang sangat padat (super app), namun sering terjadi inkonsistensi pengalaman antar fiturnya.
+  Gejala (symptom) yang terukur     : Adanya fluktuasi skor SUS (antara 67 hingga 90) pada berbagai studi literatur terkait fitur yang berbeda.
+  Masalah yang didiagnosis          : Struktur informasi yang terlalu kompleks (information overload) menyebabkan penurunan learnability pada fitur spesifik seperti Shopee Food atau manajemen voucher.
+  Masalah riset (researchable)      : Belum adanya analisis komparatif yang mengukur secara spesifik disparitas usability antara alur transaksi utama dan alur fitur tambahan pada satu kelompok subjek yang sama.
+  Variabel yang terukur             : Skor SUS (System Usability Scale).
 
 Problem Quality Check
-  [X] Clarity — Apakah satu orang membaca akan paham?
-  [X] Measurability — Apakah ada metrik kuantitatif?
-  [X] Relevance — Apakah penting untuk domain?
-  [X] Testability — Apakah bisa gagal?
-  [X] Impact — Apakah ada kontribusi jika terjawab?
+  [X] Clarity — Masalah berfokus pada perbandingan usability fitur.
+  [X] Measurability — Masalah berfokus pada perbandingan usability fitur.
+  [X] Relevance — Penting untuk optimalisasi retensi pengguna e-commerce.
+  [X] Testability — Hipotesis dapat diuji melalui pengujian langsung ke pengguna.
+  [X] Impact — Memberikan rekomendasi desain spesifik untuk fitur yang memiliki skor rendah.
 
 Problem Statement (1 paragraf):
-  PT. Pos Indonesia Cabang Lamongan memiliki 12 titik drop point pengiriman, yang memicu kompleksitas kombinatorial (Travelling Salesman Problem) jika kurir menentukan rute secara manual. Hal ini dapat menyebabkan rute yang diambil tidak efisien, berujung pada membengkaknya waktu dan biaya operasional bahan bakar. Oleh karena itu, penelitian ini menerapkan Algoritma Genetika—yang dikenal stabil dalam mengatasi masalah kombinatorial besar—untuk mengukur secara kuantitatif rute paling optimal (dalam kilometer) dan mengkalkulasi efisiensi biayanya (dalam Rupiah)
+  Meskipun Shopee memiliki dominasi pasar yang kuat, kompleksitas antarmuka dan kepadatan fitur sering kali menimbulkan beban kognitif yang mengakibatkan inkonsistensi pengalaman pengguna. Gejala ini terlihat dari adanya disparitas skor usability (SUS) antara alur belanja reguler dan fitur tambahan seperti Shopee Food, di mana hambatan navigasi pada fitur spesifik dapat menurunkan efisiensi transaksi. Oleh karena itu, diperlukan penelitian untuk menganalisis perbandingan tingkat usability antar fitur tersebut guna mengidentifikasi akar masalah pada struktur desain yang menghambat kenyamanan berinteraksi bagi pengguna Generasi Z.
 ```
 
 ---
@@ -106,14 +105,14 @@ Pilih satu topik di bidang TI yang diminati. Transformasikan melalui 5 tahap Pro
 
 | Tahap | Hasil |
 |-------|-------|
-| Reality | *Pengiriman barang dan surat memiliki banyak titik drop point yang tersebar di berbagai kecamatan.* |
-| Observed Issue (Symptom) | *Kurir berpotensi melakukan proses distribusi berdasarkan keinginan/insting semata sehingga membuang waktu dan bahan bakar.* |
-| Diagnosed Problem (Root Cause) | *Mencari kombinasi rute terpendek dari puluhan titik (TSP) secara manual membutuhkan waktu yang sangat lama dan rentan tidak optimal.* |
-| Researchable Problem | *Dapatkah Algoritma Genetika digunakan untuk menemukan rute terpendek PT. Pos Cabang Lamongan dan menghitung estimasi biaya distribusinya?* |
-| Measurable Variable | *Panjang lintasan atau kromosom (kilometer) dan total biaya operasional (Rp 1.000 per km).* |
+| Reality | *Aplikasi e-commerce saat ini berkembang menjadi super-app dengan banyak fitur tambahan.* |
+| Observed Issue (Symptom) | *Pengguna sering melaporkan kesulitan saat mencari menu spesifik atau menggunakan voucher promo yang bertumpuk.* |
+| Diagnosed Problem (Root Cause) | *Hirarki visual yang tidak jelas dan terlalu banyak interupsi (pop-up) yang mengganggu alur tugas utama.* |
+| Researchable Problem | *Sejauh mana pengaruh elemen dark patterns dan kepadatan informasi terhadap skor SUS pada alur transaksi kritis?* |
+| Measurable Variable | *Skor SUS, Time on Task, dan Error Rate.* |
 
 **Apakah terjebak solution-first thinking?** [ ] Ya / [X] Tidak
-> Karena masalah besarnya kombinasi rute (TSP) sudah ada terlebih dahulu di lapangan sebelum metode Algoritma Genetika diusulkan sebagai solusinya.
+> 
 
 ---
 
@@ -123,14 +122,14 @@ Gambarkan konteks sistem dari masalah riset di Latihan 1.
 
 | Komponen | Deskripsi |
 |----------|----------|
-| Input | *Data 19 titik koordinat kantor pos dari Google Maps beserta representasi jaraknya dalam kilometer.* |
-| Process | *Mengubah urutan rute menjadi kromosom, mengevaluasi nilai fitness, lalu melakukan seleksi mutasi dan crossover selama 2 siklus pencarian.* |
-| Output | *Terbentuknya kromosom terbaik yang merepresentasikan rute (misal: A-L-K-J-I-H-G-F-E-D-C-B-A) dengan total jarak 158 km.* |
-| Outcome | *Kejelasan estimasi biaya perjalanan (Rp 158.000) yang bisa dialokasikan perusahaan logistik.* |
-| Constraints | *Setiap kantor/titik harus dikunjungi tepat satu kali, tidak boleh lebih, dan harus kembali ke titik asal.* |
-| Stakeholders | *Perusahaan logistik (PT. Pos Indonesia) dan kurir pengantar.*|
+| Input | *Navigasi menu, pencarian produk, dan input kode voucher oleh pengguna.* |
+| Process | *Alur dari keranjang belanja hingga halaman pembayaran (checkout flow).* |
+| Output | *Status penyelesaian transaksi atau keberhasilan aplikasi voucher.* |
+| Outcome | *Skor kepuasan pengguna yang diukur melalui kuesioner SUS.* |
+| Constraints | *Aturan promosi yang kompleks dan desain pop-up iklan yang menutupi konten utama.* |
+| Stakeholders | *Pengguna Gen Z yang memiliki ekspektasi kecepatan navigasi yang tinggi.*|
 
-**Komponen mana yang paling relevan dengan masalah riset?** Proses (Process), karena di sinilah intervensi riset (penerapan perhitungan metode Algoritma Genetika) dilakukan untuk mencari pengetahuan baru (urutan rute).
+**Komponen mana yang paling relevan dengan masalah riset?** Proses, (karena usability berfokus pada bagaimana alur/proses dijalankan oleh pengguna).
 
 ---
 
@@ -140,16 +139,16 @@ Evaluasi problem statement yang sudah dibuat menggunakan 5 kriteria.
 
 | Kriteria | Skor (1-5) | Justifikasi |
 |----------|-----------|-------------|
-| Clarity | *5* | *Sangat jelas, pembaca langsung tahu masalahnya adalah mencari rute untuk kurir pos.* |
-| Measurability | *5* | *Diukur dengan pasti menggunakan jarak (km) dan biaya operasional (Rupiah).* |
-| Relevance | *5* | *Optimasi rute adalah masalah inti dan esensial dalam industri logistik.* |
-| Testability | *4* | *Hipotesis pencarian rute bisa diuji coba, namun pembatasan manual pada "2 siklus" membuat uji konvergensi algoritma kurang komprehensif.* |
-| Impact | *4* | *Berdampak langsung pada efisiensi PT Pos Lamongan, namun sulit digeneralisasi untuk cabang lain tanpa perhitungan ulang.* |
+| Clarity | *5* | *Fokus pada perbandingan fitur utama vs fitur tambahan sudah sangat jelas.* |
+| Measurability | *5* | *Fokus pada perbandingan fitur utama vs fitur tambahan sudah sangat jelas.* |
+| Relevance | *5* | *Sangat relevan bagi pengembang aplikasi e-commerce besar.* |
+| Testability | *5* | *Eksperimen sangat mungkin dilakukan dengan responden yang tersedia.* |
+| Impact | *4* | *Hasilnya bisa menjadi masukan konkret bagi tim UI/UX.* |
 
 **Skor total:** 23 / 25
 
 **Problem statement versi final (1 paragraf):**
-> Permasalahan distribusi barang pada PT. Pos Indonesia Cabang Lamongan melibatkan banyak drop point yang harus dilalui kurir. Jika kurir menentukan rute berdasarkan insting, perusahaan berisiko menanggung biaya perjalanan dan waktu tempuh yang tidak efisien akibat kompleksitas rute (Travelling Salesman Problem). Oleh karena itu, penelitian ini menginvestigasi penerapan Algoritma Genetika untuk mengkalkulasi secara sistematis rute dengan jarak tempuh terpendek (dalam km) serta menghitung implikasi biaya bahan bakarnya (dalam Rupiah).
+> Penelitian ini dilatarbelakangi oleh fenomena inkonsistensi usability pada aplikasi Shopee yang disebabkan oleh kepadatan informasi dan fitur yang berlebihan. Meskipun aplikasi secara umum dianggap fungsional, terdapat indikasi penurunan efisiensi pada alur transaksi spesifik dibandingkan dengan alur belanja utama, yang ditandai dengan keluhan pengguna mengenai kompleksitas klaim voucher dan navigasi. Penelitian ini bertujuan untuk mengukur secara komparatif tingkat usability menggunakan metode SUS guna membuktikan adanya hambatan desain pada fitur-fitur tertentu yang berpotensi menurunkan pengalaman pengguna secara keseluruhan.
 > ___________________________________________________
 
 ---
@@ -159,5 +158,6 @@ Evaluasi problem statement yang sudah dibuat menggunakan 5 kriteria.
 > Bandingkan "masalah" yang biasa ditemui saat coding (bug, error) dengan masalah riset. Apa perbedaan fundamental dalam cara mendefinisikan dan mendekati keduanya?
 
 **Jawaban:**
-> Perbedaan fundamentalnya terletak pada tujuan akhir. Dalam engineering atau masalah coding (seperti rute kurir tidak muncul di aplikasi), pendekatannya berfokus pada "Bagaimana cara memperbaiki sistem ini agar fitur rute berfungsi?". Masalah selesai ketika kode berhasil compile dan klien puas. Sebaliknya, dalam masalah riset (seperti pada jurnal ini), pendekatannya adalah mencari pemahaman baru: "Apakah algoritma evolusioner benar-benar menghasilkan urutan rute yang lebih hemat biaya dibandingkan rute acak?". Outputnya bukan sekadar kode python yang berjalan , melainkan validasi ilmiah bahwa jarak 158 km dan pengeluaran Rp 158.000 adalah titik optimal berdasarkan variabel yang diuji.
-> ___________________________________________________
+> Perbedaan fundamental antara masalah coding dan masalah riset terletak pada tujuannya. Dalam coding, masalah (bug/error) didefinisikan sebagai kegagalan sistem untuk menjalankan fungsi tertentu, dan pendekatannya adalah mencari solusi teknis agar sistem kembali berjalan (how to fix).
+
+> Dalam riset, masalah didefinisikan sebagai celah pengetahuan (knowledge gap). Pendekatannya bukan sekadar memperbaiki "error", tetapi memahami mengapa fenomena itu terjadi dan membuktikannya secara empiris (why it happens & prove it). Jika coding berakhir pada sistem yang berfungsi, riset berakhir pada bukti atau generalisasi yang dapat dipertanggungjawabkan secara ilmiah.
