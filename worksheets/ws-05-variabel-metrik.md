@@ -66,19 +66,19 @@ Metrik harus ditentukan **sebelum** eksperimen. Memilih metrik setelah melihat d
 ```
 VARIABLE & METRIC DEFINITION
 
-Research Question: ____________________
+Research Question: Apakah terdapat perbedaan skor System Usability Scale (SUS) yang signifikan antara alur transaksi belanja umum dengan alur transaksi pada fitur Shopee Food bagi pengguna Generasi Z?
 
 | Variabel | Tipe | Konsep | Metrik | Skala | Satuan | Cara Mengukur | Justifikasi |
 |----------|------|--------|--------|-------|--------|---------------|-------------|
-|          | IV   |        |        |       |        |               |             |
-|          | DV   |        |        |       |        |               |             |
-|          | CV   |        |        |       |        |               |             |
+|    Fitur Aplikasi   | IV   | Alur navigasi sistem              | Jenis Fitur (Reguler vs Food) | Nominal  |      —       |          Kategorisasi tugas eksperimen | Untuk membandingkan dua kondisi sistem yang berbeda.                            |
+|      Usability      | DV   | Persepsi kemudahan & efisiensi    | Total SUS Score               | Interval | Skor (0-100) |          Kuesioner SUS (10 instrumen)  | Instrumen standar industri yang reliabel untuk mengukur usability.              |
+| Pengalaman Pengguna | CV   | Familiaritas teknologi            | Durasi penggunaan aplikasi    | Ordinal  | Bulan/ Tahun |          Profiling data responden      | Memastikan perbedaan skor bukan karena responden baru belajar memakai aplikasi. |
 
 Alignment Check:
-  RQ → Concept → Variable → Metric → Data → Result
-  [ ] Setiap langkah terdokumentasi
-  [ ] Tidak ada "lompatan logis"
-  [ ] Metrik mengukur apa yang dimaksud (construct validity)
+  RQ (Perbedaan usability) → Concept (Kemudahan) → Variable (SUS Score) → Metric (Kuesioner) → Data (Likert) → Result (T-Test)
+  [x] Setiap langkah terdokumentasi
+  [x] Tidak ada "lompatan logis"
+  [x] Metrik mengukur apa yang dimaksud (construct validity)
 ```
 
 ---
@@ -87,34 +87,34 @@ Alignment Check:
 
 Gunakan RQ dari WS-04. Definisikan variabel dan metriknya.
 
-**RQ:** __________________________________________________
+**RQ:** Apakah alur transaksi Shopee Food menghasilkan skor SUS yang lebih rendah dibandingkan alur belanja reguler pada pengguna Gen Z?
 
 | Variabel | Tipe | Konsep Abstrak | Metrik Konkret | Skala (NOIR) | Satuan |
 |----------|------|---------------|----------------|-------------|--------|
-| *Contoh: Jenis model* | *IV* | *Pendekatan klasifikasi* | *Categorical: CNN vs RF* | *Nominal* | *—* |
-| | DV | | | | |
-| | CV | | | | |
+| *Jenis Layanan* | *IV* | *Pendekatan klasifikasi* | *Categorical: Shopee Mall vs Shopee Food* | *Nominal* | *—* |
+| *Kemudahan Penggunaan* | *DV* | *Usability* | *Skor Akhir SUS* | *Interval* | *Poin (0-100)* |
+| *Perangkat* | *CV* | *Lingkungan pengujian* | *Model Smartphone & OS* | *Nominal* | *—* |
 
-**Apakah ada lompatan logis dalam rantai?** [ ] Ya / [ ] Tidak
-> Jika ya, di mana? ____________________________________
+**Apakah ada lompatan logis dalam rantai?** [ ] Ya / [x] Tidak
+> Jika ya, di mana? Justifikasi: Konsep usability dioperasionalisasikan secara langsung melalui instrumen SUS yang memang divalidasi untuk mengukur konsep tersebut.
 
 ---
 
 ## Latihan 2 — Evaluasi Metrik
 
-Evaluasi metrik DV yang dipilih di Latihan 1 menggunakan 3 kriteria.
+Evaluasi metrik DV (SUS Score) menggunakan 3 kriteria.
 
 | Kriteria | Skor (1-5) | Justifikasi |
 |----------|-----------|-------------|
-| Representative | *Contoh: 4 — F1-Score mewakili keseimbangan precision-recall* | |
-| Sensitive | | |
-| Feasible | | |
+| *Representative* | *5* | *SUS mencakup efektivitas, efisiensi, dan kepuasan secara global.* |
+| *Sensitive* | *4* | *Skala Likert 5 poin cukup sensitif menangkap perbedaan persepsi halus antar alur.* |
+| *Feasible* | *5* | *Sangat mudah dikumpulkan melalui kuesioner digital pasca-eksperimen.* |
 
-**Apakah perlu secondary metric?** [ ] Ya / [ ] Tidak
-> Jika ya, apa dan mengapa? _____________________________
+**Apakah perlu secondary metric?** [x] Ya / [ ] Tidak
+> Jika ya, apa dan mengapa? Time on Task (Ratio). Skor SUS bersifat subjektif; metrik waktu memberikan bukti objektif apakah kebingungan user (seperti pada alur voucher) benar-benar memperlambat proses.
 
 **Contoh kasus ceiling effect untuk metrik ini:**
-> ___________________________________________________
+> Jika semua responden adalah pakar (power user) Shopee, skor SUS mungkin akan menumpuk di angka 90-100 untuk kedua fitur, sehingga perbedaan kesulitan antar alur tidak terlihat lagi.
 
 ---
 
@@ -124,10 +124,10 @@ Bayangkan data yang akan dikumpulkan dari eksperimen. Evaluasi 4 dimensi kualita
 
 | Dimensi | Pertanyaan | Jawaban | Strategi Mitigasi |
 |---------|-----------|---------|------------------|
-| Completeness | *Apakah semua data point terkumpul?* | | |
-| Consistency | *Apakah ada kontradiksi internal?* | | |
-| Validity | *Apakah benar-benar mengukur yang dimaksud?* | | |
-| Representativeness | *Apakah sampel mewakili populasi target?* | | |
+| *Completeness* | *Apakah semua data point terkumpul?* | *ya* | *Menetapkan semua pertanyaan kuesioner sebagai "required".* |
+| *Consistency* | *Apakah ada kontradiksi internal?* | *mungkin* | *Menggunakan teknik pembersihan data untuk jawaban yang pola "zigzag" (tidak serius).* |
+| *Validity* | *Apakah benar-benar mengukur yang dimaksud?* | *ya* | *Menggunakan instrumen SUS asli (John Brooke) yang sudah baku.* |
+| *Representativeness* | *Apakah sampel mewakili populasi target?* | *ya* | *Melakukan screening hanya pada mahasiswa/Gen Z pengguna aktif.* |
 
 ---
 
@@ -136,5 +136,11 @@ Bayangkan data yang akan dikumpulkan dari eksperimen. Evaluasi 4 dimensi kualita
 > Mengapa memilih metrik setelah melihat data dianggap p-hacking? Apa bedanya dengan eksplorasi data yang sah?
 
 **Jawaban:**
-> ___________________________________________________
-> ___________________________________________________
+> Memilih metrik setelah melihat data dianggap p-hacking karena peneliti cenderung "mencari-cari" metrik yang hanya menunjukkan hasil signifikan (nilai p < 0.05) untuk mendukung hipotesis mereka, sambil mengabaikan metrik lain yang tidak signifikan. Ini adalah bentuk manipulasi ilmiah yang merusak objektivitas.
+> Perbedaannya dengan eksplorasi data yang sah:
+
+Eksplorasi Sah: Peneliti menganalisis data secara luas untuk menemukan pola baru atau tren menarik tanpa mengklaimnya sebagai pembuktian hipotesis awal. Temuan ini biasanya dilaporkan sebagai insight tambahan untuk riset masa depan.
+
+p-hacking: Peneliti berpura-pura bahwa metrik yang "beruntung" signifikan tersebut adalah metrik utama yang sudah direncanakan sejak awal untuk memvalidasi hipotesis mereka (confirmatory research).
+
+Apakah data metrik ini sudah sesuai dengan rencana metodologi penelitianmu, atau kamu ingin menambahkan metrik performa teknis seperti error rate?
