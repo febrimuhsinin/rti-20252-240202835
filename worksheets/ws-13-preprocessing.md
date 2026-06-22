@@ -64,52 +64,49 @@ Data leakage terjadi ketika informasi dari test set "bocor" ke preprocessing:
 ## Template A.13 — Preprocessing Documentation Log
 
 ```
-PREPROCESSING LOG
+PREPROCESSING LOG (UX Research Context)
 
-Dataset           : ____________________
-Jumlah data awal  : ____________________
+Dataset           : Respons Raw Google Form (Skenario Reguler & Shopee Food)
+Jumlah data awal  : 32 Responden (Data mentah sebelum disaring)
 
 Cleaning:
 | Masalah | Jumlah Kasus | Penanganan | Justifikasi |
 |---------|-------------|------------|-------------|
-| Missing |             |            |             |
-| Duplikat|             |            |             |
-| Error   |             |            |             |
+| Missing | 0           | Dibiarkan                       | Semua pertanyaan di Google Form di-set "Wajib Isi" (Required) sehingga tidak ada data kosong. |
+| Duplikat| 0           | Pengecekan                      | Identifikasi via nama/email menunjukkan tidak ada responden yang mengisi dua kali. |
+| Error   | 2 Responden | Hapus baris (Listwise deletion) | 1 responden berusia 27 tahun (melanggar kontrol batas Gen Z 18-25 tahun). 1 responden terdeteksi straight-lining (menjawab skor 5 untuk semua item positif dsn negatif secara asal-asalan). |
 
 Transformation:
 | Transformasi | Variabel | Detail | Alasan |
 |-------------|----------|--------|--------|
-|             |          |        |        |
+| Konversi Skor SUS | 10 Item Pernyataan Likert | Item Ganjil (X-1). Item Genap (5-Y). Total dikali 2,5. | Mengubah data ordinal (Likert 1-5) menjadi data interval (Skala absolut 0-100) sesuai aturan baku instrumen System Usability Scale. |
 
-Normalization:
-  Metode    : ____________________
-  Alasan    : ____________________
-  Parameter : (dihitung dari: training set / seluruh data)
+Normalization (Feature Scaling):
+  Metode    : Tidak diterapkan (Tidak Perlu Scaling) 
+  Alasan    : Skor SUS sudah memiliki batasan rentang absolut yang baku secara internasional (0 hingga 100). Melakukan Z-Score atau Min-Max Scaling justru akan merusak interpretasi standar kelas SUS (Grade Scale / Adjective Rating).
+  Parameter : -
 
-Leakage Check:
-  [ ] Parameter normalisasi dari training set saja
-  [ ] Tidak ada informasi test set dalam preprocessing
-  [ ] Cross-validation dilakukan setelah split
+Leakage Check (Dalam konteks eksperimen UX):
+  [x] Tidak ada kontaminasi antar skenario (Counterbalancing Form A & Form B sudah diterapkan untuk mencegah efek pembelajaran / Order Bias).
+  [x] Transformasi data Likert dilakukan secara terpisah dsn independen untuk tiap sesi (Sesi Reguler vs Sesi Food).
 
-Jumlah data akhir : ____________________
-Script tersedia   : [ ] Ya → path: ____ | [ ] Belum
+Jumlah data akhir : 30 Responden Valid 
+Script tersedia   : [x] Ya → path: Template_Kalkulator_SUS.xlsx | [ ] Belum
 ```
 
 ---
 
 ## Latihan 1 — Cleaning Plan
 
-Periksa dataset Anda (atau dataset contoh) dan dokumentasikan masalah yang ditemukan.
+Periksa dataset Anda (atau simulasi dataset jika sedang mengambil data) dan dokumentasikan masalah yang ditemukan.
 
 | Masalah | Jumlah Kasus | Penanganan | Justifikasi |
 |---------|-------------|------------|-------------|
-| *Contoh: Missing di kolom "label"* | *12 dari 500 (2.4%)* | *Listwise deletion* | *< 5%, distribusi random (MCAR)* |
-| | | | |
-| | | | |
-| | | | |
+| *Responden melanggar batas demografi*              | *1 (dari 32)* | *Hapus dari dataset (Listwise deletion)* | *Melanggar Variabel Kontrol (Harus Gen Z usia 18-25 tahun dsn Mahasiswa Aktif)* |
+| *Straight-lining / Speeding (Mengisi asal-asalan)* | *1 (dari 32)* | *Hapus dari dataset (Listwise deletion)* | *Menjawab nilai "5" untuk semua pertanyaan ganjil dsn genap, memicu anomali logika karena pertanyaan SUS bersifat selang-seling (positif/negatif).* |
 
-**Jumlah data sebelum cleaning:** ____
-**Jumlah data setelah cleaning:** ____
+**Jumlah data sebelum cleaning:** 32 partisipan
+**Jumlah data setelah cleaning:** 30 partisipan Persentase data yang hilang/berubah: 6.25% (Data dibuang dan diganti dengan responden baru agar target minimal N=30 terpenuhi).
 **Persentase data yang hilang/berubah:** ____%
 
 ---
@@ -120,12 +117,13 @@ Tentukan apakah data Anda perlu normalisasi, dan jika ya, metode apa yang tepat.
 
 | Variabel | Range Asli | Distribusi | Outlier? | Metode Normalisasi | Alasan |
 |----------|-----------|-----------|----------|-------------------|--------|
-| *Contoh: response_time* | *0.1 – 45.2s* | *Right-skewed* | *Ya (45.2s)* | *Robust scaling* | *Ada outlier, perlu robust* || *Contoh: accuracy_score* | *0.72 – 0.95* | *Normal, narrow* | *Tidak* | *Tidak perlu* | *Sudah dalam [0,1], metode berbasis distance tidak digunakan* || | | | | | |
-| | | | | | |
+| *Skor SUS Belanja Reguler* | *0 - 100* | *Normal (diuji dgn Shapiro-Wilk)* | *Tidak* | *Tidak Perlu Feature Scaling* | *Rentang data sudah baku [0-100]. Skala tidak boleh diubah agar bisa dipetakan ke Acceptability Ranges standard SUS.* |
+| *Skor SUS Shopee Food*     | *0 - 100* | *Normal (diuji dgn Shapiro-Wilk)* | *Tidak* | *Rentang data sudah baku [0-100].* |
 
-**Apakah normalisasi diperlukan?** [ ] Ya / [ ] Tidak
+
+**Apakah normalisasi diperlukan?** [ ] Ya / [x] Tidak
 **Justifikasi:**
-> ___________________________________________________
+> Dalam analisis kuesioner UX seperti SUS, normalisasi data (seperti Z-score atau Min-Max) tidak diperbolehkan karena nilai instrumen sudah memiliki rasio absolut 0-100. Jika data dinormalisasi ulang, kita tidak akan bisa mencocokkan hasil eksperimen dengan benchmark literatur global. (Catatan: Normalisasi di sini merujuk pada scaling rentang data, BUKAN Uji Asumsi Normalitas Distribusi Statistik untuk Syarat T-Test yang tetap wajib dilakukan).
 
 **Leakage check:**
 - [ ] Parameter dihitung dari training set saja
@@ -140,16 +138,16 @@ Buat ringkasan preprocessing lengkap — dokumentasi yang cukup bagi orang lain 
 ```
 PREPROCESSING SUMMARY
 
-1. Dataset: ____________________
-2. Data awal: ____ records, ____ features
+1. Dataset: Respons Google Form Eksperimen Shopee (Reguler vs Food)
+2. Data awal: 32 records responden, 20 features (10 Pertanyaan SUS x 2 Skenario)
 3. Cleaning:
-   - Missing values: ____ kasus, metode: ____
-   - Duplikat: ____ kasus, tindakan: ____
-   - Error: ____ kasus, tindakan: ____
-4. Transformation: ____________________
-5. Normalisasi: ____ (metode), parameter dari ____
-6. Data akhir: ____ records, ____ features
-7. Leakage check: [ ] Lulus / [ ] Ada masalah
+   - Missing values: 0 kasus, metode: Tidak ada (karena required field di form)
+   - Duplikat: 0 kasus, tindakan: Verifikasi nama/identitas unik
+   - Error (Outlier Kontrol): 2 kasus (1 di luar rentang usia, 1 mengisi asal-asalan), tindakan: Listwise deletion (dihapus).
+4. Transformation: Konversi jawaban ordinal Likert (1-5) menjadi rasio Skor SUS menggunakan formula konvensional baku [(X-1) untuk ganjil, (5-Y) untuk genap, Total dikali 2.5].
+5. Normalisasi: Tidak diterapkan (metode scaling dibiarkan raw), parameter range dikunci pada 0-100.
+6. Data akhir: 30 records responden valid , 2 features utama (Skor SUS Reguler & Skor SUS Food).
+7. Leakage check: [x] Lulus (Tidak ada kebocoran perlakuan berkat skema counterbalancing)  / [ ] Ada masalah
 ```
 
 ---
@@ -158,5 +156,7 @@ PREPROCESSING SUMMARY
 
 > Apakah Anda pernah melakukan normalisasi "karena biasa dilakukan" tanpa mempertimbangkan apakah benar-benar diperlukan? Apa risiko over-preprocessing?
 
-> ___________________________________________________
+> Banyak pemula yang secara otomatis menerapkan algoritma Min-Max Scaling atau Z-score Normalization pada semua kolom dataset di Python/SPSS hanya karena mengikuti kebiasaan atau tutorial, tanpa melihat konteks variabelnya.
+
+Risiko dari over-preprocessing ini, terutama pada riset UI/UX, adalah hilangnya makna kontekstual dari data. Jika nilai SUS sebesar "40" (yang secara universal berarti aplikasi tersebut sangat buruk/Not Acceptable)  dinormalisasi paksa menggunakan Z-score di dalam kelompok data yang semuanya bernilai rendah, angka tersebut bisa saja terdistorsi terlihat normal atau di tengah-tengah rentang. Distorsi ini akan menipu peneliti dsn menghasilkan kesimpulan akhir yang salah fatal terhadap usability aplikasi yang diuji. Karena itu, prinsip Minimal Distortion sangat penting dijaga.
 > ___________________________________________________
