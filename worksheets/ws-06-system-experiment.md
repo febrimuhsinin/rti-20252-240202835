@@ -85,20 +85,20 @@ Research Question: Apakah terdapat perbedaan skor System Usability Scale (SUS) y
 Variable → Component Mapping:
 | Variabel | Tipe | Komponen Sistem | Cara Manipulasi/Pengukuran |
 |----------|------|-----------------|---------------------------|
-| Variabel       | IV   | Task Scenario Module        | Toggle antara Skenario A (Belanja Reguler) dan Skenario B (Shopee Food).                      |
-| Alur Transaksi | DV   | Digital Questionnaire (SUS) | Pengisian kuesioner otomatis setelah tugas selesai menggunakan alat survei digital.         |
-| Skor Usability | CV   | User Screening Filter       | Penentuan kriteria responden (Gen Z, minimal 1 tahun penggunaan Shopee) di awal pendaftaran.|
+| Variabel       | IV   | Instruksi Skenario Tugas    | Mengarahkan user ke alur yang berbeda via teks instruksi (Reguler ↔ Food), dibuat 2 versi (Form A & Form B).                      |
+| Alur Transaksi | DV   | SUS Likert Scale Section |Kalkulasi otomatis matriks dari 10 pertanyaan skala Likert 1-5 yang diisi sesaat setelah tugas selesai.         |
+| Skor Usability | CV   | Screening & Persetujuan Awal     | Pertanyaan wajib di awal form untuk menyaring usia Gen Z, memvalidasi koneksi stabil, & kondusivitas ruang.|
 
 4 Prinsip Desain:
-  [x] Traceability — Setiap tugas dalam skenario dirancang untuk memicu instrumen penilaian SUS tertentu.
-  [x] Variable Isolation — Perbedaan hanya terletak pada alur fitur; antarmuka dasar (navbar, header) tetap konstan.
-  [x] Measurement Integration — Sistem survei merekam waktu penyelesaian tugas secara otomatis bersamaan dengan input SUS.
-  [x] Reproducibility — Skenario tugas didokumentasikan dalam format teks yang bisa diulang oleh peneliti lain.
+  [x] Traceability — Setiap skor SUS yang masuk bisa ditelusuri dari bagian skenario mana ia dikerjakan.
+  [x] Variable Isolation — IV (Alur Shopee/Food) dipisah per halaman (section) tanpa mencampuradukkan CV.
+  [x] Measurement Integration — Perekaman data Likert otomatis masuk ke spreadsheet.
+  [x] Reproducibility — Form pengujian, skenario, dan syarat responden didokumentasikan sehingga bisa diulang siapapun.
 
 Experimental Setup:
-  Input data     : 2 set skenario tugas (Belanja Barang vs Pesan Makan).
-  Parameter      : Responden Gen Z (N=30+), Perangkat Mobile (iOS/Android).
-  Output format  : Dataset CSV berisi Skor SUS per responden dan Time on Task.
+  Input data     : 2 set panduan skenario tugas (Skenario Belanja Reguler vs Skenario Shopee Food).
+  Parameter      : Responden Generasi Z (N=30+), Pengalaman > 1 tahun, Mahasiswa aktif, Koneksi Internet Stabil.
+  Output format  : Dataset Spreadsheet (Excel/CSV) berisi profil screening responden dan raw data Skor SUS.
 ```
 
 ---
@@ -111,10 +111,9 @@ Gunakan RQ dan variabel dari WS-05. Petakan ke komponen sistem.
 
 | Variabel | Tipe | Komponen Sistem | Cara Manipulasi / Pengukuran |
 |----------|------|-----------------|---------------------------|
-| *Jenis Fitur* | *IV* | *Interactive Prototype (Figma) / Task Set* | *Mengarahkan user ke alur yang berbeda (Reguler ↔ Food).* |
-| *Skor Usability* | *DV* | *SUS Matrix Collector* | *Kalkulasi otomatis dari 10 pertanyaan skala Likert.* |
-| *Tingkat Kesalahan* | *DV2* | *Error Log Tracker* | *Mencatat berapa kali user salah menekan tombol (miss-click).* |
-| *Jenis Koneksi* | *CV* | *Fixed Network Environment* | *Pengujian dilakukan pada jaringan Wi-Fi yang sama untuk semua user.* |
+| *Jenis Fitur* | *IV* | *Instruksi Skenario (Google Form Section)* | *Mengarahkan responden untuk simulasi Reguler vs Food (Counterbalancing).* |
+| *Skor Usability* | *DV* | *SUS Matrix Collector* | *Perhitungan matematis dari jawaban 10 item kuesioner skala Likert (1-5).* |
+| *Profil & Lingkungan* | *CV* | *Halaman Screening Kualifikasi* | *Mengunci kriteria responden (Gen Z) dan mewajibkan centang konfirmasi jaringan/perangkat.* |
 
 **Apakah semua variabel bisa di-map?** [x] Ya / [ ] Tidak
 > Jika tidak, komponen apa yang perlu ditambahkan? _________
@@ -127,14 +126,14 @@ Evaluasi desain sistem terhadap 4 prinsip.
 
 | Prinsip | Status | Bukti / Penjelasan |
 |---------|--------|-------------------|
-| Traceability | *✅* | *Setiap tombol di prototipe terkait dengan success rate yang menjadi bagian dari efektivitas (aspek SUS).* |
-| Modularity | *✅* | *Modul kuesioner terpisah dari modul skenario tugas; bisa diganti dengan kuesioner lain (misal: UEQ) tanpa mengubah tugas.* |
-| Controllability | *✅* | *Pengguna tidak bisa berpindah alur secara bebas; sistem mengunci user pada satu skenario hingga selesai.* |
-| Measurability | *✅* | *Data waktu terekam hingga satuan milidetik menggunakan perangkat lunak tracking.* |
+| Traceability | *✅* | *Respons SUS Sesi 1 secara pasti merekam kepuasan Alur Reguler, dan SUS Sesi 2 merekam Alur Food.* |
+| Modularity | *✅* | *Urutan section Skenario Reguler dan Skenario Food bisa ditukar (Form A & Form B) tanpa mengubah pertanyaan SUS-nya.* |
+| Controllability | *✅* | *Meskipun remote testing, responden dikunci oleh pertanyaan "Wajib Isi" terkait kesesuaian perangkat dan lingkungan sebelum mulai.* |
+| Measurability | *✅* | *Data kuantitatif (skor 1-5) otomatis terkumpul di Google Sheets untuk langsung dihitung dengan formula baku SUS.* |
 
 **Prinsip mana yang paling sulit dipenuhi?** Controllability (Kontrol Variabel).
 **Strategi untuk mengatasinya:**
-> Memastikan lingkungan fisik (ruangan, pencahayaan) dan perangkat yang digunakan tetap sama untuk setiap responden guna menghindari faktor eksternal yang memengaruhi persepsi kemudahan.
+> Karena menggunakan Remote Testing, kontrol dilakukan secara Self-Reported. Responden diwajibkan menyetujui syarat kelayakan perangkat dan mengonfirmasi bahwa mereka menggunakan jaringan internet yang stabil di halaman pertama kuesioner sebelum diizinkan membaca instruksi tugas.
 
 ---
 
@@ -147,14 +146,14 @@ Dalam konteks UX, ablation study dilakukan dengan melepas atau mematikan fitur s
 
 | Kondisi | Komponen A | Komponen B | Komponen C | Hasil yang Diharapkan |
 |---------|-----------|-----------|-----------|----------------------|
-| Full | *✅ Aktif* | *✅ Aktif (Dark Pattern)* | *✅ Standart* | *Baseline kepuasan saat ini.* |
-| – A | *❌ (Manual Input)* | *✅* | *✅* | *Mengukur dampak kemudahan voucher.* |
-| – B | *✅* | *❌ (Clean Interface)* | *✅* | *Mengukur dampak dark patterns terhadap SUS.* |
-| – C | *✅* | *✅* | *❌ (Hamburger Menu)* | *Mengukur efisiensi struktur navigasi.* |
+| Full | *✅ Standar* | *✅ Aktif* | *✅ Aktif* | *Skor SUS paling rendah (beban kognitif tertinggi).* |
+| – A | *❌ (Tanpa cari manual)* | *✅* | *✅* | *(Tidak relevan diuji karena pencarian adalah alur wajib).* |
+| – B | *✅* | *❌ (Antarmuka Bersih)* | *✅* | *Mengukur dampak manipulasi opsi centang asuransi terhadap SUS.* |
+| – C | *✅* | *❌* | *❌ (Tidak ada desakan waktu)* | *Baseline dengan skor SUS tinggi.* |
 
 **Komponen mana yang diprediksi paling berkontribusi?** Komponen B (Pop-up Promosi).
 **Mengapa?**
-> Berdasarkan literatur, dark patterns seperti iklan pop-up yang sulit ditutup seringkali menurunkan skor "Kepuasan" (aspek afektif) pada instrumen SUS, meskipun alur teknisnya mudah digunakan.
+> Karena elemen manipulatif seperti asuransi yang tercentang otomatis (sneak into basket) memaksa pengguna untuk membatalkan sesuatu yang tidak mereka minta, hal ini secara drastis meningkatkan frustrasi dan menurunkan skor kelayakan/kepuasan pada instrumen SUS, meskipun alur teknis utamanya mudah digunakan.
 
 ---
 
@@ -163,8 +162,7 @@ Dalam konteks UX, ablation study dilakukan dengan melepas atau mematikan fitur s
 > Apa risiko jika sistem dibangun seperti produk (monolitik, fitur lengkap) lalu baru dilakukan eksperimen? Mengapa arsitektur modular penting untuk riset?
 
 **Jawaban:**
-> Risiko utama membangun sistem monolitik adalah kebingungan dalam mengisolasi variabel (Variable Confounding). Jika sistem memiliki terlalu banyak fitur yang saling bertumpuk, peneliti tidak akan tahu fitur mana yang sebenarnya menyebabkan kenaikan atau penurunan skor usability. Apakah karena warnanya? Apakah karena letak tombolnya? Atau karena alur datanya?
+> Risiko utamanya adalah kebingungan dalam mengisolasi variabel (Variable Confounding). Jika responden hanya diinstruksikan secara bebas "Coba pakai aplikasi Shopee secara keseluruhan lalu nilai", peneliti tidak akan pernah tahu fitur spesifik mana yang sebenarnya menyebabkan kenaikan atau penurunan skor usability. Apakah karena alur pembayarannya yang rumit, warnanya, atau karena dark patterns di Shopee Food?
 
-Pentingnya arsitektur modular:
-Dalam riset, arsitektur modular memungkinkan peneliti untuk melakukan Variable Isolation. Peneliti dapat mengganti satu modul (misalnya mengganti metode pembayaran) tanpa merusak bagian sistem lainnya. Hal ini menjamin bahwa perbedaan hasil yang didapatkan memang benar-benar disebabkan oleh manipulasi pada variabel independen (IV), sehingga validitas internal penelitian tetap terjaga.
+Arsitektur yang modular (memecah tugas menjadi Skenario Belanja Reguler vs Skenario Shopee Food secara terpisah di dalam instrumen pengujian) sangat penting untuk melakukan Variable Isolation. Hal ini memastikan bahwa penurunan skor yang terjadi memang benar-benar disebabkan oleh manipulasi arsitektur antarmuka (dark patterns) pada sub-fitur tersebut, bukan karena kelelahan atau gangguan lain, sehingga validitas internal eksperimen tetap terjaga.
 > ___________________________________________________
