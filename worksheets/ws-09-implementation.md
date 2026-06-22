@@ -73,32 +73,34 @@ Mengandalkan "install library terbaru" berbahaya: versi berbeda = perilaku berbe
 EXPERIMENT SETUP DOCUMENTATION
 
 Hardware:
-  CPU     : ____________________
-  RAM     : ____________________
-  GPU     : ____________________
-  Storage : ____________________
+  CPU     : AMD Ryzen 5 
+  RAM     : 8 GB
+  GPU     : Tidak relevan (CPU-only)
+  Storage : 256 GB SSD
 
 Software:
-  OS        : ____________________
-  Runtime   : ____________________
-  Framework : ____________________
+  OS        : Windows 11
+  Runtime   : Web Browser (Chrome/Firefox) & Google Workspace
+  Framework : IBM SPSS Statistics (Untuk Paired Sample T-Test / Wilcoxon)
 
 Dependencies:
-| Library | Version | Sumber | Hash/Checksum |
-|---------|---------|--------|---------------|
-|         |         |        |               |
-|         |         |        |               |
+| Library / Alat Uji | Version / Tipe      | Sumber           | Fungsi Utama                                |
+|--------------------|---------------------|------------------|---------------------------------------------|
+| Aplikasi Shopee    | v3.25.x (Contoh)    | Google PlayStore | Objek eksperimen (harus dikunci versinya)   |
+| Google Forms       | 2026 Release        | Google Workspace | Platform instrumen skenario & kuesioner SUS |
+| IBM SPSS           | Versi 26.0 / JASP   | IBM              | Pengujian normalitas & uji beda statistik   |
+| Microsoft Excel    | Office 365          | Microsoft        | Tabulasi skor mentah Likert & formula SUS   |
 
 Konfigurasi:
-  Config file     : ____________________
-  Random seed     : ____________________
-  Hyperparameters : ____________________
+  Config file     : Template Kuesioner (Form A: Reguler->Food | Form B: Food->Reguler)
+  Random seed     : Counterbalancing logic (Distribusi link Form A & B secara berselang-seling)
+  Hyperparameters : Batas inklusi responden = Gen Z (18-25 tahun), Mahasiswa, N=30.
 
 Reproducibility Check:
-  [ ] Dependency terdokumentasi (requirements.txt / lock file)
-  [ ] Seed ditetapkan di semua level (Python, NumPy, framework)
-  [ ] Config di version control
-  [ ] README instruksi reproduksi lengkap
+  [x] Dependency terdokumentasi (Versi aplikasi Shopee dicatat sebelum pengujian)
+  [x] Seed ditetapkan di semua level (Aturan Counterbalancing terdokumentasi)
+  [x] Config di version control (Backup struktur Form di Word/PDF)
+  [x] README instruksi reproduksi lengkap (Panduan dari sebar link hingga uji SPSS)
 ```
 
 ---
@@ -109,23 +111,23 @@ Dokumentasikan environment untuk eksperimen Anda (boleh environment saat ini ata
 
 | Komponen | Spesifikasi |
 |----------|------------|
-| CPU | *Contoh: Intel Core i7-12700H, 14 Core* |
-| RAM | *Contoh: 32 GB DDR5* |
-| GPU | *Contoh: NVIDIA RTX 3060 6GB / CPU-only jika tidak ada GPU* |
-| OS | *Contoh: Ubuntu 22.04 LTS / Windows 11* |
-| Runtime | |
-| Framework | |
-| Random Seed | |
+| CPU | *AMD Ryzen 5 * |
+| RAM | *8 GB RAM* |
+| GPU | *CPU-only (Tidak memerlukan komputasi grafis)* |
+| OS | *Windows 11* |
+| Runtime | *Windows 11* |
+| Framework | *IBM SPSS Statistics 26 & MS Excel* |
+| Random Seed | *Distribusi Counterbalancing (Alternasi manual Link A & Link B ke tiap responden)* |
 
 **Dependencies (minimal 5):**
 
 | Library | Version | Alasan Dibutuhkan |
 |---------|---------|-------------------|
-| *Contoh: scikit-learn* | *1.3.2* | *Klasifikasi + evaluasi metrik* |
-| | | |
-| | | |
-| | | |
-| | | |
+| *Aplikasi Shopee* | *Locked Version (Misal: 3.25.x)* | *Objek utama eksperimen; jika aplikasi update di tengah masa pengumpulan data, tata letak antarmuka bisa berubah dan mengancam validitas eksperimen.*                 |
+| *Google Forms*    | *Current Web Version*            | *Platform utama untuk eksekusi skenario (Task Scenario), kontrol screening responden, dan pengumpulan skor instrumen SUS.*                                                |
+| *IBM SPSS*        | *v26.0*                          | *Software pengolah statistik untuk menjalankan uji asumsi normalitas (Shapiro-Wilk) dan uji beda hipotesis (Paired Sample T-Test / Wilcoxon).*                     |
+| *Microsoft Excel* | *Office 365*                     | *Digunakan untuk tabulasi data mentah (raw data) Likert dan melakukan kalkulasi formula konversi skor SUS secara matematis.*                                         |
+| *Figma / Miro*    | *Current Web Version*            | *Tools desain yang digunakan untuk memvisualisasikan luaran penelitian, yaitu merancang User Journey Map (peta titik hambatan) dan prototipe Ethical UI Guidelines.* |
 
 ---
 
@@ -133,11 +135,12 @@ Dokumentasikan environment untuk eksperimen Anda (boleh environment saat ini ata
 
 Rancang tes repeatability sederhana: jalankan kode yang sama 3× di environment yang sama.
 
-| Run | Seed | Metrik Utama | Hasil Sama? |
+| Run | Algoritma/Tahap | Metrik Utama | Hasil Sama? |
 |-----|------|-------------|-------------|
-| 1 | *Contoh: 42* | *Contoh: Accuracy* | — |
-| 2 | | | [ ] Ya / [ ] Tidak |
-| 3 | | | [ ] Ya / [ ] Tidak |
+| 1 | *Konversi SUS di Excel*    | *Skor 0-100 per user*     | [x] Ya / [ ] Tidak | 
+| 2 | *Uji Shapiro-Wilk di SPSS* | *P-Value Normalitas*      | [x] Ya / [ ] Tidak |
+| 3 |  *Paired T-Test di SPSS*   | *T-Value & P-Value Akhir* | [x] Ya / [ ] Tidak |
+
 
 **Jika hasil berbeda, kemungkinan penyebab:**
 
@@ -150,10 +153,10 @@ Rancang tes repeatability sederhana: jalankan kode yang sama 3× di environment 
 ___________________________________________________
 
 **Checklist kontrol yang sudah diterapkan:**
-- [ ] Random seed di-set di semua level
-- [ ] Tidak ada background process yang mengganggu
-- [ ] Cache dibersihkan antar-run
-- [ ] Config file yang sama untuk semua run
+- [x]  Formula perhitungan SUS di-set dan di-lock secara matematis di template Excel.
+- [x]  Tidak ada background process yang mengganggu (Skenario eksperimen Google Form tidak diubah di tengah jalan).
+- [x]  Dataset mentah (Raw CSV) di-backup (Read-only) sebelum dibersihkan.
+- [x]  Langkah klik di SPSS dicatat secara berurutan.
 
 ---
 
@@ -162,25 +165,35 @@ ___________________________________________________
 Tulis README minimum untuk eksperimen Anda (6 komponen wajib).
 
 ```
-# Judul Eksperimen: ____________________
+# Judul Eksperimen: Evaluasi Komparatif Usability & Dark Patterns Shopee
 
 ## 1. Environment
-> (Salin spesifikasi dari Latihan 1)
+> Instrumen: Google Forms (Form A & Form B untuk Counterbalancing).
+> Objek: Aplikasi Shopee Versi [Tulis versi saat eksperimen berjalan].
+> Analisis: MS Excel & IBM SPSS 26.
 
 ## 2. Installation
-> (Langkah instalasi, misal: "pip install -r requirements.txt")
+> 1. Buat Form A (Skenario Reguler -> SUS 1 -> Skenario Food -> SUS 2).
+> 2. Duplikasi menjadi Form B (Skenario Food -> SUS 1 -> Skenario Reguler -> SUS 2).
+> 3. Tentukan 30 partisipan mahasiswa Gen Z.
 
 ## 3. Data
-> (Deskripsi data: sumber, format, ukuran)
+> Sumber: Respons Google Sheets yang diekspor menjadi CSV.
+> Format: 30 baris (Responden), Kolom Skor SUS Sesi 1 dan Skor SUS Sesi 2.
+> Preprocessing: Data kualitatif disaring, data Likert dikonversi dengan rumus baku SUS (*2.5).
 
 ## 4. Execution
-> (Command untuk menjalankan eksperimen)
+> 1. Sebar Link Form A ke 15 orang, Form B ke 15 orang.
+> 2. Unduh CSV, gabungkan tabulasi Sesi Reguler dan Sesi Food.
+> 3. Impor CSV ke SPSS -> Analyze -> Descriptive Statistics -> Explore (Shapiro-Wilk).
+> 4. Analyze -> Compare Means -> Paired-Samples T Test.
 
 ## 5. Configuration
-> (File config yang digunakan + parameter kunci)
+> Tingkat signifikansi (Alpha): 0.05
+> Aturan Konversi SUS: P.Ganjil (X-1), P.Genap (5-Y), Total * 2.5.
 
 ## 6. Expected Output
-> (Contoh output yang diharapkan + format)
+> Hipotesis 1 terbukti: Rata-rata Skor SUS Shopee Food < Skor SUS Belanja Reguler secara signifikan (p-value < 0.05). Ditemukan identifikasi titik hambatan terkait dark patterns.
 ```
 
 ---
@@ -189,6 +202,10 @@ Tulis README minimum untuk eksperimen Anda (6 komponen wajib).
 
 > Apakah eksperimen Anda saat ini bisa direproduksi oleh orang lain tanpa bantuan Anda? Komponen apa yang masih hilang?
 
-**Level saat ini:** [ ] Repeatability / [ ] Reproducibility / [ ] Belum keduanya
+**Level saat ini:** [x] Repeatability / [ ] Reproducibility / [ ] Belum keduanya
 **Komponen yang belum terdokumentasi:**
-> ___________________________________________________
+> 1.  File draf pertanyaan instrumen kuesioner Google Form yang final (belum dibuat tautan/URL aktualnya).
+
+> 2. Format pencatatan versi aktual aplikasi Shopee yang akan digunakan saat pengujian berlangsung (karena aplikasi rill terus update).
+
+> 3. Catatan langkah-langkah (syntax) di SPSS secara mendetail agar peneliti lain yang tidak paham statistik tetap bisa mengikuti alur analisis data yang saya lakukan.
