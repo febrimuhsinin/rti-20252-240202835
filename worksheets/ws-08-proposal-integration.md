@@ -81,16 +81,16 @@ Koneksi Vertikal (Flow Atas-Bawah):
   [ ] System → Experiment: desain eksperimen menggunakan sistem
 
 Koneksi Horizontal (Konsistensi):
-  [ ] Istilah sama di semua bagian
-  [ ] Variabel di RQ = variabel di hipotesis = metrik di desain
-  [ ] Scope tidak berubah dari masalah ke eksperimen
+  [x] Istilah sama di semua bagian
+  [x] Variabel di RQ = variabel di hipotesis = metrik di desain
+  [x] Scope tidak berubah dari masalah ke eksperimen
 
 Cognitive Trap Checklist:
-  [ ] Tidak ada paragraf "promosi" di pendahuluan (hanya data & gap)
-  [ ] Metodologi disesuaikan ke RQ, bukan copy-paste textbook
-  [ ] Timeline sudah ditambah buffer 30-50% dari estimasi awal
-  [ ] Proposal mengakui kemungkinan H0 tidak ditolak (honest uncertainty)
-  [ ] Tidak ada klaim "pasti berhasil" atau "meningkatkan signifikan"
+  [x] Tidak ada paragraf "promosi" di pendahuluan (hanya data & gap)
+  [x] Metodologi disesuaikan ke RQ, bukan copy-paste textbook
+  [x] Timeline sudah ditambah buffer 30-50% dari estimasi awal
+  [x] Proposal mengakui kemungkinan H0 tidak ditolak (honest uncertainty)
+  [x] Tidak ada klaim "pasti berhasil" atau "meningkatkan signifikan"
 
 Rubrik Self-Assessment:
 | Kriteria     | 1 (Lemah)                                        | 2 (Cukup)                                     | 3 (Baik)                                           | Skor |
@@ -109,13 +109,13 @@ Kumpulkan hasil dari WS-02 sampai WS-07 menjadi satu ringkasan proposal.
 
 | Komponen | Sumber | Isi (1-2 kalimat) |
 |----------|--------|-------------------|
-| Problem Statement | WS-02 | *Contoh: Sistem rekomendasi memiliki akurasi tinggi (RMSE 0.87) tetapi satisfaction score rendah (45/100). Gap antara metrik teknis dan kepuasan pengguna belum diteliti.* |
-| Gap | WS-03 | *Contoh: Tidak ada studi yang mengintegrasikan collaborative filtering dengan user-context signals untuk meningkatkan satisfaction.* |
-| RQ | WS-04 | *Contoh: Apakah penambahan context-aware signals pada collaborative filtering meningkatkan satisfaction score tanpa menurunkan RMSE?* |
-| Hipotesis | WS-04 | *Contoh: H₁: Sistem CF+context menghasilkan satisfaction ≥ 70/100 dengan RMSE ≤ 0.90 dibanding baseline CF murni.* |
-| Variabel & Metrik | WS-05 | *Contoh: IV = jenis sistem (CF vs CF+context); DV = satisfaction score (skala 0-100) + RMSE (regresi).* |
-| Sistem | WS-06 | |
-| Desain Eksperimen | WS-07 | |
+| Problem Statement | WS-02 | *Pengguna Generasi Z rentan mengalami information overload dan kelelahan kognitif akibat kompleksitas antarmuka dan interupsi elemen manipulatif (dark patterns) pada sub-fitur tambahan seperti Shopee Food.* |
+| Gap | WS-03 | *Berbagai studi terdahulu mengevaluasi e-commerce dengan asumsi homogenitas secara utuh (Shopee dinilai secara umum), sehingga luput mengukur degradasi kebergunaan aktual antar-fitur di dalam aplikasi yang sama.* |
+| RQ | WS-04 | *Apakah terdapat perbedaan skor System Usability Scale (SUS) yang signifikan antara alur transaksi belanja reguler dengan alur transaksi pada sub-fitur Shopee Food bagi pengguna Generasi Z?* |
+| Hipotesis | WS-04 | *H₁: Alur transaksi Shopee Food akan menghasilkan rata-rata skor SUS yang secara signifikan lebih rendah dibandingkan alur belanja reguler (Kondisi Baseline).* |
+| Variabel & Metrik | WS-05 | *IV = Jenis alur transaksi (Belanja Reguler vs. Shopee Food); DV = Tingkat kebergunaan subjektif; Metrik = Skor global System Usability Scale rentang 0–100.* |
+| Sistem | WS-06 | *Instrumen pengujian elektronik (Google Form) yang memuat screening kelayakan (CV), instruksi skenario tugas mandiri, dan matriks penghitung otomatis kuesioner SUS.* |
+| Desain Eksperimen | WS-07 | *Eksperimen komparatif kuantitatif Unmoderated Remote Testing dengan within-subjects design (N=30 Gen Z), menggunakan teknik counterbalancing (Form A & B), dan dianalisis menggunakan Paired Sample T-Test.* |
 
 ---
 
@@ -125,19 +125,20 @@ Verifikasi 6 koneksi kritis. Isi dengan merujuk tabel di Latihan 1.
 
 | Koneksi | Status | Bukti |
 |---------|--------|-------|
-| Problem → Gap | *Contoh: ✅ — gap muncul dari 15 paper Bab 3 yang tidak ada yang mengkombinasikan CF + context untuk satisfaction* | |
-| Gap → RQ | *Contoh: ✅ — RQ langsung menanyakan apakah CF+context meningkatkan satisfaction* | |
-| RQ → Hypothesis | *Contoh: ✅ — H₁ memprediksi satisfaction ≥ 70 dengan threshold RMSE ≤ 0.90* | |
-| Hypothesis → Metric | | |
-| Metric → System | | |
-| System → Experiment | | |
+| Problem → Gap | *✅* | *Masalah information overload dan dark patterns ditarik menjadi gap karena literatur terdahulu mengabaikan hidden friction pada sub-fitur.* |
+| Gap → RQ | *✅* | *RQ secara langsung menjembatani gap tersebut dengan cara membandingkan skor SUS dari aplikasi induk reguler melawan sub-fiturnya.* |
+| RQ → Hypothesis | *✅* | *H₁ memprediksi jawaban secara terarah (directional), yakni skor SUS pada alur Shopee Food diprediksi menurun.* |
+| Hypothesis → Metric | *✅* | *"Penurunan kebergunaan" dikuantifikasi secara mutlak dengan metrik selisih skor SUS berskala interval 0-100.* |
+| Metric → System | *✅* | *Metrik (Skor SUS) diukur secara terintegrasi oleh komponen matriks Likert 5-poin yang ada di dalam Google Form.* |
+| System → Experiment | *✅* | *Google Form bertindak sebagai experimental artifact yang mengatur alur within-subjects dan teknik counterbalancing secara remote.* |
 
-**Koneksi mana yang paling lemah?** _______________________
+**Koneksi mana yang paling lemah?** System → Experiment
+Bagaimana cara memperkuatnya?
 **Bagaimana cara memperkuatnya?**
-> ___________________________________________________
+> Karena menggunakan metode remote testing via Google Form, kontrol terhadap lingkungan fisik dan gawai responden melemah. Hal ini diperkuat dengan menambahkan Screening Questions wajib di awal form untuk memastikan koneksi internet stabil dan lingkungan kondusif (self-reported control).
 
-**Konsistensi horizontal — apakah istilah dan scope konsisten?** [ ] Ya / [ ] Tidak
-> Jika tidak, di bagian mana terjadi inkonsistensi? _________
+**Konsistensi horizontal — apakah istilah dan scope konsisten?** [x] Ya / [ ] Tidak
+> Jika tidak, di bagian mana terjadi inkonsistensi? Semua terminologi dikunci secara konsisten dari Bab 1 hingga 3: "Alur Belanja Reguler", "Shopee Food", "Generasi Z", dan "System Usability Scale (SUS)".
 
 ---
 
@@ -147,15 +148,15 @@ Evaluasi proposal mini menggunakan rubrik.
 
 | Kriteria | Skor (1-3) | Justifikasi |
 |----------|-----------|-------------|
-| Koherensi | *Contoh: 2 — koneksi gap→RQ masih lemah karena gap belum cukup narrow* | |
-| Specificity | *Contoh: 3 — metrik (satisfaction 0-100, RMSE) sudah terdefinisi numerik* | |
-| Feasibility | | |
-| Rigor | | |
+| Koherensi | *3* | *Seluruh 6 koneksi vertikal terhubung jelas. Argumen mengalir mulus dari fenomena dark patterns (Problem) menuju pengujian komparatif selisih SUS (Metode).* |
+| Specificity | *3* | *Semua variabel memiliki angka yang terdefinisi: SUS skala 0-100, sampel minimal N=30, Skala Likert 5 poin, Signifikansi (Alpha) 0.05.* |
+| Feasibility | *3* | *Desain Unmoderated Remote Testing via Google Form sangat realistis diselesaikan dalam estimasi timeline 8 minggu operasional.* |
+| Rigor | *3* | *Baseline yang digunakan sangat kuat dan setara, yaitu alur belanja utama/reguler dari aplikasi Shopee itu sendiri (bukan membandingkan dengan aplikasi kompetitor yang berbeda UI-nya).* |
 
-**Skor total:** _____ / 12
+**Skor total:** 12 / 12
 
-**Apakah proposal siap untuk fase eksekusi?** [ ] Ya / [ ] Belum
-> Jika belum, apa yang perlu diperbaiki? __________________
+**Apakah proposal siap untuk fase eksekusi?** [x] Ya / [ ] Belum
+> Jika belum, apa yang perlu diperbaiki? Proposal sudah siap 100%. Langkah selanjutnya adalah membuat instrumen Google Form secara aktual (Form A dan Form B) dan mulai merekrut partisipan sesuai kriteria screening.
 
 ---
 
@@ -163,8 +164,8 @@ Evaluasi proposal mini menggunakan rubrik.
 
 > Dari seluruh proses WS-01 sampai WS-08, bagian mana yang paling mudah dan paling sulit? Mengapa? Apa yang akan dilakukan berbeda jika mengulang dari awal?
 
-**Bagian termudah:** ____________________________________
-**Bagian tersulit:** ____________________________________
+**Bagian termudah:** Mengidentifikasi instrumen pengukuran (menentukan SUS) dsn populasi responden (Generasi Z) karena keduanya sangat konkrit, banyak referensi ilmiahnya, dsn relevan dengan keseharian pengguna digital saat ini.
+**Bagian tersulit:** Menuliskan rumusan Gap penelitian serta merancang Desain Eksperimen (Matrix 2), khususnya memastikan cara menekan confounding variables (prior exposure effect & order bias) agar hasil beda selisih kuantitatif nanti benar-benar valid, bukan karena kelelahan atau kebetulan.
 **Yang akan dilakukan berbeda:**
-> ___________________________________________________
+> Jika mengulang dari awal, saya akan lebih dulu membedah taksonomi UI dark patterns pada banyak aplikasi secara berdampingan untuk memperkaya kajian literatur (State of the Art), sebelum akhirnya mengerucut memilih satu objek aplikasi yang paling observable untuk dilakukan eksperimen.
 > ___________________________________________________
