@@ -68,24 +68,23 @@ Run gagal/anomali tidak boleh dihapus tanpa dokumentasi. Bisa jadi:
 ```
 EXECUTION PLAN
 
-| Run # | Skenario | Seed | Parameter | Status | Waktu | Output File |
-|-------|----------|------|-----------|--------|-------|-------------|
-| 1     |          |      |           |        |       |             |
-| 2     |          |      |           |        |       |             |
-| 3     |          |      |           |        |       |             |
+| Responden | Skenario (Urutan) | Alat Uji | Parameter (Kriteria) | Status | Output File |
+|-----------|-------------------|----------|----------------------|--------|-------------|
+| R-01 s.d R-15 | Form A (Reguler -> Food) | Google Form A | Gen Z, Mahasiswa, Exp >1 thn | Planned | form_A_raw.csv |
+| R-16 s.d R-30 | Form B (Food -> Reguler) | Google Form B | Gen Z, Mahasiswa, Exp >1 thn | Planned | form_B_raw.csv |
 | ...   |          |      |           |        |       |             |
 
-Jumlah runs per skenario : ____
-Total runs               : ____
+Jumlah runs per skenario : 15 partisipan
+Total runs               : 30 partisipan
 
 DATA LOG (per run):
-  Run ID    : ____________________
-  Timestamp : ____________________
-  Skenario  : ____________________
-  Input     : ____________________
-  Output    : ____________________
-  Anomali   : ____________________
-  Catatan   : ____________________
+  Run ID    : R-001 (Anonim)
+  Timestamp : Waktu pengiriman (submit) form
+  Skenario  : Tipe Form (A atau B)
+  Input     : Profil Demografis & Kualifikasi Screening
+  Output    : Skor SUS Sesi 1 (0-100) dan Skor SUS Sesi 2 (0-100)
+  Anomali   : Catatan jika ada outlier (misal: isi jawaban nilai 5 semua)
+  Catatan   : Kelayakan data untuk diuji ke SPSS
 ```
 
 ---
@@ -94,17 +93,15 @@ DATA LOG (per run):
 
 Susun execution plan untuk eksperimen Anda. Tentukan skenario, jumlah run, dan seed sebelum eksekusi.
 
-| Run # | Skenario | Seed | Parameter Kunci | Status |
+| Run # (Responden) | Skenario (Counterbalancing) | Seed (Tipe Form) | Parameter Kunci | Status |
 |-------|----------|------|----------------|--------|
-| *1* | *Contoh: BERT-base, DS-1* | *42* | *lr=2e-5, epoch=10* | *Planned* |
-| *2* | *BERT-base, DS-1* | *123* | *lr=2e-5, epoch=10* | *Planned* |
-| 3 | | | | |
-| 4 | | | | |
-| 5 | | | | |
+| *R-001 s/d R-015* | *Rute 1: Belanja Reguler -> Shopee Food* | *Form A* | *Mahasiswa Gen Z (18-25 thn), Sinyal Stabil* | *Planned* |
+| *R-016 s/d R-030* | *Rute 2: Shopee Food -> Belanja Reguler* | *Form B* | *Mahasiswa Gen Z (18-25 thn), Sinyal Stabil* | *Planned* |
 
-**Total skenario:** ____
-**Run per skenario:** ____
-**Total run keseluruhan:** ____
+
+**Total skenario:** 2 Rute (Form A & Form B)
+**Run per skenario:** 15 Partisipan
+**Total run keseluruhan:** 30 Partisipan
 
 ---
 
@@ -115,25 +112,24 @@ Desain format data log untuk eksperimen Anda. Tentukan field apa saja yang akan 
 **Identitas:**
 | Field | Contoh |
 |-------|--------|
-| Run ID | *run-001* |
-| Timestamp | *2025-03-15T10:30:00* |
-| | |
+| Run ID (Responden) | *R-001* |
+| Timestamp          | *2026-06-25T10:30:00* |
+| Kualifikasi Lolos  | *Ya / Tidak* |
 
 **Konfigurasi:**
 | Field | Contoh |
 |-------|--------|
-| Seed | *42* |
-| Code version | *commit abc1234* |
-| | |
+| Tipe Rute (Seed)      | *Form A (Reguler -> Food)* |
+| Versi Aplikasi Shopee | *v3.25.1*                  |
 
 **Hasil:**
 | Metrik | Tipe Data | Range Valid |
 |--------|----------|-------------|
-| *Contoh: Accuracy* | *float* | *0.0 – 1.0* |
-| | | |
-| | | |
+| *Skor SUS Belanja Reguler* | *Integer / Float* | *0.0 – 100.0*       |
+| *Skor SUS Shopee Food*     | *Integer / Float* | *0.0 – 100.0*       |
+| *Waktu Pengisian Form*     | *Time / Duration* | *> 3 Menit (Wajar)* |
 
-**Format output:** [ ] CSV / [ ] JSON / [ ] Database / [ ] Lainnya: ____
+**Format output:** [x] CSV / [ ] JSON / [ ] Database / [ ] Lainnya: ____
 
 ---
 
@@ -143,10 +139,10 @@ Rencanakan bagaimana menangani anomali. Untuk setiap jenis, tentukan langkah yan
 
 | Jenis Anomali | Contoh | Tindakan |
 |---------------|--------|----------|
-| Run gagal (crash) | *Contoh: OOM pada batch_size=64* | *Contoh: Dokumentasi, re-run batch_size=32, catat perubahan* |
-| Hasil ekstrem | | |
-| Waktu eksekusi anomali | | |
-| Inkonsistensi dengan run lain | | |
+| Run gagal (Dropout)             | *Partisipan keluar di tengah jalan dan tidak men-submit kuesioner Sesi 2.* | *Abaikan data yang tidak lengkap, rekrut partisipan pengganti agar total N tetap 30.* |
+| Hasil ekstrem (Straight-lining) | *Partisipan menjawab nilai "5" untuk SEMUA pernyataan SUS (padahal SUS punya pertanyaan negatif yang seharusnya dibalik nilainya).* | *Karantina/Hapus data tersebut dari dataset analisis (Outlier Removal), dokumentasikan sebagai data cacat/bias, rekrut pengganti.* |
+| Waktu eksekusi anomali | *Durasi pengerjaan form sangat cepat (misal: di bawah 1 menit).* | *Investigasi kepalidan data. Jika terbukti mengisi secara asal (speeding), diskualifikasi responden tersebut.* |
+| Inkonsistensi dengan run lain | *Di tengah form, partisipan menuliskan umur 28 tahun.* | *Diskualifikasi otomatis karena melanggar variabel kontrol (Gen Z usia 18-25 tahun).* |
 
 **Prinsip:** Detect → Investigate → Document → Decide
 
@@ -157,6 +153,6 @@ Rencanakan bagaimana menangani anomali. Untuk setiap jenis, tentukan langkah yan
 > Pernahkah Anda melaporkan hasil riset/tugas dari single run? Apa risikonya? Bagaimana multiple run mengubah kepercayaan terhadap hasil?
 
 **Pengalaman sebelumnya:**
-> ___________________________________________________
+> Sebelumnya, evaluasi antarmuka seringkali hanya ditanyakan kepada 2 atau 3 orang teman secara kasual tanpa instrumen terstandar. Risikonya, simpulan yang ditarik sangat bias, tidak mewakili populasi, dan tidak bisa diuji signifikansinya secara statistik. Jika 1 teman bilang aplikasinya "jelek", kita langsung menganggap aplikasinya gagal, padahal itu murni opini subjektif satu individu.
 **Yang akan dilakukan berbeda:**
-> ___________________________________________________
+> Dengan menerapkan multiple runs yang melibatkan 30 partisipan dan menggunakan teknik counterbalancing secara ketat, kepercayaan terhadap hasil riset menjadi jauh lebih kuat. Data 30 responden akan membentuk distribusi normal yang memungkinkan dilakukannya Uji Paired Sample T-Test. Dengan demikian, klaim bahwa dark patterns menurunkan usability tidak lagi bersandar pada opini, melainkan pada pembuktian saintifik (P-Value) yang tidak bisa dibantah.
