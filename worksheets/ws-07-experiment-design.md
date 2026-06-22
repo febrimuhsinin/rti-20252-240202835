@@ -75,27 +75,27 @@ Tipe Eksperimen   : [x] Comparison  [ ] Ablation  [ ] Parameter
 Kondisi Eksperimen:
 | Kondisi | Deskripsi | IV Value | CV Settings |
 |---------|-----------|----------|-------------|
-| Control   | Alur transaksi belanja reguler (Checkout barang fisik).| Belanja Reguler | Responden Gen Z, Smartphone yang sama, Jaringan stabil.            |
-| Treatment | Alur transaksi Shopee Food (Checkout makanan).         | Shopee Food     | Responden yang sama (Within-subjects), Durasi pengerjaan yang sama.|
+| Control   | Skenario alur belanja reguler (Baseline).       | Belanja Reguler | Demografi Gen Z, Mahasiswa aktif, Koneksi Internet Stabil, Gawai Smartphone            |
+| Treatment | Skenario pemesanan fitur tambahan (Shopee Food) | Shopee Food     | Demografi Gen Z, Mahasiswa aktif, Koneksi Internet Stabil, Gawai Smartphone            |
 
 Fairness Checklist:
-  [x] Dataset identik: Menggunakan kelompok responden yang sama untuk kedua kondisi.
-  [x] Preprocessing setara: Instruksi tugas diberikan dengan tingkat kejelasan yang sama.
-  [x] Tuning effort setara: Kedua fitur diuji pada versi aplikasi yang sama (versi terbaru).
-  [x] Environment identik: Pengujian dilakukan di laboratorium/ruangan yang sama.
-  [x] Metrik evaluasi sama: Keduanya diukur menggunakan instrumen SUS 10 item.
+  [x] Dataset identik: untuk semua kondisi (Menggunakan kelompok responden yang sama / within-subjects)
+  [x] Preprocessing setara: (Instruksi dan kompleksitas langkah dibuat seimbang)
+  [x] Tuning effort setara: (Waktu istirahat jeda 5 menit antar sesi agar tidak lelah)
+  [x] Environment identik: (Koneksi dan perangkat diseragamkan via screening kualifikasi awal)
+  [x] Metrik evaluasi sama: (Menggunakan instrumen 10-item SUS Likert Scale)
 
 Threat Analysis:
 | Threat Type | Ancaman Spesifik | Mitigasi |
 |-------------|-----------------|----------|
-| Internal    | Learning Effect: User lebih cepat di tugas kedua karena sudah familiar dengan UI.        | Melakukan counterbalancing (Urutan tugas diacak untuk setiap user). |
-| External    | Selection Bias: Responden hanya berasal dari satu universitas (Gen Z).                   | Menambah keberagaman fakultas dan latar belakang penggunaan aplikasi.          |
+| Internal    | Order Bias / Learning Effect (Hafal urutan tombol aplikasi).                             | Menerapkan teknik Counterbalancing (Setengah responden mulai dari Reguler, setengah dari Food).|
+| External    | Hasil penelitian terlalu spesifik pada kalangan tertentu.                                | Membatasi ruang lingkup (scope) populasi sasaran sejak awal dengan inklusi spesifik Gen Z usia 18-25.   |
 | Construct   | Social Desirability Bias: Responden cenderung memberi skor tinggi karena suka brand-nya. | Menegaskan anonimitas dan meminta kejujuran demi pengembangan ilmu.                 |
 | Conclusion  | Social Desirability Bias: Responden cenderung memberi skor tinggi karena suka brand-nya. | Memastikan jumlah sampel memenuhi syarat minimal uji statistik (N=30-50).          |
 
 Statistical Plan:
   Uji statistik   : Paired Sample T-Test.
-  Justifikasi      : Membandingkan rata-rata dari dua kondisi yang diberikan kepada kelompok responden yang sama (dependent samples).
+  Justifikasi      : Membandingkan perbedaan rata-rata dari dua kondisi pada kelompok responden yang sama (paired data).
   Alpha            : 0.05.
   Effect size min  : 0.5 (Medium effect size berdasarkan Cohen’s d).
 ```
@@ -106,13 +106,13 @@ Statistical Plan:
 
 Susun desain eksperimen berdasarkan RQ, variabel, dan sistem dari WS-04 sampai WS-06.
 
-**RQ:** Sejauh mana efisiensi alur pembayaran Shopee Food dibandingkan belanja reguler jika diukur dari perspektif pengguna ahli (Gen Z)?
+**RQ:** Apakah terdapat perbedaan skor System Usability Scale (SUS) yang signifikan antara alur transaksi belanja reguler dengan alur transaksi pada fitur Shopee Food bagi pengguna Generasi Z?
 **Tipe eksperimen:** [x] Comparison / [ ] Ablation / [ ] Parameter
 
 | Kondisi | Deskripsi | IV Value | CV Settings |
 |---------|-----------|----------|-------------|
-| Control | *Skenario membeli 1 barang di Shopee Mall hingga halaman pembayaran.* | *Belanja Reguler* | *Versi Aplikasi 3.x, Smartphone Android/iOS, Lokasi Kampus.* |
-| Treatment | *Skenario memesan 1 menu di Shopee Food hingga halaman pembayaran.* | *Shopee Food* | *Versi Aplikasi 3.x, Smartphone Android/iOS, Lokasi Kampus.* |
+| Control | *Alur belanja retail fisik reguler pada Shopee (Baseline)* | *Belanja Reguler* | *Pengguna Gen Z, Mahasiswa aktif, Pengalaman > 1 tahun, Jaringan stabil* |
+| Treatment | *Skenario memesan 1 menu di Shopee Food hingga halaman pembayaran.* | *Shopee Food* | *Pengguna Gen Z, Mahasiswa aktif, Pengalaman > 1 tahun, Jaringan stabil* |
 
 ---
 
@@ -122,11 +122,11 @@ Evaluasi apakah desain eksperimen di Latihan 1 sudah fair.
 
 | Kriteria | Status | Detail |
 |----------|--------|--------|
-| *Dataset identik* | *✅* | *Responden yang mengisi kuesioner Shopee Food adalah orang yang sama dengan pengisi Shopee Mall.* |
-| *Preprocessing setara* | *✅* | *Skenario tugas ditulis dengan jumlah langkah yang setara (rata-rata 5-7 klik).* |
-| *Tuning effort setara* | *✅* | *Peneliti tidak memberikan bantuan tutorial pada salah satu fitur saja.* |
+| *Dataset identik* | *✅* | *Responden yang menguji Skenario Reguler adalah orang yang persis sama dengan yang menguji Skenario Food (within-subjects N=30).* |
+| *Preprocessing setara* | *✅* | *Responden diberikan jeda interval waktu 5 menit antar skenario untuk mencegah kejenuhan/kelelahan kognitif.* |
+| *Tuning effort setara* | *✅* | *Karena remote testing, environment dikunci via Form Screening awal (wajib centang internet stabil dan ruangan kondusif).* |
 | *Environment identik* | *✅* | *Menggunakan satu koneksi Wi-Fi publik yang sama untuk meminimalkan latency.* |
-| *Metrik evaluasi sama* | *✅* | *Keduanya dihitung menggunakan formula SUS: (X-1) + (5-Y) \ 2.5* |
+| *Metrik evaluasi sama* | *✅* | *Skor dievaluasi menggunakan instrumen baku System Usability Scale (SUS) dengan perhitungan konstanta yang sama persis (Skala 0-100).* |
 
 **Ada yang tidak fair?** [ ] Ya / [x] Tidak
 > Jika ya, bagaimana cara memperbaikinya? ________________
@@ -139,15 +139,15 @@ Identifikasi ancaman validitas untuk desain eksperimen ini.
 
 | Threat Type | Ancaman Spesifik | Mitigasi |
 |-------------|-----------------|----------|
-| *Internal* | *Kelelahan responden (Respondent Fatigue) saat mengisi kuesioner kedua.* | *Memberikan jeda waktu 5 menit antar tugas dan menjaga kuesioner tetap singkat.* |
-| *External* | *Hasil mungkin tidak berlaku untuk pengguna usia lansia (Silver Gen).* | *Membatasi klaim generalisasi hanya untuk populasi Gen Z.* |
-| *Construct* | *Membatasi klaim generalisasi hanya untuk populasi Gen Z.* | *Menambahkan metrik sekunder berupa Success Rate atau Task Completion Time.* |
-| *Conclusion* | *Data tidak terdistribusi normal sehingga T-Test tidak valid.* | *Melakukan uji normalitas (Shapiro-Wilk) terlebih dahulu; jika tidak normal gunakan Wilcoxon Signed-Rank Test.* |
+| *Internal* | *Bias urutan pengerjaan (Order Bias) / Partisipan kelelahan di skenario kedua.* | *Penyeimbangan silang (Counterbalancing): 15 orang rute Reguler->Food, 15 orang rute Food->Reguler.* |
+| *External* | *Riwayat penggunaan partisipan sangat berbeda (ada yang sering pakai Food, ada yang tidak pernah).* | *Pencatatan riwayat transaksi 30 hari terakhir di form awal sebagai variabel kovariat.* |
+| *Construct* | *Bias Loyalitas Merek (Habituation Effect); responden menilai tinggi aplikasi semata karena sudah terbiasa/suka.* | *Penggunaan SUS yang fokus pada metrik interaksi fisik operasional (perceived usability) daripada sekadar tanya kepuasan subjektif.* |
+| *Conclusion* | *Asumsi normalitas ditolak karena respons pengguna terlalu ekstrem.* | *Disiapkan prosedur kontinjensi uji statistik non-parametrik ekuivalen (Wilcoxon Signed-Rank Test).* |
 
 **Ancaman mana yang paling sulit dimitigasi?** Ancaman Eksternal (Generalisasi).
 Mengapa?
 **Mengapa?**
-> Sangat sulit mengumpulkan sampel yang benar-benar mewakili seluruh pengguna Shopee di Indonesia yang mencapai jutaan orang dengan latar belakang pendidikan dan geografi yang sangat beragam.
+> Karena Shopee berstatus sebagai super-app yang sudah digunakan bertahun-tahun oleh responden Gen Z, secara tidak sadar mereka sudah memaklumi kerumitan UI-nya. Menyadarkan responden untuk secara kritis menilai dark patterns (seperti hitung mundur promosi atau asuransi otomatis) melalui instrumen skala persepsional tanpa eye-tracking secara langsung merupakan tantangan terbesar yang dapat menimbulkan deviasi skor.
 
 ---
 
@@ -157,6 +157,8 @@ Mengapa?
 
 **Jawaban:**
 Jika sebuah paper mengklaim metodenya mengalahkan semua baseline, 3 pertanyaan kritis untuk mengevaluasi klaim tersebut adalah:
-1. Siapa baselinenya? Apakah baseline yang dipilih adalah metode State-of-the-Art (SOTA) terbaru atau hanya metode usang yang sengaja dipilih agar terlihat lemah (straw man comparison)?
-2. Apakah kondisinya identik? Apakah baseline dijalankan dengan tuning parameter yang maksimal, atau hanya menggunakan pengaturan default sementara metode baru dioptimalkan secara agresif?
-3. Seberapa signifikan perbedaannya secara statistik? Apakah kenaikan performa tersebut memiliki p-value yang rendah dan effect size yang cukup besar, atau hanya kenaikan angka marjinal yang bisa terjadi karena faktor kebetulan? 
+1. Apakah "baseline" yang dipakai merupakan kontrol standar yang layak dan optimal, atau hanya straw man (metode usang yang sengaja dilemahkan/tidak dioptimasi agar metode peneliti terlihat lebih bagus)?
+
+2. Apakah kondisi eksperimen (seperti dataset, spesifikasi lingkungan/instrumen pengujian, dan teknik evaluasi) diperlakukan 100% sama (identik) untuk semua metode yang sedang dibandingkan?
+
+3. Apakah selisih pengukurannya terbukti signifikan secara statistik (terdapat uji p-value atau estimasi effect size), atau perbedaannya terjadi karena kebetulan (variance kebetulan akibat sampel data yang terlampau kecil)?
