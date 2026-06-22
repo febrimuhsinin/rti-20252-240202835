@@ -65,25 +65,27 @@ Keduanya **saling melengkapi**:
 ```
 RESULT PRESENTATION PLAN
 
-Research Question : ____________________
-Metrik Utama      : ____________________
+Research Question : Apakah terdapat perbedaan skor System Usability Scale (SUS) yang signifikan antara alur transaksi belanja reguler dengan alur transaksi pada fitur Shopee Food bagi pengguna Generasi Z?
+Metrik Utama      : Skor System Usability Scale (SUS) dengan skala 0 - 100
 
-Tabel Hasil:
-| Skenario | Metrik 1 (mean ± std) | Metrik 2 (mean ± std) | n |
-|----------|----------------------|----------------------|---|
-|          |                      |                      |   |
+Tabel Hasil (Contoh dengan Data Simulasi):
+| Skenario        | Skor SUS (mean ± std) | Waktu Pengerjaan Skenario (mean ± std) | n |
+|-----------------|-----------------------|----------------------------------------|---|
+| Belanja Reguler | 76.5 ± 5.2            | 2.5 ± 0.8 menit                        | 30 |
+| Shopee Food     | 58.2 ± 8.4            | 4.8 ± 1.5 menit                        | 30 |
 
 Visualisasi yang Direncanakan:
 | # | Jenis Grafik | Pesan Utama | Metrik |
 |---|-------------|-------------|--------|
-| 1 |             |             |        |
-| 2 |             |             |        |
+| 1 | Box Plot                         | Distribusi sebaran skor SUS dan keberadaan nilai ekstrem/outlier                 | Skor SUS (0-100)            |
+| 2 | Bar Chart + Error Bar            | Perbandingan visual beda rata-rata kepuasan antara kedua alur                    | Rata-rata Skor SUS ± Std     |
+| 3 | User Journey Map / Peta Hambatan | Titik retensi spesifik di mana responden mengalami kebingungan (Friction points) | Frekuensi / Persentase Error |
 
 Bias Check:
-  [ ] Y-axis mulai dari 0 (atau dijustifikasi)
-  [ ] Error bar/CI ditampilkan
-  [ ] Semua data disertakan (tidak cherry-picked)
-  [ ] Tidak menggunakan 3D tanpa alasan
+  [x] Y-axis mulai dari 0 (Sumbu Y pada grafik SUS wajib dikunci pada rentang absolut 0 - 100)
+  [x] Error bar/CI ditampilkan (Untuk menunjukkan tingkat variabilitas data/standar deviasi responden)
+  [x] Semua data disertakan (30 data valid tidak ada yang di-cherry-pick)
+  [x] Tidak menggunakan 3D tanpa alasan (Desain grafik dibuat 2D minimalis dan akademis)
 ```
 
 ---
@@ -92,18 +94,16 @@ Bias Check:
 
 Buat tabel hasil eksperimen Anda (boleh dengan data simulasi jika belum punya data riil).
 
-| Skenario | Metrik 1 (mean ± std) | Metrik 2 (mean ± std) | n |
-|----------|----------------------|----------------------|---|
-| *Contoh: BERT-base* | *88.4 ± 1.2%* | *45.2 ± 3.1 min* | *10* |
-| | | | |
-| | | | |
+| Skenario               | Metrik 1 (mean ± std)  | Metrik 2 (mean ± std) |  n  |
+|------------------------|==----------------------|------------=----------|-===--|
+| *Alur Belanja Reguler* | *76.5 ± 5.2 (Grade B)* | *2.5 ± 0.8 menit*     | *30* |
+| *Alur Belanja Reguler* | *58.2 ± 8.4 (Grade D)* | *4.8 ± 1.5 menit*     | *30* |
 
 **Checklist tabel:**
-- [ ] Self-contained (judul jelas, satuan ada, N tercantum)
-- [ ] Mean ± std (bukan single number)
-- [ ] Diurutkan berdasarkan metrik utama
-- [ ] Format konsisten di semua baris
-
+- [x] Self-contained (Judul dan unit ukuran seperti 'menit' sudah jelas, sampel N=30 tercantum).
+- [x] Mean ± std (Menyajikan rata-rata dan standar deviasinya, bukan single number).
+- [x] Diurutkan berdasarkan metrik utama (Diurutkan dari skenario baseline menuju skenario perlakuan).
+- [x] Format konsisten di semua baris.
 ---
 
 ## Latihan 2 — Rencana Visualisasi
@@ -112,9 +112,9 @@ Rencanakan 2-3 grafik untuk menyajikan data dari Latihan 1. Setiap grafik = satu
 
 | # | Jenis Grafik | Pesan | Data yang Digunakan |
 |---|-------------|-------|---------------------|
-| 1 | *Contoh: Bar chart + error bar* | *Perbandingan accuracy antar 3 model* | *Mean accuracy ± std* |
-| 2 | *Box plot* | *Distribusi F1 per model* | *Semua run F1* |
-| 3 | *Scatter plot* | *Trade-off accuracy vs training time* | *Mean accuracy vs mean time* |
+| 1 | *Bar chart + Error bar*          | *Membuktikan bahwa terdapat penurunan signifikan skor SUS pada Shopee Food dibandingkan alur reguler.*                                        | *Mean Skor SUS ± Standard Deviation dari kedua skenario.* |
+| 2 | *Box plot*                       | *Memperlihatkan distribusi jawaban kelompok Gen Z, melihat apakah datanya memusat atau tersebar jauh karena kebingungan yang bervariasi.* | *Semua run F1*                                            |
+| 3 | *Peta Visual (User Journey Map)* | *Memetakan di bagian mana (misal: halaman asuransi atau klaim voucher) dark patterns paling mendegradasi efisiensi pengguna.* | *Data kualitatif opsional dan metrik waktu di halaman spesifik.* |
 
 ---
 
@@ -126,14 +126,14 @@ Evaluasi visualisasi berikut untuk bias (skenario dari contoh):
 
 | Pertanyaan | Jawaban |
 |-----------|---------|
-| Apakah Y-axis menyesatkan? | *Contoh: Ya — A terlihat 2× B padahal beda 0.4%* |
-| Apakah error bar ditampilkan? | |
-| Apakah semua kondisi ditampilkan? | |
-| Apa solusinya? | |
+| Apakah Y-axis menyesatkan?        | *Ya — Y-axis yang dipotong (Truncated axis) membuat perbedaan 0.4% terlihat seperti selisih yang sangat masif, sehingga manipulatif.* |
+| Apakah error bar ditampilkan?     | *Tidak — Tidak ada error bar sehingga kita tidak tahu variabilitas (standard deviation) datanya. Jangan-jangan 0.4% itu tidak signifikan sama sekali.* |
+| Apakah semua kondisi ditampilkan? | *Ya, namun disajikan secara tidak proporsional dan tidak menggambarkan batas nilai absolut.* |
+| Apa solusinya?                    | *Mulai sumbu Y dari angka 0, gunakan Y-axis skala penuh (0-100%), dan tambahkan Error Bar/Confidence Interval pada setiap batang.* |
 
 **Evaluasi grafik Anda sendiri dari Latihan 2:**
-- [ ] Semua bias check lulus
-- [ ] Ada yang perlu diperbaiki: ____
+- [x] Semua bias check lulus (Sumbu Y untuk skor SUS akan di-set ketat dari 0 hingga 100 agar representatif).
+- [ ] Ada yang perlu diperbaiki: -
 
 ---
 
@@ -141,5 +141,7 @@ Evaluasi visualisasi berikut untuk bias (skenario dari contoh):
 
 > Mengapa tabel dan grafik keduanya diperlukan — tidak cukup salah satu saja? Pernahkah Anda membuat grafik yang (tanpa sengaja) menyesatkan?
 
-> ___________________________________________________
+> Keduanya sangat diperlukan karena memiliki fungsi psikologis dsn analitis yang berbeda. Tabel diperlukan untuk validasi presisi (pembaca bisa melihat angka persis rata-rata dan standar deviasi hingga desimal tertentu untuk dihitung ulang). Sementara itu, Grafik/Visualisasi diperlukan untuk pengenalan pola (pattern recognition) secara instan; otak manusia jauh lebih cepat memproses "grafik Shopee Food terlihat anjlok/menurun" daripada harus membandingkan deretan angka di tabel.
+
+Pengalaman: Saya mungkin pernah (tanpa sengaja) membuat grafik garis (line chart) di Excel di mana sumbu Y-nya otomatis menyesuaikan angka terendah (tidak mulai dari 0). Akibatnya, perbedaan data yang sebenarnya sangat tipis terlihat seperti penurunan tajam/drastis, yang berpotensi membiaskan kesimpulan orang yang membacanya. Kesalahan default setting software ini sering kali menjadi jebakan bias visualisasi.
 > ___________________________________________________
