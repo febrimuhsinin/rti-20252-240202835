@@ -66,28 +66,28 @@ Jika gagal di langkah awal → tidak perlu lanjut.
 DATA VALIDATION CHECKLIST
 
 Completeness:
-  [ ] Semua skenario tercakup
-  [ ] Jumlah run sesuai rencana
-  [ ] Tidak ada file output hilang
-  Missing: ____ dari ____ data points
+  [x] Semua skenario tercakup (Rute Form A dan Form B sudah terdistribusi)
+  [x] Jumlah run sesuai rencana (Total N=30 partisipan yang valid)
+  [x] Tidak ada file output hilang (Semua data masuk ke Google Sheets)
+  Missing: 0 dari 30 data points (setelah dilakukan rekrutmen pengganti untuk data yang cacat)
 
 Format Consistency:
-  [ ] Semua file format sama (CSV/JSON/...)
-  [ ] Header konsisten
-  [ ] Tipe data konsisten (numerik tetap numerik)
+  [x] Semua file format sama (Diekspor ke CSV dari Google Sheets)
+  [x] Header konsisten (Timestamp, Usia, Skor SUS 1, Skor SUS 2)
+  [x] Tipe data konsisten (Jawaban skala Likert 1-5 semuanya berupa angka numerik, bukan teks)
 
 Range & Logic:
-  [ ] Nilai dalam range masuk akal
-  [ ] Tidak ada waktu negatif
-  [ ] Metrik 0–100%, tidak di luar range
-  Anomali ditemukan: ____________________
+  [x] Nilai dalam range masuk akal (Jawaban Likert 1-5, Total Skor SUS absolut 0 - 100)
+  [x] Tidak ada waktu negatif (Timestamp pengiriman berurutan logis)
+  [x] Metrik 0–100%, tidak di luar range (Tidak ada skor SUS > 100 atau < 0)
+  Anomali ditemukan: Terdeteksi 1 responden yang mengisi "Sangat Setuju (5)" untuk semua pernyataan positif dan negatif (Straight-lining).
 
 Cross-Validation:
-  [ ] Run identik → hasil mendekati
-  [ ] Trend konsisten dengan ekspektasi teori
+  [x] Run identik → hasil mendekati (Responden pada Form A dan Form B memiliki rata-rata demografi yang setara)
+  [x] Trend konsisten dengan ekspektasi teori (Alur dengan Dark Patterns cenderung memiliki waktu pengerjaan lebih lama)
 
 Keputusan:
-  [ ] Data siap analisis
+  [x] Data siap analisis (Setelah outlier dibuang dan diganti)
   [ ] Perlu cleaning
   [ ] Perlu re-run (skenario: ____)
 ```
@@ -96,47 +96,46 @@ Keputusan:
 
 ## Latihan 1 — Completeness Check
 
-Verifikasi apakah semua data yang direncanakan sudah terkumpul.
+Verifikasi apakah semua data yang direncanakan sudah terkumpul (Berdasarkan rancangan Counterbalancing).
 
 | Skenario | Run Direncanakan | Run Tercatat | Missing | Alasan |
 |----------|-----------------|-------------|---------|--------|
-| *Contoh: BERT, DS-1* | *10* | *10* | *0* | *—* |
-| *LSTM, DS-3* | *10* | *8* | *2* | *OOM pada run 7 & 9* |
-| | | | | |
-| | | | | |
+| *CForm A (Reguler -> Food)* | *15* | *16* | *0* | *1 data dihapus karena responden ternyata berusia > 25 tahun (melanggar Variabel Kontrol)* |
+| *Form B (Food -> Reguler)* | *15* | *14* | *1* | *1 partisipan tidak men-submit form sampai akhir (Dropout)* |
 
-**Total expected:** ____ | **Total actual:** ____ | **Missing:** ____
+
+**Total expected:** 30 partisipan | **Total actual:** 30 partisipan | **Missing:** 1 partisipan di Form B.
 
 **Keputusan untuk data missing:**
-> ___________________________________________________
+> Data responden Form A yang usianya >25 tahun didiskualifikasi karena melanggar batas demografi Gen Z (18-25 tahun). Untuk 1 data yang missing di Form B, peneliti akan menyebarkan kembali link Form B kepada 1 orang partisipan baru yang memenuhi syarat agar sampel seimbang (balance) kembali menjadi 15 vs 15 (Total N=30) untuk mematuhi asumsi Paired Sample T-Test.
 
 ---
 
 ## Latihan 2 — Anomaly Investigation
 
-Periksa data Anda untuk anomali. Gunakan metode IQR atau z-score.
+Periksa data Anda untuk anomali (Contoh menggunakan sampel data Skor SUS responden).
 
-**Dataset sampel (atau data Anda sendiri):**
+**Dataset sampel (Simulasi 5 Responden Form A - Skor SUS Sesi 1):**
 
 | Run | Accuracy (%) |
 |-----|-------------|
-| 1 | *91.2* |
-| 2 | *90.8* |
-| 3 | *91.5* |
-| 4 | *78.3* |
-| 5 | *91.0* |
+| 1 | *75.0* |
+| 2 | *72.5* |
+| 3 | *77.5* |
+| 4 | *77.5* |
+| 5 | *70.0* |
 
 **Deteksi outlier:**
-- Q1 = ____ | Q3 = ____ | IQR = ____
-- Batas bawah (Q1 - 1.5×IQR) = ____
-- Batas atas (Q3 + 1.5×IQR) = ____
-- Outlier terdeteksi: ____
+- Q1 = 70.0 | Q3 = 75.0 | IQR (Q3 - Q1) = 5.0
+- Batas bawah (Q1 - 1.5×IQR) = 70.0 - 7.5 = 62.5
+- Batas atas (Q3 + 1.5×IQR) = 75.0 + 7.5 = 82.5
+- Outlier terdeteksi: Run 4 (Skor 20.0 berada jauh di bawah batas 62.5)
 
 **Investigasi (untuk setiap outlier):**
 
 | Outlier | Nilai | Kemungkinan Penyebab | Keputusan |
 |---------|-------|---------------------|-----------|
-| *Run 4* | *78.3* | *Contoh: thermal throttling setelah 3 run berturut* | *Re-run dengan cooling interval* |
+| *Run 4* | *20.0* | *Speeding / Straight-lining: Responden mengisi kuesioner secara asal-asalan dalam waktu kurang dari 1 menit (hanya klik nilai "1" untuk semua pertanyaan tanpa membaca instruksi).* | *Diskualifikasi data responden ini (dihapus dari dataset) karena cacat reliabilitas, lalu rekrut responden pengganti.* |
 
 ---
 
@@ -144,12 +143,12 @@ Periksa data Anda untuk anomali. Gunakan metode IQR atau z-score.
 
 Buat laporan validasi ringkas untuk dataset eksperimen Anda.
 
-**1. Completeness:** ____% data terkumpul
-**2. Format:** [ ] Konsisten / [ ] Ada inkonsistensi: ____
-**3. Range check (anomali):** ____
-**4. Logic check:** [ ] Parameter sesuai plan / [ ] Ada ketidaksesuaian: ____
+**1. Completeness:** 100% data terkumpul (30 dari 30 data valid telah diamankan setelah proses rekrutmen pengganti).
+**2. Format:** [x] Konsisten / [ ] Ada inkonsistensi: Semua kolom jawaban Likert 1-5 sudah berupa integer numerik di spreadsheet (Excel).
+**3. Range check (anomali):** Skor akhir konversi SUS dipastikan berada absolut dalam rentang 0 hingga 100. Tidak ada nilai desimal yang cacat.
+**4. Logic check:** [x] Parameter sesuai plan / [ ] Ada ketidaksesuaian: Semua 30 responden secara logis mencentang konfirmasi berstatus Mahasiswa, Gen Z (18-25 tahun), dan memiliki jaringan stabil (lolos Screening Variable Control).
 
-**Kesimpulan:** [ ] Data siap analisis / [ ] Perlu tindakan: ____
+**Kesimpulan:** [x] Data siap analisis (diimpor ke IBM SPSS untuk diuji Shapiro-Wilk dan T-Test) / [ ] Perlu tindakan: ____
 
 ---
 
@@ -157,5 +156,9 @@ Buat laporan validasi ringkas untuk dataset eksperimen Anda.
 
 > Apa perbedaan antara "data yang benar" dan "data yang dipercaya"? Mengapa proses validasi formal diperlukan meskipun data dikumpulkan secara otomatis?
 
-> ___________________________________________________
+> "Data yang benar" (Correct Data) adalah data yang secara format komputer berhasil terekam tanpa error, misalnya Google Form sukses menyimpan 30 baris respons dalam file CSV tanpa ada bug atau data yang corrupt.
+
+Sebaliknya, "Data yang dipercaya" (Trusted Data) adalah data yang benar-benar merepresentasikan realitas psikologis dan perilaku asli responden sesuai batasan desain eksperimen. Misalnya, sistem mencatat skor SUS sebesar 20 (data "benar" karena berada dalam rentang 0-100), tetapi setelah divalidasi, ternyata responden mengisi form dalam 30 detik secara asal-asalan (speeding). Data ini tidak bisa "dipercaya" karena merusak validitas penelitian.
+
+Proses validasi formal sangat diperlukan karena pengumpulan otomatis (seperti Google Form) tidak memiliki insting analitis manusia untuk mendeteksi human error, responden yang malas membaca (bias), atau anomali kontekstual. Tanpa validasi, garbage in (data sampah yang masuk) akan menghasilkan garbage out (kesimpulan statistik yang menyesatkan).
 > ___________________________________________________
