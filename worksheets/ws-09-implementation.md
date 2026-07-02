@@ -94,7 +94,7 @@ Dependencies:
 Konfigurasi:
   Config file     : Template Kuesioner (Form A: Reguler->Food | Form B: Food->Reguler)
   Random seed     : Counterbalancing logic (Distribusi link Form A & B secara berselang-seling)
-  Hyperparameters : Batas inklusi responden = Gen Z (18-25 tahun), Mahasiswa, N=30.
+  Hyperparameters : Batas inklusi responden = Gen Z (18-25 tahun), Mahasiswa, N=36.
 
 Reproducibility Check:
   [x] Dependency terdokumentasi (Versi aplikasi Shopee dicatat sebelum pengujian)
@@ -127,7 +127,7 @@ Dokumentasikan environment untuk eksperimen Anda (boleh environment saat ini ata
 | *Google Forms*    | *Current Web Version*            | *Platform utama untuk eksekusi skenario (Task Scenario), kontrol screening responden, dan pengumpulan skor instrumen SUS.*                                                |
 | *IBM SPSS*        | *v26.0*                          | *Software pengolah statistik untuk menjalankan uji asumsi normalitas (Shapiro-Wilk) dan uji beda hipotesis (Paired Sample T-Test / Wilcoxon).*                     |
 | *Microsoft Excel* | *Office 365*                     | *Digunakan untuk tabulasi data mentah (raw data) Likert dan melakukan kalkulasi formula konversi skor SUS secara matematis.*                                         |
-| *Figma / Miro*    | *Current Web Version*            | *Tools desain yang digunakan untuk memvisualisasikan luaran penelitian, yaitu merancang User Journey Map (peta titik hambatan) dan prototipe Ethical UI Guidelines.* |
+| *Microsoft Word*  | *Office 365*                     | *Digunakan untuk menyusun draf laporan akhir dan dokumentasi naratif dari temuan kuantitatif secara terstruktur.* |
 
 ---
 
@@ -175,11 +175,11 @@ Tulis README minimum untuk eksperimen Anda (6 komponen wajib).
 ## 2. Installation
 > 1. Buat Form A (Skenario Reguler -> SUS 1 -> Skenario Food -> SUS 2).
 > 2. Duplikasi menjadi Form B (Skenario Food -> SUS 1 -> Skenario Reguler -> SUS 2).
-> 3. Tentukan 30 partisipan mahasiswa Gen Z.
+> 3. Tentukan 36 partisipan mahasiswa Gen Z.
 
 ## 3. Data
 > Sumber: Respons Google Sheets yang diekspor menjadi CSV.
-> Format: 30 baris (Responden), Kolom Skor SUS Sesi 1 dan Skor SUS Sesi 2.
+> Format: 36 baris (Responden), Kolom Skor SUS Sesi 1 dan Skor SUS Sesi 2.
 > Preprocessing: Data kualitatif disaring, data Likert dikonversi dengan rumus baku SUS (*2.5).
 
 ## 4. Execution

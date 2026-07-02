@@ -122,7 +122,7 @@ Evaluasi apakah desain eksperimen di Latihan 1 sudah fair.
 
 | Kriteria | Status | Detail |
 |----------|--------|--------|
-| *Dataset identik* | *✅* | *Responden yang menguji Skenario Reguler adalah orang yang persis sama dengan yang menguji Skenario Food (within-subjects N=30).* |
+| *Dataset identik* | *✅* | *Responden yang menguji Skenario Reguler adalah orang yang persis sama dengan yang menguji Skenario Food (within-subjects N=36).* |
 | *Preprocessing setara* | *✅* | *Responden diberikan jeda interval waktu 5 menit antar skenario untuk mencegah kejenuhan/kelelahan kognitif.* |
 | *Tuning effort setara* | *✅* | *Karena remote testing, environment dikunci via Form Screening awal (wajib centang internet stabil dan ruangan kondusif).* |
 | *Environment identik* | *✅* | *Menggunakan satu koneksi Wi-Fi publik yang sama untuk meminimalkan latency.* |

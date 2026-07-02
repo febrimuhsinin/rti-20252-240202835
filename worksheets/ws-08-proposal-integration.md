@@ -115,7 +115,7 @@ Kumpulkan hasil dari WS-02 sampai WS-07 menjadi satu ringkasan proposal.
 | Hipotesis | WS-04 | *H₁: Alur transaksi Shopee Food akan menghasilkan rata-rata skor SUS yang secara signifikan lebih rendah dibandingkan alur belanja reguler (Kondisi Baseline).* |
 | Variabel & Metrik | WS-05 | *IV = Jenis alur transaksi (Belanja Reguler vs. Shopee Food); DV = Tingkat kebergunaan subjektif; Metrik = Skor global System Usability Scale rentang 0–100.* |
 | Sistem | WS-06 | *Instrumen pengujian elektronik (Google Form) yang memuat screening kelayakan (CV), instruksi skenario tugas mandiri, dan matriks penghitung otomatis kuesioner SUS.* |
-| Desain Eksperimen | WS-07 | *Eksperimen komparatif kuantitatif Unmoderated Remote Testing dengan within-subjects design (N=30 Gen Z), menggunakan teknik counterbalancing (Form A & B), dan dianalisis menggunakan Paired Sample T-Test.* |
+| Desain Eksperimen | WS-07 | *Eksperimen komparatif kuantitatif Unmoderated Remote Testing dengan within-subjects design (N=36 Gen Z), menggunakan teknik counterbalancing (Form A & B), dan dianalisis menggunakan Paired Sample T-Test.* |
 
 ---
 
@@ -149,7 +149,7 @@ Evaluasi proposal mini menggunakan rubrik.
 | Kriteria | Skor (1-3) | Justifikasi |
 |----------|-----------|-------------|
 | Koherensi | *3* | *Seluruh 6 koneksi vertikal terhubung jelas. Argumen mengalir mulus dari fenomena dark patterns (Problem) menuju pengujian komparatif selisih SUS (Metode).* |
-| Specificity | *3* | *Semua variabel memiliki angka yang terdefinisi: SUS skala 0-100, sampel minimal N=30, Skala Likert 5 poin, Signifikansi (Alpha) 0.05.* |
+| Specificity | *3* | *Semua variabel memiliki angka yang terdefinisi: SUS skala 0-100, sampel minimal N=36, Skala Likert 5 poin, Signifikansi (Alpha) 0.05.* |
 | Feasibility | *3* | *Desain Unmoderated Remote Testing via Google Form sangat realistis diselesaikan dalam estimasi timeline 8 minggu operasional.* |
 | Rigor | *3* | *Baseline yang digunakan sangat kuat dan setara, yaitu alur belanja utama/reguler dari aplikasi Shopee itu sendiri (bukan membandingkan dengan aplikasi kompetitor yang berbeda UI-nya).* |
 

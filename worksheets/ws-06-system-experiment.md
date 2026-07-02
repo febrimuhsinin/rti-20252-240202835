@@ -97,7 +97,7 @@ Variable → Component Mapping:
 
 Experimental Setup:
   Input data     : 2 set panduan skenario tugas (Skenario Belanja Reguler vs Skenario Shopee Food).
-  Parameter      : Responden Generasi Z (N=30+), Pengalaman > 1 tahun, Mahasiswa aktif, Koneksi Internet Stabil.
+  Parameter      : Responden Generasi Z (N=36+), Pengalaman > 1 tahun, Mahasiswa aktif, Koneksi Internet Stabil.
   Output format  : Dataset Spreadsheet (Excel/CSV) berisi profil screening responden dan raw data Skor SUS.
 ```
 
@@ -144,16 +144,18 @@ Dalam konteks UX, ablation study dilakukan dengan melepas atau mematikan fitur s
 > **Panduan jumlah kondisi:** Untuk 3 komponen (A, B, C), kondisi minimal yang direkomendasikan:
 > Full + (-A) + (-B) + (-C) = **4 kondisi dasar**. Jika waktu memungkinkan, tambahkan kombinasi ganda: (-A,-B), (-A,-C), (-B,-C) = **7 kondisi**. Sesuaikan dengan *computational cost* dan tenggat waktu penelitian.
 
-| Kondisi | Komponen A | Komponen B | Komponen C | Hasil yang Diharapkan |
-|---------|-----------|-----------|-----------|----------------------|
-| Full | *✅ Standar* | *✅ Aktif* | *✅ Aktif* | *Skor SUS paling rendah (beban kognitif tertinggi).* |
-| – A | *❌ (Tanpa cari manual)* | *✅* | *✅* | *(Tidak relevan diuji karena pencarian adalah alur wajib).* |
-| – B | *✅* | *❌ (Antarmuka Bersih)* | *✅* | *Mengukur dampak manipulasi opsi centang asuransi terhadap SUS.* |
-| – C | *✅* | *❌* | *❌ (Tidak ada desakan waktu)* | *Baseline dengan skor SUS tinggi.* |
+| Kondisi | Alur Skenario | Hasil yang Diharapkan |
+|---------|---------------|----------------------|
+| Control | *✅ Alur Belanja Reguler* | *Skor SUS tinggi (baseline) karena partisipan sudah sangat terbiasa dengan alur utama ini.* |
+| Treatment | *✅ Alur Shopee Food* | *Skor SUS lebih rendah akibat kompleksitas navigasi tambahan pada sub-fitur.* |
+| – | *-* | *-* |
+| – | *-* | *-* |
 
-**Komponen mana yang diprediksi paling berkontribusi?** Komponen B (Pop-up Promosi).
+*(Catatan: Riset ini dikunci pada desain Uji Komparatif/Comparison, sehingga tabel dimodifikasi dari format standar Ablation).*
+
+**Komponen mana yang diprediksi paling berkontribusi?** Kompleksitas Navigasi (Information Overload).
 **Mengapa?**
-> Karena elemen manipulatif seperti asuransi yang tercentang otomatis (sneak into basket) memaksa pengguna untuk membatalkan sesuatu yang tidak mereka minta, hal ini secara drastis meningkatkan frustrasi dan menurunkan skor kelayakan/kepuasan pada instrumen SUS, meskipun alur teknis utamanya mudah digunakan.
+> Karena penambahan fitur baru seperti Shopee Food di dalam aplikasi yang sama seringkali menumpuk antarmuka secara berlebihan. Hal ini meningkatkan beban kognitif pengguna saat melakukan transisi dari kebiasaan belanja reguler menuju pemesanan makanan.
 
 ---
 
