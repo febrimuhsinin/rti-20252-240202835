@@ -159,4 +159,4 @@ PREPROCESSING SUMMARY
 > Banyak pemula yang secara otomatis menerapkan algoritma Min-Max Scaling atau Z-score Normalization pada semua kolom dataset di Python/SPSS hanya karena mengikuti kebiasaan atau tutorial, tanpa melihat konteks variabelnya.
 
 Risiko dari over-preprocessing ini, terutama pada riset UI/UX, adalah hilangnya makna kontekstual dari data. Jika nilai SUS sebesar "40" (yang secara universal berarti aplikasi tersebut sangat buruk/Not Acceptable)  dinormalisasi paksa menggunakan Z-score di dalam kelompok data yang semuanya bernilai rendah, angka tersebut bisa saja terdistorsi terlihat normal atau di tengah-tengah rentang. Distorsi ini akan menipu peneliti dsn menghasilkan kesimpulan akhir yang salah fatal terhadap usability aplikasi yang diuji. Karena itu, prinsip Minimal Distortion sangat penting dijaga.
-> ___________________________________________________
+
