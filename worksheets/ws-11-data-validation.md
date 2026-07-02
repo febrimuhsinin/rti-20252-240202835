@@ -67,9 +67,9 @@ DATA VALIDATION CHECKLIST
 
 Completeness:
   [x] Semua skenario tercakup (Rute Form A dan Form B sudah terdistribusi)
-  [x] Jumlah run sesuai rencana (Total N=30 partisipan yang valid)
+  [x] Jumlah run sesuai rencana (Total N=36 partisipan yang valid)
   [x] Tidak ada file output hilang (Semua data masuk ke Google Sheets)
-  Missing: 0 dari 30 data points (setelah dilakukan rekrutmen pengganti untuk data yang cacat)
+  Missing: 0 dari 36 data points (setelah dilakukan rekrutmen pengganti untuk data yang cacat)
 
 Format Consistency:
   [x] Semua file format sama (Diekspor ke CSV dari Google Sheets)
@@ -84,7 +84,7 @@ Range & Logic:
 
 Cross-Validation:
   [x] Run identik → hasil mendekati (Responden pada Form A dan Form B memiliki rata-rata demografi yang setara)
-  [x] Trend konsisten dengan ekspektasi teori (Alur dengan Dark Patterns cenderung memiliki waktu pengerjaan lebih lama)
+  [x] Trend konsisten dengan ekspektasi teori (Alur dengan kompleksitas navigasi ganda cenderung memiliki waktu pengerjaan lebih lama)
 
 Keputusan:
   [x] Data siap analisis (Setelah outlier dibuang dan diganti)
@@ -104,10 +104,10 @@ Verifikasi apakah semua data yang direncanakan sudah terkumpul (Berdasarkan ranc
 | *Form B (Food -> Reguler)* | *15* | *14* | *1* | *1 partisipan tidak men-submit form sampai akhir (Dropout)* |
 
 
-**Total expected:** 30 partisipan | **Total actual:** 30 partisipan | **Missing:** 1 partisipan di Form B.
+**Total expected:** 36 partisipan | **Total actual:** 36 partisipan | **Missing:** 1 partisipan di Form B.
 
 **Keputusan untuk data missing:**
-> Data responden Form A yang usianya >25 tahun didiskualifikasi karena melanggar batas demografi Gen Z (18-25 tahun). Untuk 1 data yang missing di Form B, peneliti akan menyebarkan kembali link Form B kepada 1 orang partisipan baru yang memenuhi syarat agar sampel seimbang (balance) kembali menjadi 15 vs 15 (Total N=30) untuk mematuhi asumsi Paired Sample T-Test.
+> Data responden Form A yang usianya >25 tahun didiskualifikasi karena melanggar batas demografi Gen Z (18-25 tahun). Untuk 1 data yang missing di Form B, peneliti akan menyebarkan kembali link Form B kepada 1 orang partisipan baru yang memenuhi syarat agar sampel seimbang (balance) kembali menjadi 18 vs 18 (Total N=36) untuk mematuhi asumsi Paired Sample T-Test.
 
 ---
 
@@ -143,10 +143,10 @@ Periksa data Anda untuk anomali (Contoh menggunakan sampel data Skor SUS respond
 
 Buat laporan validasi ringkas untuk dataset eksperimen Anda.
 
-**1. Completeness:** 100% data terkumpul (30 dari 30 data valid telah diamankan setelah proses rekrutmen pengganti).
+**1. Completeness:** 100% data terkumpul (36 dari 36 data valid telah diamankan setelah proses rekrutmen pengganti).
 **2. Format:** [x] Konsisten / [ ] Ada inkonsistensi: Semua kolom jawaban Likert 1-5 sudah berupa integer numerik di spreadsheet (Excel).
 **3. Range check (anomali):** Skor akhir konversi SUS dipastikan berada absolut dalam rentang 0 hingga 100. Tidak ada nilai desimal yang cacat.
-**4. Logic check:** [x] Parameter sesuai plan / [ ] Ada ketidaksesuaian: Semua 30 responden secara logis mencentang konfirmasi berstatus Mahasiswa, Gen Z (18-25 tahun), dan memiliki jaringan stabil (lolos Screening Variable Control).
+**4. Logic check:** [x] Parameter sesuai plan / [ ] Ada ketidaksesuaian: Semua 36 responden secara logis mencentang konfirmasi berstatus Mahasiswa, Gen Z (18-25 tahun), dan memiliki jaringan stabil (lolos Screening Variable Control).
 
 **Kesimpulan:** [x] Data siap analisis (diimpor ke IBM SPSS untuk diuji Shapiro-Wilk dan T-Test) / [ ] Perlu tindakan: ____
 
@@ -156,7 +156,7 @@ Buat laporan validasi ringkas untuk dataset eksperimen Anda.
 
 > Apa perbedaan antara "data yang benar" dan "data yang dipercaya"? Mengapa proses validasi formal diperlukan meskipun data dikumpulkan secara otomatis?
 
-> "Data yang benar" (Correct Data) adalah data yang secara format komputer berhasil terekam tanpa error, misalnya Google Form sukses menyimpan 30 baris respons dalam file CSV tanpa ada bug atau data yang corrupt.
+> "Data yang benar" (Correct Data) adalah data yang secara format komputer berhasil terekam tanpa error, misalnya Google Form sukses menyimpan 36 baris respons dalam file CSV tanpa ada bug atau data yang corrupt.
 
 Sebaliknya, "Data yang dipercaya" (Trusted Data) adalah data yang benar-benar merepresentasikan realitas psikologis dan perilaku asli responden sesuai batasan desain eksperimen. Misalnya, sistem mencatat skor SUS sebesar 20 (data "benar" karena berada dalam rentang 0-100), tetapi setelah divalidasi, ternyata responden mengisi form dalam 30 detik secara asal-asalan (speeding). Data ini tidak bisa "dipercaya" karena merusak validitas penelitian.
 

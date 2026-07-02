@@ -95,12 +95,12 @@ Bias Check:
 Buat tabel hasil eksperimen Anda (boleh dengan data simulasi jika belum punya data riil).
 
 | Skenario               | Metrik 1 (mean ± std)  | Metrik 2 (mean ± std) |  n  |
-|------------------------|==----------------------|------------=----------|-===--|
-| *Alur Belanja Reguler* | *76.5 ± 5.2 (Grade B)* | *2.5 ± 0.8 menit*     | *30* |
-| *Alur Belanja Reguler* | *58.2 ± 8.4 (Grade D)* | *4.8 ± 1.5 menit*     | *30* |
+|------------------------|------------------------|-----------------------|-----|
+| *Alur Belanja Reguler* | *77.85 ± 5.55 (Grade B)* | *2.5 ± 0.8 menit*     | *36* |
+| *Alur Shopee Food*     | *50.69 ± 5.99 (Grade F)* | *4.8 ± 1.5 menit*     | *36* |
 
 **Checklist tabel:**
-- [x] Self-contained (Judul dan unit ukuran seperti 'menit' sudah jelas, sampel N=30 tercantum).
+- [x] Self-contained (Judul dan unit ukuran seperti 'menit' sudah jelas, sampel N=36 tercantum).
 - [x] Mean ± std (Menyajikan rata-rata dan standar deviasinya, bukan single number).
 - [x] Diurutkan berdasarkan metrik utama (Diurutkan dari skenario baseline menuju skenario perlakuan).
 - [x] Format konsisten di semua baris.
@@ -114,7 +114,7 @@ Rencanakan 2-3 grafik untuk menyajikan data dari Latihan 1. Setiap grafik = satu
 |---|-------------|-------|---------------------|
 | 1 | *Bar chart + Error bar*          | *Membuktikan bahwa terdapat penurunan signifikan skor SUS pada Shopee Food dibandingkan alur reguler.*                                        | *Mean Skor SUS ± Standard Deviation dari kedua skenario.* |
 | 2 | *Box plot*                       | *Memperlihatkan distribusi jawaban kelompok Gen Z, melihat apakah datanya memusat atau tersebar jauh karena kebingungan yang bervariasi.* | *Semua run F1*                                            |
-| 3 | *Peta Visual (User Journey Map)* | *Memetakan di bagian mana (misal: halaman asuransi atau klaim voucher) dark patterns paling mendegradasi efisiensi pengguna.* | *Data kualitatif opsional dan metrik waktu di halaman spesifik.* |
+| 3 | *Peta Visual (User Journey Map)* | *Memetakan di bagian mana kompleksitas antarmuka paling mendegradasi efisiensi pengguna saat bertransisi ke fitur Shopee Food.* | *Data kualitatif opsional dan metrik waktu di halaman spesifik.* |
 
 ---
 

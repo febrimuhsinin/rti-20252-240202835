@@ -90,7 +90,7 @@ Leakage Check (Dalam konteks eksperimen UX):
   [x] Tidak ada kontaminasi antar skenario (Counterbalancing Form A & Form B sudah diterapkan untuk mencegah efek pembelajaran / Order Bias).
   [x] Transformasi data Likert dilakukan secara terpisah dsn independen untuk tiap sesi (Sesi Reguler vs Sesi Food).
 
-Jumlah data akhir : 30 Responden Valid 
+Jumlah data akhir : 36 Responden Valid 
 Script tersedia   : [x] Ya → path: Template_Kalkulator_SUS.xlsx | [ ] Belum
 ```
 
@@ -106,7 +106,7 @@ Periksa dataset Anda (atau simulasi dataset jika sedang mengambil data) dan doku
 | *Straight-lining / Speeding (Mengisi asal-asalan)* | *1 (dari 32)* | *Hapus dari dataset (Listwise deletion)* | *Menjawab nilai "5" untuk semua pertanyaan ganjil dsn genap, memicu anomali logika karena pertanyaan SUS bersifat selang-seling (positif/negatif).* |
 
 **Jumlah data sebelum cleaning:** 32 partisipan
-**Jumlah data setelah cleaning:** 30 partisipan Persentase data yang hilang/berubah: 6.25% (Data dibuang dan diganti dengan responden baru agar target minimal N=30 terpenuhi).
+**Jumlah data setelah cleaning:** 36 partisipan Persentase data yang hilang/berubah: 5.26% (Data dibuang dan diganti dengan responden baru agar target minimal N=36 terpenuhi).
 **Persentase data yang hilang/berubah:** ____%
 
 ---
@@ -139,14 +139,14 @@ Buat ringkasan preprocessing lengkap — dokumentasi yang cukup bagi orang lain 
 PREPROCESSING SUMMARY
 
 1. Dataset: Respons Google Form Eksperimen Shopee (Reguler vs Food)
-2. Data awal: 32 records responden, 20 features (10 Pertanyaan SUS x 2 Skenario)
+2. Data awal: 38 records responden, 20 features (10 Pertanyaan SUS x 2 Skenario)
 3. Cleaning:
    - Missing values: 0 kasus, metode: Tidak ada (karena required field di form)
    - Duplikat: 0 kasus, tindakan: Verifikasi nama/identitas unik
    - Error (Outlier Kontrol): 2 kasus (1 di luar rentang usia, 1 mengisi asal-asalan), tindakan: Listwise deletion (dihapus).
 4. Transformation: Konversi jawaban ordinal Likert (1-5) menjadi rasio Skor SUS menggunakan formula konvensional baku [(X-1) untuk ganjil, (5-Y) untuk genap, Total dikali 2.5].
 5. Normalisasi: Tidak diterapkan (metode scaling dibiarkan raw), parameter range dikunci pada 0-100.
-6. Data akhir: 30 records responden valid , 2 features utama (Skor SUS Reguler & Skor SUS Food).
+6. Data akhir: 36 records responden valid , 2 features utama (Skor SUS Reguler & Skor SUS Food).
 7. Leakage check: [x] Lulus (Tidak ada kebocoran perlakuan berkat skema counterbalancing)  / [ ] Ada masalah
 ```
 

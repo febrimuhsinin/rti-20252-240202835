@@ -71,11 +71,11 @@ EXECUTION PLAN
 | Responden | Skenario (Urutan) | Alat Uji | Parameter (Kriteria) | Status | Output File |
 |-----------|-------------------|----------|----------------------|--------|-------------|
 | R-01 s.d R-15 | Form A (Reguler -> Food) | Google Form A | Gen Z, Mahasiswa, Exp >1 thn | Planned | form_A_raw.csv |
-| R-16 s.d R-30 | Form B (Food -> Reguler) | Google Form B | Gen Z, Mahasiswa, Exp >1 thn | Planned | form_B_raw.csv |
+| R-19 s.d R-36 | Form B (Food -> Reguler) | Google Form B | Gen Z, Mahasiswa, Exp >1 thn | Planned | form_B_raw.csv |
 | ...   |          |      |           |        |       |             |
 
 Jumlah runs per skenario : 15 partisipan
-Total runs               : 30 partisipan
+Total runs               : 36 partisipan
 
 DATA LOG (per run):
   Run ID    : R-001 (Anonim)
@@ -96,12 +96,12 @@ Susun execution plan untuk eksperimen Anda. Tentukan skenario, jumlah run, dan s
 | Run # (Responden) | Skenario (Counterbalancing) | Seed (Tipe Form) | Parameter Kunci | Status |
 |-------|----------|------|----------------|--------|
 | *R-001 s/d R-015* | *Rute 1: Belanja Reguler -> Shopee Food* | *Form A* | *Mahasiswa Gen Z (18-25 thn), Sinyal Stabil* | *Planned* |
-| *R-016 s/d R-030* | *Rute 2: Shopee Food -> Belanja Reguler* | *Form B* | *Mahasiswa Gen Z (18-25 thn), Sinyal Stabil* | *Planned* |
+| *R-019 s/d R-036* | *Rute 2: Shopee Food -> Belanja Reguler* | *Form B* | *Mahasiswa Gen Z (18-25 thn), Sinyal Stabil* | *Planned* |
 
 
 **Total skenario:** 2 Rute (Form A & Form B)
 **Run per skenario:** 15 Partisipan
-**Total run keseluruhan:** 30 Partisipan
+**Total run keseluruhan:** 36 Partisipan
 
 ---
 
@@ -139,7 +139,7 @@ Rencanakan bagaimana menangani anomali. Untuk setiap jenis, tentukan langkah yan
 
 | Jenis Anomali | Contoh | Tindakan |
 |---------------|--------|----------|
-| Run gagal (Dropout)             | *Partisipan keluar di tengah jalan dan tidak men-submit kuesioner Sesi 2.* | *Abaikan data yang tidak lengkap, rekrut partisipan pengganti agar total N tetap 30.* |
+| Run gagal (Dropout)             | *Partisipan keluar di tengah jalan dan tidak men-submit kuesioner Sesi 2.* | *Abaikan data yang tidak lengkap, rekrut partisipan pengganti agar total N tetap 36.* |
 | Hasil ekstrem (Straight-lining) | *Partisipan menjawab nilai "5" untuk SEMUA pernyataan SUS (padahal SUS punya pertanyaan negatif yang seharusnya dibalik nilainya).* | *Karantina/Hapus data tersebut dari dataset analisis (Outlier Removal), dokumentasikan sebagai data cacat/bias, rekrut pengganti.* |
 | Waktu eksekusi anomali | *Durasi pengerjaan form sangat cepat (misal: di bawah 1 menit).* | *Investigasi kepalidan data. Jika terbukti mengisi secara asal (speeding), diskualifikasi responden tersebut.* |
 | Inkonsistensi dengan run lain | *Di tengah form, partisipan menuliskan umur 28 tahun.* | *Diskualifikasi otomatis karena melanggar variabel kontrol (Gen Z usia 18-25 tahun).* |
@@ -155,4 +155,4 @@ Rencanakan bagaimana menangani anomali. Untuk setiap jenis, tentukan langkah yan
 **Pengalaman sebelumnya:**
 > Sebelumnya, evaluasi antarmuka seringkali hanya ditanyakan kepada 2 atau 3 orang teman secara kasual tanpa instrumen terstandar. Risikonya, simpulan yang ditarik sangat bias, tidak mewakili populasi, dan tidak bisa diuji signifikansinya secara statistik. Jika 1 teman bilang aplikasinya "jelek", kita langsung menganggap aplikasinya gagal, padahal itu murni opini subjektif satu individu.
 **Yang akan dilakukan berbeda:**
-> Dengan menerapkan multiple runs yang melibatkan 30 partisipan dan menggunakan teknik counterbalancing secara ketat, kepercayaan terhadap hasil riset menjadi jauh lebih kuat. Data 30 responden akan membentuk distribusi normal yang memungkinkan dilakukannya Uji Paired Sample T-Test. Dengan demikian, klaim bahwa dark patterns menurunkan usability tidak lagi bersandar pada opini, melainkan pada pembuktian saintifik (P-Value) yang tidak bisa dibantah.
+> Dengan menerapkan multiple runs yang melibatkan 36 partisipan dan menggunakan teknik counterbalancing secara ketat, kepercayaan terhadap hasil riset menjadi jauh lebih kuat. Data 36 responden akan membentuk distribusi normal yang memungkinkan dilakukannya Uji Paired Sample T-Test. Dengan demikian, klaim bahwa kompleksitas fitur tambahan (seperti Shopee Food) menurunkan usability tidak lagi bersandar pada opini, melainkan pada pembuktian saintifik (P-Value) yang tidak bisa dibantah.
