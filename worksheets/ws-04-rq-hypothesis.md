@@ -75,7 +75,7 @@ Research Question:
   Variabel IV  : Jenis alur transaksi (Belanja Umum vs Shopee Food).
   Variabel DV  : Skor Usability (SUS Score).
   Metrik       : Skor SUS (skala 0–100).
-  Dataset      : Data primer dari 30+ responden (pengguna aktif Shopee).
+  Dataset      : Data primer dari 36+ responden (pengguna aktif Shopee).
   Baseline     : Skor SUS rata-rata aplikasi Shopee secara general (Lim et al., 2025).
 
 Quality Check RQ:

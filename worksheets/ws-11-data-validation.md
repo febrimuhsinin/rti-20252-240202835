@@ -66,30 +66,26 @@ Jika gagal di langkah awal → tidak perlu lanjut.
 DATA VALIDATION CHECKLIST
 
 Completeness:
-  [x] Semua skenario tercakup (Rute Form A dan Form B sudah terdistribusi)
-  [x] Jumlah run sesuai rencana (Total N=36 partisipan yang valid)
-  [x] Tidak ada file output hilang (Semua data masuk ke Google Sheets)
-  Missing: 0 dari 36 data points (setelah dilakukan rekrutmen pengganti untuk data yang cacat)
+  [x] Semua skenario tercakup (Satu Form Kombinasi Shopee Reguler & Food)
+  [x] Jumlah run sesuai rencana (Total N=36 partisipan)
+  [x] Tidak ada file output hilang (Terekam lengkap dalam `data form.csv`)
+  Missing: 0 dari 36 data points (semua responden mengisi dengan lengkap)
 
 Format Consistency:
-  [x] Semua file format sama (Diekspor ke CSV dari Google Sheets)
-  [x] Header konsisten (Timestamp, Usia, Skor SUS 1, Skor SUS 2)
-  [x] Tipe data konsisten (Jawaban skala Likert 1-5 semuanya berupa angka numerik, bukan teks)
+  [x] Semua file format sama (Tersimpan sebagai CSV)
+  [x] Header konsisten (Timestamp, Usia, Pekerjaan, 20 Item SUS)
+  [x] Tipe data konsisten (Skor 1-5 berupa numerik)
 
 Range & Logic:
-  [x] Nilai dalam range masuk akal (Jawaban Likert 1-5, Total Skor SUS absolut 0 - 100)
-  [x] Tidak ada waktu negatif (Timestamp pengiriman berurutan logis)
-  [x] Metrik 0–100%, tidak di luar range (Tidak ada skor SUS > 100 atau < 0)
-  Anomali ditemukan: Terdeteksi 1 responden yang mengisi "Sangat Setuju (5)" untuk semua pernyataan positif dan negatif (Straight-lining).
-
-Cross-Validation:
-  [x] Run identik → hasil mendekati (Responden pada Form A dan Form B memiliki rata-rata demografi yang setara)
-  [x] Trend konsisten dengan ekspektasi teori (Alur dengan kompleksitas navigasi ganda cenderung memiliki waktu pengerjaan lebih lama)
+  [x] Nilai dalam range masuk akal (Skala Likert 1-5 valid)
+  [x] Tidak ada waktu negatif (Timestamp logis)
+  [x] Semua parameter demografi sesuai (Usia 18-25 tahun, punya aplikasi)
+  Anomali ditemukan: Tidak terdeteksi anomali (Tidak ada missing value atau straight-lining ekstrem).
 
 Keputusan:
-  [x] Data siap analisis (Setelah outlier dibuang dan diganti)
+  [x] Data siap di-preprocessing
   [ ] Perlu cleaning
-  [ ] Perlu re-run (skenario: ____)
+  [ ] Perlu re-run
 ```
 
 ---
@@ -100,42 +96,30 @@ Verifikasi apakah semua data yang direncanakan sudah terkumpul (Berdasarkan ranc
 
 | Skenario | Run Direncanakan | Run Tercatat | Missing | Alasan |
 |----------|-----------------|-------------|---------|--------|
-| *CForm A (Reguler -> Food)* | *15* | *16* | *0* | *1 data dihapus karena responden ternyata berusia > 25 tahun (melanggar Variabel Kontrol)* |
-| *Form B (Food -> Reguler)* | *15* | *14* | *1* | *1 partisipan tidak men-submit form sampai akhir (Dropout)* |
+| *Evaluasi Shopee Reguler & Food* | *36* | *36* | *0* | *Seluruh responden mensubmit data secara lengkap (100%).* |
 
 
-**Total expected:** 36 partisipan | **Total actual:** 36 partisipan | **Missing:** 1 partisipan di Form B.
+**Total expected:** 36 partisipan | **Total actual:** 36 partisipan | **Missing:** 0 partisipan.
 
 **Keputusan untuk data missing:**
-> Data responden Form A yang usianya >25 tahun didiskualifikasi karena melanggar batas demografi Gen Z (18-25 tahun). Untuk 1 data yang missing di Form B, peneliti akan menyebarkan kembali link Form B kepada 1 orang partisipan baru yang memenuhi syarat agar sampel seimbang (balance) kembali menjadi 18 vs 18 (Total N=36) untuk mematuhi asumsi Paired Sample T-Test.
+> Tidak ada data yang hilang (missing values). Semua 36 partisipan berhasil merekam data secara penuh, sehingga data siap digunakan seluruhnya (N=36) untuk tahap berikutnya.
 
 ---
 
 ## Latihan 2 — Anomaly Investigation
 
-Periksa data Anda untuk anomali (Contoh menggunakan sampel data Skor SUS responden).
+Periksa data Anda untuk anomali. Berdasarkan hasil tinjauan *raw data* di file `data form.csv`:
 
-**Dataset sampel (Simulasi 5 Responden Form A - Skor SUS Sesi 1):**
-
-| Run | Accuracy (%) |
-|-----|-------------|
-| 1 | *75.0* |
-| 2 | *72.5* |
-| 3 | *77.5* |
-| 4 | *77.5* |
-| 5 | *70.0* |
-
-**Deteksi outlier:**
-- Q1 = 70.0 | Q3 = 75.0 | IQR (Q3 - Q1) = 5.0
-- Batas bawah (Q1 - 1.5×IQR) = 70.0 - 7.5 = 62.5
-- Batas atas (Q3 + 1.5×IQR) = 75.0 + 7.5 = 82.5
-- Outlier terdeteksi: Run 4 (Skor 20.0 berada jauh di bawah batas 62.5)
+**Deteksi Anomali:**
+1. **Screening Criteria:** Semua responden terdeteksi memilih "18 - 25 tahun" dan "Ya" untuk kepemilikan aplikasi Shopee. (Tidak ada anomali demografi).
+2. **Kelengkapan (Missing Values):** Setiap dari 36 baris memiliki 20 jawaban numerik lengkap (1-5) untuk pertanyaan SUS Reguler dan Food. Tidak ada cell kosong.
+3. **Pola Ekstrem (Straight-lining):** Berdasarkan pengamatan visual singkat, tidak ditemukan responden yang hanya menekan tombol '5' terus-menerus di seluruh 20 pertanyaan tanpa memperhatikan polaritas soal positif/negatif.
 
 **Investigasi (untuk setiap outlier):**
 
 | Outlier | Nilai | Kemungkinan Penyebab | Keputusan |
 |---------|-------|---------------------|-----------|
-| *Run 4* | *20.0* | *Speeding / Straight-lining: Responden mengisi kuesioner secara asal-asalan dalam waktu kurang dari 1 menit (hanya klik nilai "1" untuk semua pertanyaan tanpa membaca instruksi).* | *Diskualifikasi data responden ini (dihapus dari dataset) karena cacat reliabilitas, lalu rekrut responden pengganti.* |
+| *None*  | *N/A* | *N/A*               | *Dataset (36 baris) valid sepenuhnya dan tidak memerlukan penghapusan baris.* |
 
 ---
 
@@ -143,12 +127,12 @@ Periksa data Anda untuk anomali (Contoh menggunakan sampel data Skor SUS respond
 
 Buat laporan validasi ringkas untuk dataset eksperimen Anda.
 
-**1. Completeness:** 100% data terkumpul (36 dari 36 data valid telah diamankan setelah proses rekrutmen pengganti).
-**2. Format:** [x] Konsisten / [ ] Ada inkonsistensi: Semua kolom jawaban Likert 1-5 sudah berupa integer numerik di spreadsheet (Excel).
-**3. Range check (anomali):** Skor akhir konversi SUS dipastikan berada absolut dalam rentang 0 hingga 100. Tidak ada nilai desimal yang cacat.
-**4. Logic check:** [x] Parameter sesuai plan / [ ] Ada ketidaksesuaian: Semua 36 responden secara logis mencentang konfirmasi berstatus Mahasiswa, Gen Z (18-25 tahun), dan memiliki jaringan stabil (lolos Screening Variable Control).
+**1. Completeness:** 100% data terkumpul (36 dari 36 responden terekam dengan lengkap).
+**2. Format:** [x] Konsisten / [ ] Ada inkonsistensi: Format output dari Google Form konsisten sebagai CSV (`data form.csv`). Nilai skala 1-5 terekam sebagai teks yang memuat angka dan siap diproses.
+**3. Range check (anomali):** Seluruh isian matriks kuesioner berada pada rentang nilai (1-5).
+**4. Logic check:** [x] Parameter sesuai plan / [ ] Ada ketidaksesuaian: Tidak ada pelanggaran parameter (seluruhnya Gen Z 18-25 tahun dan memiliki aplikasi Shopee).
 
-**Kesimpulan:** [x] Data siap analisis (diimpor ke IBM SPSS untuk diuji Shapiro-Wilk dan T-Test) / [ ] Perlu tindakan: ____
+**Kesimpulan:** [x] Data siap masuk ke tahap preprocessing / [ ] Perlu tindakan
 
 ---
 

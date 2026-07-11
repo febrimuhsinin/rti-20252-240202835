@@ -68,11 +68,13 @@ RESULT PRESENTATION PLAN
 Research Question : Apakah terdapat perbedaan skor System Usability Scale (SUS) yang signifikan antara alur transaksi belanja reguler dengan alur transaksi pada fitur Shopee Food bagi pengguna Generasi Z?
 Metrik Utama      : Skor System Usability Scale (SUS) dengan skala 0 - 100
 
-Tabel Hasil (Contoh dengan Data Simulasi):
-| Skenario        | Skor SUS (mean ± std) | Waktu Pengerjaan Skenario (mean ± std) | n |
-|-----------------|-----------------------|----------------------------------------|---|
-| Belanja Reguler | 76.5 ± 5.2            | 2.5 ± 0.8 menit                        | 30 |
-| Shopee Food     | 58.2 ± 8.4            | 4.8 ± 1.5 menit                        | 30 |
+Tabel Hasil (Berdasarkan Data Riil N=36):
+| Skenario        | Skor SUS (mean ± std) | n |
+|-----------------|-----------------------|---|
+| Belanja Reguler | 60.56 ± 10.32         | 36 |
+| Shopee Food     | 48.26 ± 9.37          | 36 |
+
+*(Catatan: Pertanyaan ke-2 pada kuesioner Shopee Food terlewat saat pengumpulan data di Google Form. Nilai untuk item ini diimputasi dengan nilai netral (3) agar kalkulasi SUS tetap dapat dilakukan).* 
 
 Visualisasi yang Direncanakan:
 | # | Jenis Grafik | Pesan Utama | Metrik |
@@ -92,15 +94,17 @@ Bias Check:
 
 ## Latihan 1 — Tabel Hasil
 
-Buat tabel hasil eksperimen Anda (boleh dengan data simulasi jika belum punya data riil).
+Buat tabel hasil eksperimen Anda berdasarkan data riil yang telah diolah.
 
-| Skenario               | Metrik 1 (mean ± std)  | Metrik 2 (mean ± std) |  n  |
-|------------------------|------------------------|-----------------------|-----|
-| *Alur Belanja Reguler* | *77.85 ± 5.55 (Grade B)* | *2.5 ± 0.8 menit*     | *36* |
-| *Alur Shopee Food*     | *50.69 ± 5.99 (Grade F)* | *4.8 ± 1.5 menit*     | *36* |
+| Skenario               | Skor SUS (mean ± std)  |  n  |
+|------------------------|------------------------|-----|
+| *Alur Belanja Reguler* | *60.56 ± 10.32 (Marginal / Grade D)* | *36* |
+| *Alur Shopee Food*     | *48.26 ± 9.37 (Not Acceptable / Grade F)* | *36* |
+
+**Catatan Penting Data:** Terdapat *missing data* secara struktural di mana pertanyaan No.2 untuk Shopee Food tidak dimasukkan ke dalam Google Form. Kalkulasi di atas menggunakan asumsi nilai netral (3) untuk pertanyaan yang hilang tersebut.
 
 **Checklist tabel:**
-- [x] Self-contained (Judul dan unit ukuran seperti 'menit' sudah jelas, sampel N=36 tercantum).
+- [x] Self-contained (Tabel jelas menunjukkan perbandingan Skor SUS dan jumlah sampel N=36).
 - [x] Mean ± std (Menyajikan rata-rata dan standar deviasinya, bukan single number).
 - [x] Diurutkan berdasarkan metrik utama (Diurutkan dari skenario baseline menuju skenario perlakuan).
 - [x] Format konsisten di semua baris.

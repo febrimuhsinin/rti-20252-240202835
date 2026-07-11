@@ -101,7 +101,7 @@ Problem Statement (1 paragraf):
 
 Pilih satu topik di bidang TI yang diminati. Transformasikan melalui 5 tahap Problem Formation Model.
 
-**Topik awal:** Optimasi Rute Pengiriman Barang (Travelling Salesman Problem)
+**Topik awal:** Evaluasi Komparatif Usability pada Super-app E-Commerce (Shopee Reguler vs Shopee Food)
 
 | Tahap | Hasil |
 |-------|-------|

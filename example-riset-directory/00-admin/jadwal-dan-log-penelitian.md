@@ -16,18 +16,20 @@
 | 2 Jul 2026 | 18:45 - 20:23 | Pengumpulan Data | Menyebarkan kuesioner ke responden dan mengumpulkan data CSV `dummy_data_sus.csv` (Worksheet 12 - 13) |
 | 3 Jul 2026 | 16:11 - 17:03 | Revisi Instrumen | Penyesuaian kalimat pengantar kuesioner eksperimen Shopee Reguler vs Food (`form_kuisioner.md`) |
 | 4 Jul 2026 | 21:54 - 22:52 | Administrasi | Menyusun struktur log penelitian dan jadwal di direktori 00-admin |
-| *[Tanggal]* | *[Jam]* | Analisis Data | Menganalisis skor SUS menggunakan *script* Python untuk menghitung rata-rata dan signifikansi (Worksheet 14 - 15) |
-| *[Tanggal]* | *[Jam]* | Penulisan Laporan | Menyusun draft laporan akhir (manuskrip ilmiah) dan presentasi hasil penelitian (Worksheet 16) |
+| 11 Jul 2026 | 13:45 - 14:15 | Analisis Data | Menganalisis skor SUS data riil (N=36) menggunakan skrip Python (`analisis_sus.py`), menangani imputasi *missing values* Q2, dan mencatat uji signifikansi Paired T-Test (Worksheet 13 - 14) |
+| 11 Jul 2026 | 14:15 - 14:45 | Penulisan Laporan & Presentasi | Menyusun draf manuskrip ilmiah IMRAD dan kerangka presentasi / Defense UAS (Worksheet 15 - 16) |
 
 ## Status Saat Ini
 
-- **Tahap Perancangan & Persiapan:** Selesai. Kuesioner telah dibuat dan struktur data `dummy_data_sus.csv` telah dirancang.
-- **Tahap Analisis:** Dalam progres. Menunggu eksekusi skrip perhitungan SUS.
+- **Tahap Perancangan & Persiapan:** Selesai.
+- **Tahap Analisis Data:** Selesai. Laporan statistik terekspor secara otomatis (P-Value < 0.05, H1 Diterima).
+- **Tahap Manuskrip & Defense:** Selesai. Draft outline untuk laporan dan presentasi telah dikerjakan 100% di WS-15 & WS-16.
 
 ## Item Tindak Lanjut (Checklist)
 
 - [x] Finalisasi rancangan kuesioner Form A & Form B
-- [x] Preprocessing dan perancangan format dataset gabungan
-- [ ] Menjalankan script perhitungan nilai SUS (Shopee Reguler vs Shopee Food)
-- [ ] Membuat visualisasi/grafik perbandingan hasil pengujian
-- [ ] Menyusun draf manuskrip laporan akhir (Drafting Paper)
+- [x] Preprocessing data riil & Penanganan Anomali/Missing Data
+- [x] Menjalankan script perhitungan nilai SUS (Shopee Reguler vs Shopee Food)
+- [x] Uji Hipotesis (T-Test) menghasilkan perbedaan signifikan
+- [x] Menyusun draf manuskrip laporan akhir (WS-15)
+- [x] Menyusun kerangka presentasi & antisipasi Defense (WS-16)

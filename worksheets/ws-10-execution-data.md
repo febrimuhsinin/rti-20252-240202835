@@ -68,23 +68,19 @@ Run gagal/anomali tidak boleh dihapus tanpa dokumentasi. Bisa jadi:
 ```
 EXECUTION PLAN
 
-| Responden | Skenario (Urutan) | Alat Uji | Parameter (Kriteria) | Status | Output File |
-|-----------|-------------------|----------|----------------------|--------|-------------|
-| R-01 s.d R-15 | Form A (Reguler -> Food) | Google Form A | Gen Z, Mahasiswa, Exp >1 thn | Planned | form_A_raw.csv |
-| R-19 s.d R-36 | Form B (Food -> Reguler) | Google Form B | Gen Z, Mahasiswa, Exp >1 thn | Planned | form_B_raw.csv |
-| ...   |          |      |           |        |       |             |
+| Responden | Skenario | Alat Uji | Parameter (Kriteria) | Status | Output File |
+|-----------|----------|----------|----------------------|--------|-------------|
+| R-01 s.d R-36 | Evaluasi Shopee Reguler & Food | Google Form | Gen Z (18-25), Punya Aplikasi Shopee | Selesai (Terkumpul) | data form.csv |
 
-Jumlah runs per skenario : 15 partisipan
-Total runs               : 36 partisipan
+Total runs : 36 partisipan
 
 DATA LOG (per run):
-  Run ID    : R-001 (Anonim)
-  Timestamp : Waktu pengiriman (submit) form
-  Skenario  : Tipe Form (A atau B)
-  Input     : Profil Demografis & Kualifikasi Screening
-  Output    : Skor SUS Sesi 1 (0-100) dan Skor SUS Sesi 2 (0-100)
-  Anomali   : Catatan jika ada outlier (misal: isi jawaban nilai 5 semua)
-  Catatan   : Kelayakan data untuk diuji ke SPSS
+  Run ID    : R-001 s.d R-036 (diambil dari Nama)
+  Timestamp : 3 Juli 2026 - 11 Juli 2026
+  Input     : Profil Demografis (Usia, Status Pekerjaan) & Screening
+  Output    : 10 Item Kuesioner SUS Reguler (1-5) & 10 Item Kuesioner SUS Food (1-5)
+  Anomali   : (Akan dianalisis di tahap validasi data)
+  Catatan   : Data sudah terkumpul dalam satu file `data form.csv`
 ```
 
 ---
@@ -93,15 +89,13 @@ DATA LOG (per run):
 
 Susun execution plan untuk eksperimen Anda. Tentukan skenario, jumlah run, dan seed sebelum eksekusi.
 
-| Run # (Responden) | Skenario (Counterbalancing) | Seed (Tipe Form) | Parameter Kunci | Status |
+| Run # (Responden) | Skenario | Tipe Form | Parameter Kunci | Status |
 |-------|----------|------|----------------|--------|
-| *R-001 s/d R-015* | *Rute 1: Belanja Reguler -> Shopee Food* | *Form A* | *Mahasiswa Gen Z (18-25 thn), Sinyal Stabil* | *Planned* |
-| *R-019 s/d R-036* | *Rute 2: Shopee Food -> Belanja Reguler* | *Form B* | *Mahasiswa Gen Z (18-25 thn), Sinyal Stabil* | *Planned* |
+| *R-001 s/d R-036* | *Evaluasi Usability Reguler & Food* | *Google Form (Single/Combined)* | *Gen Z (18-25 thn), Punya Aplikasi* | *Selesai (Executed)* |
 
 
-**Total skenario:** 2 Rute (Form A & Form B)
-**Run per skenario:** 15 Partisipan
-**Total run keseluruhan:** 36 Partisipan
+**Total skenario:** 1 Rute Kuesioner
+**Total run keseluruhan:** 36 Partisipan terkumpul (sesuai data form.csv)
 
 ---
 
@@ -119,8 +113,8 @@ Desain format data log untuk eksperimen Anda. Tentukan field apa saja yang akan 
 **Konfigurasi:**
 | Field | Contoh |
 |-------|--------|
-| Tipe Rute (Seed)      | *Form A (Reguler -> Food)* |
-| Versi Aplikasi Shopee | *v3.25.1*                  |
+| Tipe Rute             | *Kuesioner Kombinasi Reguler & Food* |
+| Platform Pengujian    | *Mobile (Aplikasi Shopee)* |
 
 **Hasil:**
 | Metrik | Tipe Data | Range Valid |
@@ -129,7 +123,7 @@ Desain format data log untuk eksperimen Anda. Tentukan field apa saja yang akan 
 | *Skor SUS Shopee Food*     | *Integer / Float* | *0.0 – 100.0*       |
 | *Waktu Pengisian Form*     | *Time / Duration* | *> 3 Menit (Wajar)* |
 
-**Format output:** [x] CSV / [ ] JSON / [ ] Database / [ ] Lainnya: ____
+**Format output:** [x] CSV (`data form.csv`) / [ ] JSON / [ ] Database
 
 ---
 

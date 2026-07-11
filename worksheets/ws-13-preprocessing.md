@@ -72,14 +72,14 @@ Jumlah data awal  : 32 Responden (Data mentah sebelum disaring)
 Cleaning:
 | Masalah | Jumlah Kasus | Penanganan | Justifikasi |
 |---------|-------------|------------|-------------|
-| Missing | 0           | Dibiarkan                       | Semua pertanyaan di Google Form di-set "Wajib Isi" (Required) sehingga tidak ada data kosong. |
-| Duplikat| 0           | Pengecekan                      | Identifikasi via nama/email menunjukkan tidak ada responden yang mengisi dua kali. |
-| Error   | 2 Responden | Hapus baris (Listwise deletion) | 1 responden berusia 27 tahun (melanggar kontrol batas Gen Z 18-25 tahun). 1 responden terdeteksi straight-lining (menjawab skor 5 untuk semua item positif dsn negatif secara asal-asalan). |
+| Missing | 36 Kasus (Struktural) | Imputasi nilai Netral (3) | Pertanyaan No. 2 pada kuesioner Shopee Food tidak dimasukkan ke dalam Google Form. Nilai diimputasi dengan skor 3 agar formula SUS tetap valid (10 pertanyaan). |
+| Duplikat| 0           | Pengecekan                      | Identifikasi via nama menunjukkan tidak ada responden ganda. |
+| Error   | 0           | Tidak ada                       | Semua 36 responden masuk kriteria Gen Z dan tidak melakukan pengisian *straight-lining* ekstrem. |
 
 Transformation:
 | Transformasi | Variabel | Detail | Alasan |
 |-------------|----------|--------|--------|
-| Konversi Skor SUS | 10 Item Pernyataan Likert | Item Ganjil (X-1). Item Genap (5-Y). Total dikali 2,5. | Mengubah data ordinal (Likert 1-5) menjadi data interval (Skala absolut 0-100) sesuai aturan baku instrumen System Usability Scale. |
+| Konversi Skor SUS | Item Pernyataan Likert | Item Ganjil (X-1). Item Genap (5-Y). Total dikali 2,5. | Mengubah data ordinal (Likert 1-5) menjadi data interval (Skala absolut 0-100) sesuai standar baku System Usability Scale. Khusus Food Q2 menggunakan asumsi skor netral. |
 
 Normalization (Feature Scaling):
   Metode    : Tidak diterapkan (Tidak Perlu Scaling) 
@@ -91,7 +91,7 @@ Leakage Check (Dalam konteks eksperimen UX):
   [x] Transformasi data Likert dilakukan secara terpisah dsn independen untuk tiap sesi (Sesi Reguler vs Sesi Food).
 
 Jumlah data akhir : 36 Responden Valid 
-Script tersedia   : [x] Ya → path: Template_Kalkulator_SUS.xlsx | [ ] Belum
+Script tersedia   : [x] Ya → path: `process_real_corrected.py` | [ ] Belum
 ```
 
 ---
@@ -102,12 +102,11 @@ Periksa dataset Anda (atau simulasi dataset jika sedang mengambil data) dan doku
 
 | Masalah | Jumlah Kasus | Penanganan | Justifikasi |
 |---------|-------------|------------|-------------|
-| *Responden melanggar batas demografi*              | *1 (dari 32)* | *Hapus dari dataset (Listwise deletion)* | *Melanggar Variabel Kontrol (Harus Gen Z usia 18-25 tahun dsn Mahasiswa Aktif)* |
-| *Straight-lining / Speeding (Mengisi asal-asalan)* | *1 (dari 32)* | *Hapus dari dataset (Listwise deletion)* | *Menjawab nilai "5" untuk semua pertanyaan ganjil dsn genap, memicu anomali logika karena pertanyaan SUS bersifat selang-seling (positif/negatif).* |
+| *Missing Data Struktural (Shopee Food Q2 Hilang)* | *36 baris (Semua data)* | *Imputasi (Constant Imputation) = 3* | *Google Form luput menyertakan Q2 untuk bagian Shopee Food. Karena SUS butuh 10 skor absolut, Q2 diimputasi dengan nilai netral (3).* |
 
-**Jumlah data sebelum cleaning:** 32 partisipan
-**Jumlah data setelah cleaning:** 36 partisipan Persentase data yang hilang/berubah: 5.26% (Data dibuang dan diganti dengan responden baru agar target minimal N=36 terpenuhi).
-**Persentase data yang hilang/berubah:** ____%
+**Jumlah data sebelum cleaning:** 36 partisipan
+**Jumlah data setelah cleaning:** 36 partisipan (Data utuh, hanya diimputasi)
+**Persentase data yang diimputasi:** 5% (1 dari 20 pertanyaan per responden)
 
 ---
 
@@ -139,15 +138,15 @@ Buat ringkasan preprocessing lengkap — dokumentasi yang cukup bagi orang lain 
 PREPROCESSING SUMMARY
 
 1. Dataset: Respons Google Form Eksperimen Shopee (Reguler vs Food)
-2. Data awal: 38 records responden, 20 features (10 Pertanyaan SUS x 2 Skenario)
+2. Data awal: 36 records responden, 19 features SUS (10 Reguler + 9 Food)
 3. Cleaning:
-   - Missing values: 0 kasus, metode: Tidak ada (karena required field di form)
-   - Duplikat: 0 kasus, tindakan: Verifikasi nama/identitas unik
-   - Error (Outlier Kontrol): 2 kasus (1 di luar rentang usia, 1 mengisi asal-asalan), tindakan: Listwise deletion (dihapus).
-4. Transformation: Konversi jawaban ordinal Likert (1-5) menjadi rasio Skor SUS menggunakan formula konvensional baku [(X-1) untuk ganjil, (5-Y) untuk genap, Total dikali 2.5].
-5. Normalisasi: Tidak diterapkan (metode scaling dibiarkan raw), parameter range dikunci pada 0-100.
-6. Data akhir: 36 records responden valid , 2 features utama (Skor SUS Reguler & Skor SUS Food).
-7. Leakage check: [x] Lulus (Tidak ada kebocoran perlakuan berkat skema counterbalancing)  / [ ] Ada masalah
+   - Missing values: Q2 Shopee Food missing secara struktural untuk semua baris. Metode: *Constant Imputation* dengan skor netral (3).
+   - Duplikat: 0 kasus
+   - Error (Outlier Kontrol): 0 kasus (Semua responden Gen Z dan mengisi dengan wajar).
+4. Transformation: Konversi jawaban ordinal Likert (1-5) menjadi Skor SUS [(X-1) ganjil, (5-Y) genap, dikali 2.5] melalui *script* Python `process_real_corrected.py`.
+5. Normalisasi: Tidak diterapkan, parameter range dikunci absolut 0-100.
+6. Data akhir: 36 records valid, 2 features utama (Skor SUS Reguler & Skor SUS Food siap uji T-Test).
+7. Leakage check: [x] Lulus / [ ] Ada masalah
 ```
 
 ---

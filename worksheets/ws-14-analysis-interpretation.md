@@ -78,34 +78,34 @@ Hipotesis yang ditolak adalah **temuan yang berharga**:
 ANALYSIS & INTERPRETATION
 
 1. Statistik Deskriptif:
-   | Skenario | Mean | Std | Median | Min | Max | n |
-   |----------|------|-----|--------|-----|-----|---|
-   |          |      |     |        |     |     |   |
+   | Skenario | Mean | Std | n |
+   |----------|------|-----|---|
+   | Shopee Reguler | 60.56 | 10.32 | 36 |
+   | Shopee Food | 48.26 | 9.37 | 36 |
 
 2. Uji Hipotesis:
-   Uji yang digunakan  : ____________________
-   Justifikasi          : ____________________
-   Hasil: p = ____, effect size (d/r/η²) = ____
-   CI 95%               : [____, ____]
+   Uji yang digunakan  : Paired Sample T-Test
+   Justifikasi         : Membandingkan 2 grup berpasangan (responden yang sama mencoba kedua skenario) dengan distribusi yang diasumsikan normal.
+   Hasil               : p = 0.0000000076 (7.62e-09), T-Statistic = 7.5471
 
 3. Keputusan:
-   [ ] H₀ ditolak → H₁ diterima
+   [x] H₀ ditolak → H₁ diterima
    [ ] H₀ tidak ditolak
 
 4. Interpretasi:
-   Hubungan ke RQ       : ____________________
-   Practical significance: ____________________
-   Perbandingan literatur: ____________________
+   Hubungan ke RQ       : Terdapat perbedaan yang sangat signifikan pada tingkat usability antara alur Reguler dan Shopee Food.
+   Practical significance: Penurunan skor dari 60.56 ke 48.26 sangat drastis (beda >12 poin SUS), menandakan antarmuka Shopee Food sangat membingungkan.
+   Perbandingan literatur: Sesuai dengan teori *cognitive overload*, penambahan kompleksitas pada Super-App menurunkan kemudahan penggunaan.
 
 5. Limitation:
    | Jenis | Ancaman | Dampak | Mitigasi |
    |-------|---------|--------|----------|
-   |       |         |        |          |
+   | Structural Data Error | Kuesioner Shopee Food luput memasukkan Pertanyaan SUS ke-2 | Mengurangi presisi keakuratan skor riil untuk Shopee Food | Imputasi nilai konstan (3) digunakan agar SUS tetap bisa dikalkulasi |
 
 6. Failure Analysis (jika H₀ tidak ditolak):
-   Penyebab potensial  : ____________________
-   Boundary condition   : ____________________
-   Insight              : ____________________
+   Penyebab potensial  : N/A (H0 ditolak)
+   Boundary condition  : N/A
+   Insight             : N/A
 ```
 
 ---
@@ -116,13 +116,13 @@ Tentukan uji statistik yang tepat untuk eksperimen Anda.
 
 | Pertanyaan | Jawaban |
 |-----------|---------|
-| Berapa grup yang dibandingkan? | *Contoh: 3 (BERT, LSTM, SVM)* |
-| Apakah data berpasangan (paired)? | |
-| Apakah distribusi normal? (uji normalitas) | |
-| **Uji yang dipilih:** | |
-| **Justifikasi:** | |
+| Berapa grup yang dibandingkan? | *2 (Shopee Reguler vs Shopee Food)* |
+| Apakah data berpasangan (paired)? | *Ya (Within-subjects design)* |
+| Apakah distribusi normal? (uji normalitas) | *Diasumsikan normal (N=36, Central Limit Theorem)* |
+| **Uji yang dipilih:** | *Paired Sample T-Test* |
+| **Justifikasi:** | *Paling tepat untuk membandingkan 2 perlakuan pada 1 kelompok sampel (Repeated measures).* |
 
-**Effect size yang akan dilaporkan:** [ ] Cohen's d / [ ] Eta-squared / [ ] Lainnya: ____
+**Effect size yang akan dilaporkan:** [ ] Cohen's d / [ ] Eta-squared / [x] T-Statistic (7.54)
 
 ---
 
@@ -138,13 +138,13 @@ Gunakan data berikut (atau data riil Anda) untuk berlatih interpretasi.
 
 p = 0.045, Cohen's d = 0.74, CI 95% = [0.03, 2.77]
 
-| Aspek | Interpretasi |
+| Aspek | Interpretasi (Data Shopee Riil) |
 |-------|-------------|
-| Signifikansi statistik | *Contoh: p < 0.05 → signifikan pada α=0.05* |
-| Effect size | *Contoh: d=0.74 → medium-to-large effect* |
-| Practical significance | |
-| Hubungan ke RQ | |
-| Perbandingan literatur | |
+| Signifikansi statistik | *p = 7.62e-09 (Jauh lebih kecil dari 0.05) → Sangat Signifikan (H0 ditolak)* |
+| Effect size | *T-Stat = 7.54 → Perbedaan mean sangat besar dan bukan karena kebetulan.* |
+| Practical significance | *Skor 48.26 untuk Food berarti fitur ini butuh perombakan total (Not Acceptable).* |
+| Hubungan ke RQ | *Menjawab RQ: Ya, integrasi super-app terbukti menurunkan usability.* |
+| Perbandingan literatur | *Tumben dengan hukum Hick's Law: semakin banyak pilihan/fitur, user semakin lambat/bingung.* |
 
 ---
 
@@ -175,5 +175,6 @@ Latih kemampuan failure analysis: hipotesis TIDAK didukung. Apa yang bisa dipela
 
 > Apakah "failure" dalam riset benar-benar gagal, atau justru kontribusi? Bagaimana failure analysis mengubah cara Anda melihat hasil negatif?
 
-> ___________________________________________________
-> ___________________________________________________
+> Failure dalam riset bukanlah kegagalan, melainkan temuan tentang *boundary condition* (batas kemampuan). Dalam riset ini, hilangnya Pertanyaan No. 2 pada form kuesioner adalah bentuk 'kegagalan' administrasi, namun justru mengajarkan saya pentingnya *pilot testing* (uji coba kuesioner) sebelum disebar secara masif.
+> 
+> Selain itu, dari segi analisis, menemukan keburukan (skor buruk pada Shopee Food) adalah temuan yang sangat valid untuk direkomendasikan perbaikannya kepada perusahaan.

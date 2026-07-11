@@ -17,3 +17,11 @@ PROJECT-TRACKER.md
 .vscode/
 Thumbs.db
 .DS_Store
+
+# Data Simulasi & Skrip Analisis (Tugas Eksperimen SUS)
+generate_dummy.py
+analisis_sus.py
+dummy_data_sus.csv
+hasil_analisis_sus.md
+apa yang aku kerjakan hari ini.md
+form_kuisioner.md
