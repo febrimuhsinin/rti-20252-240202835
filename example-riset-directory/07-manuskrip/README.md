@@ -2,19 +2,21 @@
 
 Draf naskah ilmiah hasil akhir penelitian — disiapkan untuk target publikasi jurnal atau laporan UAS Metodologi Penelitian.
 
-## Naskah Konsolidasi
+## Naskah konsolidasi
 
-- **`naskah-jurnal.md`** — Naskah laporan komprehensif dalam satu file. Dokumen ini merangkum seluruh hasil evaluasi eksperimen System Usability Scale (SUS) antara Shopee Reguler dan Shopee Food, mengikuti struktur IMRaD (Introduction, Method, Result, and Discussion).
+- **`naskah-jurnal.md`** — naskah lengkap dalam satu file (termasuk Abstrak, Pendahuluan - Kesimpulan, dan Daftar Pustaka).
 
-## Struktur Naskah Jurnal
+## Struktur naskah per bagian (sumber/draf kerja)
 
-1. **ABSTRAK** (Rangkuman Latar Belakang, Metodologi *Within-Subjects*, dan Hasil P-Value)
-2. **PENDAHULUAN** (Latar Belakang *Super-app*, Rumusan Masalah, Tujuan)
-3. **TINJAUAN PUSTAKA** (Teori *Feature Bloat*, *Hick's Law*, dan Instrumen SUS)
-4. **METODOLOGI** (Eksperimen Kuantitatif, N=36 Gen Z, dan teknik Imputasi Anomali)
-5. **HASIL & PEMBAHASAN** (Statistik Deskriptif, Pembuktian *Paired T-Test*)
-6. **KESIMPULAN** (Rekomendasi bagi *Product Team*)
-7. **DAFTAR PUSTAKA** (8 Rujukan utama, termasuk *paper* 5 tahun terakhir)
+Sesuai dengan *template*, berikut adalah pecahan bab naskah jurnal agar lebih mudah direvisi per bagian:
+- [00-outline.md](00-outline.md) — outline dan daftar *bullet points* utama
+- [01-abstrak.md](01-abstrak.md) — Abstrak
+- [02-pendahuluan.md](02-pendahuluan.md) — Pendahuluan (latar belakang, rumusan masalah, tujuan)
+- [03-tinjauan-pustaka.md](03-tinjauan-pustaka.md) — Tinjauan Pustaka (*Super-app*, *Feature bloat*, SUS)
+- [04-metodologi.md](04-metodologi.md) — Metodologi (arsitektur eksperimen *within-subjects*, N=36, skema imputasi)
+- [05-hasil-analisis.md](05-hasil-analisis.md) — Hasil & Analisis (statistik deskriptif dan uji Paired T-Test)
+- [06-kesimpulan.md](06-kesimpulan.md) — Kesimpulan & Saran perombakan UX
+- [07-daftar-pustaka.md](07-daftar-pustaka.md) — Daftar Pustaka (8 referensi terkini)
 
-> **Catatan untuk Peneliti:**
-> File `naskah-jurnal.md` ini dapat langsung disalin (*copy-paste*) ke dalam *template* Microsoft Word resmi jurnal yang Anda tuju atau dokumen laporan Universitas Anda.
+> **Catatan:** 
+> Pecahan file di atas (`00` s/d `07`) dan file `naskah-jurnal.md` memuat konten laporan riset yang sama.
