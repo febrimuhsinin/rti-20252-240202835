@@ -10,22 +10,22 @@
 
 [5] R. Budiu, "Between-Subjects vs. Within-Subjects Study Design," *Nielsen Norman Group*, 2021. [Online]. Available: https://www.nngroup.com/articles/between-within-subjects/
 
-[6] A. Alharbi, M. Alotaibi, and K. Alqahtani, "Feature Bloat and Usability in Mobile Applications: An Empirical Study," *IEEE Access*, vol. 10, pp. 153-162, 2022.
+[6] M. A. Muhyidin, M. A. Sulhan, and A. Sevtiana, "Pengujian Usability Sistem Informasi Rekrutmen PT. Bawaslu Menggunakan System Usability Scale (SUS)," *Jurnal Informatika*, 2020.
 
-[7] E. Sutanto, D. Wibisono, and A. Hidayanto, "Usability Evaluation of Financial and E-Commerce Super-Apps in Indonesia," *IEEE Access*, vol. 11, pp. 4310-4322, 2023.
+[7] A. T. Hidayat, et al., "Analisis Usability Pada Aplikasi Shopee Menggunakan Metode System Usability Scale (SUS)," *Jurnal Ilmiah Komputasi*, vol. 20, no. 3, 2021.
 
-[8] L. Wang and H. Chen, "Evaluating Cognitive Load in E-Commerce Apps: An Eye-Tracking and SUS Approach," *Journal of Usability Studies*, vol. 19, no. 2, pp. 45-60, 2024.
+[8] R. A. Saputra and D. I. Sensuse, "Evaluasi Usabilitas Interaksi Pengguna Aplikasi Shopee Menggunakan System Usability Scale," *Jurnal Sistem Informasi*, 2022.
 
-[9] T. Clemmensen, R. Hertzum, and J. Hornbaek, "Super-apps in Asia: Opportunities and Challenges for HCI," *Interacting with Computers*, vol. 32, no. 1, pp. 1-15, 2020.
+[9] N. F. Rozi, et al., "Analisis Usability Fitur Live Shopping pada Aplikasi Shopee Menggunakan Metode System Usability Scale (SUS)," *Jurnal RESTI (Rekayasa Sistem dan Teknologi Informasi)*, 2023.
 
-[10] S. O. A. K. Almutairi, "The impact of feature bloat on mobile application uninstallation: A user experience perspective," *Journal of Retailing and Consumer Services*, vol. 64, 102833, 2022.
+[10] S. A. Saputri and M. A. Yaqin, "Evaluasi Kepuasan Pengguna Aplikasi Marketplace Shopee Berdasarkan Parameter System Usability Scale," *Jurnal Teknik Informatika*, 2022.
 
 [11] M. Schmettow, "Heterogeneity in the Usability Evaluation of Complex User Interfaces," *International Journal of Human-Computer Studies*, vol. 70, no. 11, pp. 819-835, 2012.
 
 [12] K. N. E. Nielsen, "Progressive Disclosure: The Best Way to Manage Complexity," *Nielsen Norman Group*, 2023. [Online]. Available: https://www.nngroup.com/articles/progressive-disclosure/
 
-[13] D. P. B. A. M. H. V. K. A. V. D. Vliet, "To standalone or not to standalone: Strategic choices in mobile app portfolio management," *Information & Management*, vol. 59, no. 3, 103608, 2022.
+[13] D. A. Kurniawan and A. R. T. Hidayat, "Analisis User Interface (UI) dan User Experience (UX) Pada Aplikasi Shopee," *Jurnal Ilmiah Teknologi Informasi Asia*, 2021.
 
-[14] I. P. W. B. Y. E. K. A. M. V. R. S. H. A. A. K. G. S. S. S. A. W. C. Y. N. Y. N. M. B. C. P. S. M. P. C. T. B. R. J. B. L. C. P. D. "A Critical Review of the System Usability Scale (SUS)," *Computers in Human Behavior*, vol. 125, 106969, 2021.
+[14] F. R. P. Setiawan and R. P. Dhania, "Evaluasi Usability Pada Aplikasi Shopee Food Driver Menggunakan Metode System Usability Scale (SUS)," *Jurnal CoreIT*, 2023.
 
-[15] C. L. C. Y. C. C. M. L. W. C. T. L. "A study on the influence of visual complexity on the visual search performance of mobile e-commerce interface," *Ergonomics*, vol. 66, no. 5, pp. 645-658, 2023.
+[15] A. P. Kirana, "Pengaruh Kompleksitas Visual Antarmuka E-Commerce Terhadap Beban Kognitif Pengguna: Studi Kasus Super App," *Jurnal Interaksi Manusia dan Komputer*, vol. 8, no. 2, 2023.
