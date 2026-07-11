@@ -1,7 +1,13 @@
 ## 1. PENDAHULUAN
 
-Dalam ekosistem digital modern, perusahaan teknologi berlomba-lomba mengubah aplikasi berfitur tunggal menjadi *super-app*. Di kawasan Asia Tenggara, Shopee—yang awalnya murni sebagai e-commerce fisik—telah berekspansi mengintegrasikan dompet digital, *mini-games*, hingga layanan pesan-antar makanan (Shopee Food) ke dalam satu wadah aplikasi.
+### 1.1 Latar Belakang
+Dalam ekosistem digital modern, perusahaan teknologi berlomba-lomba mengubah aplikasi berfitur tunggal menjadi *super-app*. Di kawasan Asia Tenggara, Shopee—yang awalnya murni sebagai platform e-commerce—telah berekspansi mengintegrasikan dompet digital, *mini-games*, hingga layanan pesan-antar makanan (Shopee Food) ke dalam satu antarmuka aplikasi. Meskipun strategi bisnis ini diklaim mampu menjaga retensi pengguna (Clemmensen et al., 2020), penggabungan fitur dalam jumlah besar berisiko tinggi memicu *feature bloat*.
 
-Meskipun strategi bisnis ini diklaim mampu menjaga retensi pengguna (Clemmensen et al., 2020), penggabungan fitur dalam jumlah besar berisiko tinggi memicu *feature bloat*. Menurut Teori Beban Kognitif (Sweller, 1988), kapasitas memori kerja manusia sangat terbatas. Apabila pengguna disuguhi antarmuka yang penuh sesak oleh beragam ikon dan menu yang tidak relevan dengan niat utamanya, mereka akan mengalami *Extraneous Cognitive Load*. 
+### 1.2 Rumusan Masalah
+Berdasarkan fenomena tersebut, permasalahan utama dalam penelitian ini adalah: Apakah integrasi layanan sekunder (Shopee Food) ke dalam aplikasi utama (Shopee) memicu penurunan tingkat kegunaan (*usability*) secara signifikan dibandingkan dengan pengalaman berbelanja reguler?
 
-Oleh karena itu, penelitian ini bertujuan menguji secara objektif: Apakah pengguna benar-benar merasakan kesulitan yang signifikan saat menggunakan fitur sekunder (Shopee Food) di dalam *super-app* Shopee, jika dibandingkan dengan kemudahan fitur utamanya (Shopee Reguler)? Penelitian kuantitatif ini diharapkan dapat menjadi rujukan evaluasi desain antarmuka bagi pengembang produk *Super-App*.
+### 1.3 Tujuan
+Penelitian ini bertujuan untuk mengevaluasi dan membandingkan secara kuantitatif skor *usability* antara alur layanan Shopee Reguler dan Shopee Food menggunakan instrumen *System Usability Scale* (SUS) guna membuktikan adanya indikasi *cognitive overload*.
+
+### 1.4 Kontribusi
+Penelitian ini memberikan kontribusi empiris terhadap literatur *Human-Computer Interaction* (HCI) dengan mendemonstrasikan secara kuantitatif dampak negatif dari fenomena *super-app feature bloat* pada demografi pengguna Generasi Z. Temuan ini dapat diimplementasikan sebagai rujukan mitigasi dan evaluasi desain arsitektur informasi bagi pengembang antarmuka *e-commerce* berskala besar.

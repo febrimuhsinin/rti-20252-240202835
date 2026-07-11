@@ -1,32 +1,20 @@
-# Outline Naskah Jurnal
+# 00 Outline
 
-**Judul:** Evaluasi Dampak Usability Integrasi Layanan Pesan-Antar Makanan pada Super-App E-Commerce: Studi Kasus Shopee Reguler dan Shopee Food
-**Penulis:** Febri Muhsinin (240202835)
+## Peta Sumber
+- **Data:** `04-data/data_form.csv` (N=36 partisipan Gen-Z).
+- **Analisis:** `05-kode/analisis_sus.py` (Paired T-Test).
+- **Output:** `06-output/hasil_analisis_sus.md`.
+- **Literatur:** `02-literatur/matriks-literatur.md`.
 
-## 1. Abstrak
-- Latar belakang transisi super-app dan risiko *cognitive overload*.
-- Penggunaan instrumen SUS dengan desain *within-subjects*.
-- Temuan P-Value 7.62e-09 yang signifikan, skor Reguler 60.56 vs Food 48.26.
+## Daftar Klaim Kunci (Key Claims)
+1. Integrasi layanan sekunder (Shopee Food) ke dalam aplikasi utama (Shopee Reguler) menurunkan *usability* secara drastis.
+2. Terdapat perbedaan signifikan secara statistik (*P-Value* < 0.05) antara skor SUS Shopee Reguler dan Shopee Food.
+3. Fenomena *feature bloat* dalam konsep *super-app* relevan dengan *Extraneous Cognitive Load* dan *Hick's Law*.
 
-## 2. Pendahuluan
-- Tren super-app di Asia Tenggara (studi kasus Shopee).
-- Bahaya penjejalan fitur (*feature bloat*).
-- Hipotesis bahwa fitur turunan (Shopee Food) lebih sulit digunakan dibanding alur reguler.
-
-## 3. Tinjauan Pustaka
-- Teori Hick's Law dan Cognitive Load.
-- Evaluasi instrumen System Usability Scale (SUS).
-
-## 4. Metodologi
-- Eksperimen kuantitatif (36 partisipan Gen-Z).
-- Instrumen Google Form.
-- *Constant Imputation* untuk data anomali Q2 Shopee Food yang hilang.
-
-## 5. Hasil & Pembahasan
-- Hasil statistik deskriptif SUS.
-- Hasil Paired Sample T-Test.
-- Interpretasi penolakan H0 dan beban kognitif berlebih.
-
-## 6. Kesimpulan
-- Kesimpulan penurunan *usability*.
-- Rekomendasi redesign untuk tim produk e-commerce.
+## Outline Naskah
+1. **Abstrak (ID & EN)**
+2. **Pendahuluan:** Latar Belakang, Rumusan Masalah, Tujuan, Kontribusi.
+3. **Tinjauan Pustaka:** Feature Bloat, Hick's Law, SUS, Related Work.
+4. **Metodologi:** Eksperimen Within-Subjects, Kriteria Partisipan, Skema Pengujian, Penanganan Data Hilang.
+5. **Hasil & Analisis:** Statistik Deskriptif SUS, Uji Paired T-Test, Pembahasan Beban Kognitif.
+6. **Kesimpulan:** Ringkasan temuan dan Saran Penelitian Lanjutan.

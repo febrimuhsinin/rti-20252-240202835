@@ -1,4 +1,11 @@
-## ABSTRAK
+## ABSTRAK (ID)
 Transisi platform e-commerce konvensional menjadi *super-app* menghadirkan kompleksitas navigasi yang rentan memicu *cognitive overload*. Penelitian ini mengevaluasi dampak *feature bloat* terhadap tingkat kegunaan (*usability*) pada layanan sekunder aplikasi Shopee, yaitu Shopee Food, dibandingkan dengan layanan utamanya (Shopee Reguler). Menggunakan desain eksperimen *within-subjects*, penelitian ini melibatkan 36 responden Generasi Z yang mengisi instrumen *System Usability Scale* (SUS) untuk kedua alur layanan tersebut. Hasil analisis statistik *Paired Sample T-Test* menunjukkan adanya penurunan skor SUS yang signifikan (P-Value = 7.62e-09 < 0.05). Skor Shopee Reguler berada pada angka 60.56 (kategori Marginal), sedangkan Shopee Food anjlok ke skor 48.26 (kategori Not Acceptable). Kesimpulan dari penelitian ini membuktikan secara empiris bahwa penumpukan fitur layanan pesan-antar makanan di dalam aplikasi belanja utama menciptakan beban kognitif berlebih yang merugikan pengalaman pengguna.
 
 **Kata Kunci:** Super-App, System Usability Scale, Cognitive Overload, Hick's Law, E-Commerce.
+
+---
+
+## ABSTRACT (EN)
+The transition of conventional e-commerce platforms into super-apps introduces navigational complexity that is prone to triggering cognitive overload. This study evaluates the impact of feature bloat on usability in Shopee's secondary service, Shopee Food, compared to its primary shopping service (Shopee Regular). Employing a within-subjects experimental design, this research involved 36 Generation Z respondents who completed the System Usability Scale (SUS) instrument for both service flows. The statistical analysis using a Paired Sample T-Test revealed a significant decrease in SUS scores (P-Value = 7.62e-09 < 0.05). The Shopee Regular score stood at 60.56 (Marginal category), whereas Shopee Food plummeted to 48.26 (Not Acceptable category). The findings empirically demonstrate that the accumulation of food delivery features within a primary shopping application creates excessive cognitive load, thereby detrimentally affecting the user experience.
+
+**Keywords:** Super-App, System Usability Scale, Cognitive Overload, Hick's Law, E-Commerce.

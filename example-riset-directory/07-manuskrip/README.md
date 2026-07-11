@@ -9,16 +9,16 @@ Draf naskah ilmiah — **Tahap 5**, target publikasi Sinta 2 (Jurnal RESTI/Telem
 
 ## Struktur naskah per bagian (sumber/draf kerja)
 
-- [00-outline.md](00-outline.md) — outline, pemetaan hipotesis, dan rangkuman metrik utama riset
-- [01-abstrak.md](01-abstrak.md) — Abstrak penelitian
-- [02-pendahuluan.md](02-pendahuluan.md) — Pendahuluan (latar belakang *super-app*, rumusan masalah, tujuan penelitian)
-- [03-tinjauan-pustaka.md](03-tinjauan-pustaka.md) — Tinjauan Pustaka (Teori *Hick's Law*, *Cognitive Load*, dan *SUS*; lihat [../02-literatur/](../02-literatur/))
-- [04-metodologi.md](04-metodologi.md) — Metodologi (eksperimen *within-subjects*, N=36 Gen Z, dan anomali/imputasi)
-- [05-hasil-analisis.md](05-hasil-analisis.md) — Hasil & Pembahasan (skor SUS dan pengujian *Paired T-Test*; mengacu pada [../06-output/](../06-output/))
-- [06-kesimpulan.md](06-kesimpulan.md) — Kesimpulan & Saran perombakan *Information Architecture*
-- [07-daftar-pustaka.md](07-daftar-pustaka.md) — Daftar Pustaka (8 referensi terkini, format APA/IEEE; BibTeX di [../02-literatur/daftar-pustaka.bib](../02-literatur/daftar-pustaka.bib))
+- [00-outline.md](00-outline.md) — outline, peta sumber, dan daftar klaim kunci yang harus konsisten
+- [01-abstrak.md](01-abstrak.md) — Abstrak (ID & EN)
+- [02-pendahuluan.md](02-pendahuluan.md) — Pendahuluan (latar belakang, rumusan masalah, tujuan, kontribusi)
+- [03-tinjauan-pustaka.md](03-tinjauan-pustaka.md) — Tinjauan Pustaka (JWT/JWKS, mitigasi, *related work*; lihat [../02-literatur/](../02-literatur/))
+- [04-metodologi.md](04-metodologi.md) — Metodologi (arsitektur eksperimen, skema hybrid caching, skenario k6)
+- [05-hasil-analisis.md](05-hasil-analisis.md) — Hasil & Analisis (mengacu pada [../06-output/](../06-output/))
+- [06-kesimpulan.md](06-kesimpulan.md) — Kesimpulan & Saran Penelitian Lanjutan
+- [07-daftar-pustaka.md](07-daftar-pustaka.md) — Daftar Pustaka (18 referensi, format IEEE; BibTeX di [../02-literatur/daftar-pustaka.bib](../02-literatur/daftar-pustaka.bib))
 
-> `naskah-jurnal.md` adalah gabungan final dari 8 bagian di atas secara utuh. Anda dapat menyalin file tunggal ini langsung ke *template* universitas atau jurnal tujuan.
+> `naskah-jurnal.md`/`.docx` adalah gabungan final dari bagian-bagian di atas. Pemindahan ke template jurnal tujuan (margin, sitasi, kolom spesifik) dilakukan oleh peneliti.
 
 ## Acuan
 
