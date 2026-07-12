@@ -73,12 +73,12 @@ Jika ada lompatan (section B tidak menjawab pertanyaan section A), red thread pu
 PROPOSAL INTEGRATION CHECKLIST
 
 Koneksi Vertikal (Flow Atas-Bawah):
-  [ ] Problem → Gap: masalah terdokumentasi di literatur
-  [ ] Gap → RQ: pertanyaan menjawab gap spesifik
-  [ ] RQ → Hypothesis: hipotesis memprediksi jawaban
-  [ ] Hypothesis → Metric: metrik mengukur variabel dalam hipotesis
-  [ ] Metric → System: komponen sistem menghasilkan/mengukur metrik
-  [ ] System → Experiment: desain eksperimen menggunakan sistem
+  [x] Problem → Gap: masalah terdokumentasi di literatur
+  [x] Gap → RQ: pertanyaan menjawab gap spesifik
+  [x] RQ → Hypothesis: hipotesis memprediksi jawaban
+  [x] Hypothesis → Metric: metrik mengukur variabel dalam hipotesis
+  [x] Metric → System: komponen sistem menghasilkan/mengukur metrik
+  [x] System → Experiment: desain eksperimen menggunakan sistem
 
 Koneksi Horizontal (Konsistensi):
   [x] Istilah sama di semua bagian
@@ -109,7 +109,7 @@ Kumpulkan hasil dari WS-02 sampai WS-07 menjadi satu ringkasan proposal.
 
 | Komponen | Sumber | Isi (1-2 kalimat) |
 |----------|--------|-------------------|
-| Problem Statement | WS-02 | *Pengguna Generasi Z rentan mengalami information overload dan kelelahan kognitif akibat kompleksitas antarmuka dan interupsi elemen manipulatif (dark patterns) pada sub-fitur tambahan seperti Shopee Food.* |
+| Problem Statement | WS-02 | *Pengguna Generasi Z rentan mengalami information overload dan kelelahan kognitif akibat kompleksitas antarmuka dan feature bloat pada sub-fitur tambahan seperti Shopee Food.* |
 | Gap | WS-03 | *Berbagai studi terdahulu mengevaluasi e-commerce dengan asumsi homogenitas secara utuh (Shopee dinilai secara umum), sehingga luput mengukur degradasi kebergunaan aktual antar-fitur di dalam aplikasi yang sama.* |
 | RQ | WS-04 | *Apakah terdapat perbedaan skor System Usability Scale (SUS) yang signifikan antara alur transaksi belanja reguler dengan alur transaksi pada sub-fitur Shopee Food bagi pengguna Generasi Z?* |
 | Hipotesis | WS-04 | *H₁: Alur transaksi Shopee Food akan menghasilkan rata-rata skor SUS yang secara signifikan lebih rendah dibandingkan alur belanja reguler (Kondisi Baseline).* |
@@ -125,7 +125,7 @@ Verifikasi 6 koneksi kritis. Isi dengan merujuk tabel di Latihan 1.
 
 | Koneksi | Status | Bukti |
 |---------|--------|-------|
-| Problem → Gap | *✅* | *Masalah information overload dan dark patterns ditarik menjadi gap karena literatur terdahulu mengabaikan hidden friction pada sub-fitur.* |
+| Problem → Gap | *✅* | *Masalah information overload dan feature bloat ditarik menjadi gap karena literatur terdahulu mengabaikan hidden friction pada sub-fitur.* |
 | Gap → RQ | *✅* | *RQ secara langsung menjembatani gap tersebut dengan cara membandingkan skor SUS dari aplikasi induk reguler melawan sub-fiturnya.* |
 | RQ → Hypothesis | *✅* | *H₁ memprediksi jawaban secara terarah (directional), yakni skor SUS pada alur Shopee Food diprediksi menurun.* |
 | Hypothesis → Metric | *✅* | *"Penurunan kebergunaan" dikuantifikasi secara mutlak dengan metrik selisih skor SUS berskala interval 0-100.* |
@@ -148,7 +148,7 @@ Evaluasi proposal mini menggunakan rubrik.
 
 | Kriteria | Skor (1-3) | Justifikasi |
 |----------|-----------|-------------|
-| Koherensi | *3* | *Seluruh 6 koneksi vertikal terhubung jelas. Argumen mengalir mulus dari fenomena dark patterns (Problem) menuju pengujian komparatif selisih SUS (Metode).* |
+| Koherensi | *3* | *Seluruh 6 koneksi vertikal terhubung jelas. Argumen mengalir mulus dari fenomena feature bloat (Problem) menuju pengujian komparatif selisih SUS (Metode).* |
 | Specificity | *3* | *Semua variabel memiliki angka yang terdefinisi: SUS skala 0-100, sampel minimal N=36, Skala Likert 5 poin, Signifikansi (Alpha) 0.05.* |
 | Feasibility | *3* | *Desain Unmoderated Remote Testing via Google Form sangat realistis diselesaikan dalam estimasi timeline 8 minggu operasional.* |
 | Rigor | *3* | *Baseline yang digunakan sangat kuat dan setara, yaitu alur belanja utama/reguler dari aplikasi Shopee itu sendiri (bukan membandingkan dengan aplikasi kompetitor yang berbeda UI-nya).* |
@@ -167,5 +167,5 @@ Evaluasi proposal mini menggunakan rubrik.
 **Bagian termudah:** Mengidentifikasi instrumen pengukuran (menentukan SUS) dsn populasi responden (Generasi Z) karena keduanya sangat konkrit, banyak referensi ilmiahnya, dsn relevan dengan keseharian pengguna digital saat ini.
 **Bagian tersulit:** Menuliskan rumusan Gap penelitian serta merancang Desain Eksperimen (Matrix 2), khususnya memastikan cara menekan confounding variables (prior exposure effect & order bias) agar hasil beda selisih kuantitatif nanti benar-benar valid, bukan karena kelelahan atau kebetulan.
 **Yang akan dilakukan berbeda:**
-> Jika mengulang dari awal, saya akan lebih dulu membedah taksonomi UI dark patterns pada banyak aplikasi secara berdampingan untuk memperkaya kajian literatur (State of the Art), sebelum akhirnya mengerucut memilih satu objek aplikasi yang paling observable untuk dilakukan eksperimen.
+> Jika mengulang dari awal, saya akan lebih dulu membedah arsitektur feature bloat pada banyak super-app secara berdampingan untuk memperkaya kajian literatur (State of the Art), sebelum akhirnya mengerucut memilih satu objek aplikasi yang paling observable untuk dilakukan eksperimen.
 > ___________________________________________________

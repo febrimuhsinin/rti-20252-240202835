@@ -165,7 +165,7 @@ ___________________________________________________
 Tulis README minimum untuk eksperimen Anda (6 komponen wajib).
 
 ```
-# Judul Eksperimen: Evaluasi Komparatif Usability & Dark Patterns Shopee
+# Judul Eksperimen: Evaluasi Komparatif Usability & Feature Bloat Super-App Shopee
 
 ## 1. Environment
 > Instrumen: Google Forms (Form A & Form B untuk Counterbalancing).
@@ -193,7 +193,7 @@ Tulis README minimum untuk eksperimen Anda (6 komponen wajib).
 > Aturan Konversi SUS: P.Ganjil (X-1), P.Genap (5-Y), Total * 2.5.
 
 ## 6. Expected Output
-> Hipotesis 1 terbukti: Rata-rata Skor SUS Shopee Food < Skor SUS Belanja Reguler secara signifikan (p-value < 0.05). Ditemukan identifikasi titik hambatan terkait dark patterns.
+> Hipotesis 1 terbukti: Rata-rata Skor SUS Shopee Food < Skor SUS Belanja Reguler secara signifikan (p-value < 0.05). Ditemukan identifikasi titik hambatan terkait kompleksitas navigasi tambahan.
 ```
 
 ---

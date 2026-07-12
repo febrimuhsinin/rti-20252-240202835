@@ -117,7 +117,7 @@ Rencanakan 2-3 grafik untuk menyajikan data dari Latihan 1. Setiap grafik = satu
 | # | Jenis Grafik | Pesan | Data yang Digunakan |
 |---|-------------|-------|---------------------|
 | 1 | *Bar chart + Error bar*          | *Membuktikan bahwa terdapat penurunan signifikan skor SUS pada Shopee Food dibandingkan alur reguler.*                                        | *Mean Skor SUS ± Standard Deviation dari kedua skenario.* |
-| 2 | *Box plot*                       | *Memperlihatkan distribusi jawaban kelompok Gen Z, melihat apakah datanya memusat atau tersebar jauh karena kebingungan yang bervariasi.* | *Semua run F1*                                            |
+| 2 | *Box plot*                       | *Memperlihatkan distribusi jawaban kelompok Gen Z, melihat apakah datanya memusat atau tersebar jauh karena kebingungan yang bervariasi.* | *Skor absolut responden (0-100)*                                            |
 | 3 | *Peta Visual (User Journey Map)* | *Memetakan di bagian mana kompleksitas antarmuka paling mendegradasi efisiensi pengguna saat bertransisi ke fitur Shopee Food.* | *Data kualitatif opsional dan metrik waktu di halaman spesifik.* |
 
 ---

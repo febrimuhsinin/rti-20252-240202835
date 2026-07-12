@@ -97,15 +97,15 @@ Section Check:
   [x] Conclusion — jawaban RQ, kontribusi, future work
 
 Consistency Matrix:
-  [ ] RQ di Introduction = RQ di Method = RQ di Conclusion
-  [ ] Variabel di Method = variabel di Results
-  [ ] Klaim di Discussion didukung data di Results
-  [ ] Limitasi di Discussion di-address di Conclusion/Future Work
+  [x] RQ di Introduction = RQ di Method = RQ di Conclusion
+  [x] Variabel di Method = variabel di Results
+  [x] Klaim di Discussion didukung data di Results
+  [x] Limitasi di Discussion di-address di Conclusion/Future Work
 
 Writing Quality:
-  [ ] Clarity — mudah dipahami tanpa re-read
-  [ ] Precision — tidak ada istilah ambigu
-  [ ] Conciseness — tidak ada kalimat redundan
+  [x] Clarity — mudah dipahami tanpa re-read
+  [x] Precision — tidak ada istilah ambigu
+  [x] Conciseness — tidak ada kalimat redundan
 ```
 
 ---

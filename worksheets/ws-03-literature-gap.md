@@ -77,9 +77,9 @@ Membandingkan deep learning 2024 dengan decision tree sederhana tanpa justifikas
 ```
 LITERATURE MAPPING
 
-Topik      : Analisis Usability dan Pengaruh Dark Patterns pada Aplikasi Shopee Menggunakan Metode System Usability Scale (SUS)
+Topik      : Evaluasi Dampak Usability Integrasi Layanan Pesan-Antar Makanan pada Super-App E-Commerce
 Database   : Google Scholar, IJOINT, MALCOM, Jurnal Simkom, JAIC
-Query      : ("System Usability Scale" OR "SUS") AND "Shopee" AND ("Dark Patterns" OR "User Experience")
+Query      : ("System Usability Scale" OR "SUS") AND "Super App" AND ("Feature Bloat" OR "Cognitive Load")
 Tahun      : 2021 – 2026
 Hasil awal : 10 paper → Screening → 5 paper final
 
@@ -87,7 +87,7 @@ Literature Matrix (concept-centric):
 
 | Study | Tahun | Method | Data | Result | Limitation |
 |-------|-------|--------|------|--------|------------|
-|   Lim et al.    |   2025    |    SUS (Comparative)    |   411 Gen Z (Batam)   |    90.06 (Best Imaginable)    |      Identifikasi dark patterns (pop-up) masih bersifat kualitatif.      |
+|   Lim et al.    |   2025    |    SUS (Comparative)    |   411 Gen Z (Batam)   |    90.06 (Best Imaginable)    |      Identifikasi feature bloat pada super-app masih bersifat kualitatif.      |
 |   Aisyah S. et al.    |   2025    |   SUS + UTAUT2     |   190 Mahasiswa (Unhas)   |    68.58 (Marginal High)    |      Faktor pengaruh sosial memiliki persentase terendah (73.26%).      |
 |   Sagala & Pakaja   |    2024   |    UT + SUS    |  30 Active Users    |   70 (Acceptable/Good)     |      Kebingungan user pada fitur voucher dan metode pembayaran.      |
 |   Huda et al.    |    2023   |    SUS    |   10 Users   |    76 (Good/Acceptable)       |      Sampel sangat kecil dan terbatas pada fitur belanja dasar.      |
@@ -96,12 +96,12 @@ Literature Matrix (concept-centric):
 Pola yang ditemukan:
   Metode dominan     : Penggunaan kuesioner SUS
   Dataset umum       : Responden didominasi oleh Generasi Z dan Mahasiswa.
-  Limitasi berulang  : Analisis seringkali bersifat deskriptif umum tanpa mengaitkan elemen desain spesifik (seperti dark patterns) terhadap skor kepuasan secara kuantitatif.
+  Limitasi berulang  : Analisis seringkali bersifat deskriptif umum tanpa mengaitkan elemen desain spesifik (seperti feature bloat / navigasi kompleks) terhadap skor kepuasan secara kuantitatif.
 
 GAP IDENTIFICATION
 
 Gap 1: [Jenis: performance / method / data / context]
-  Deskripsi    : Belum adanya integrasi pengukuran dampak manipulatif dark patterns (seperti forced continuity atau urgency) terhadap fluktuasi skor SUS.
+  Deskripsi    : Belum adanya integrasi pengukuran dampak integrasi layanan pihak ketiga (food delivery) terhadap fluktuasi skor SUS.
   Bukti        : Lim et al. (2025) menyebutkan pop-up yang mengganggu sebagai isu, namun tidak mengukur korelasi spesifiknya terhadap skor 90.06 yang dihasilkan.
   Signifikansi : Penting untuk mengetahui apakah kemudahan penggunaan (usability) tinggi justru "dipaksakan" oleh desain yang manipulatif.
 
@@ -128,8 +128,8 @@ Gunakan topik riset dari WS-02. Cari minimal 5 paper relevan menggunakan databas
 > - Tulis query Boolean yang digunakan: contoh `("object detection" OR "image classification") AND ("edge computing") NOT ("medical")`. Dokumentasikan query secara eksplisit.
 > - Akses gratis: buka Google Scholar → cari judul paper → klik [PDF] jika tersedia, atau akses lewat campus VPN
 
-**Topik riset:** Analisis Usability dan Pengaruh Dark Patterns pada Shopee.
-**Query pencarian:** ("SUS") AND "Shopee" AND "Dark Patterns"
+**Topik riset:** Analisis Usability dan Pengaruh Feature Bloat pada Super-App Shopee.
+**Query pencarian:** ("SUS") AND "Shopee" AND "Feature Bloat"
 **Database:** IJOINT, MALCOM, Jurnal Simkom.
 
 | # | Study | Tahun | Method | Dataset | Result | Limitasi |
@@ -153,12 +153,12 @@ Berdasarkan tabel di Latihan 1, identifikasi gap.
 |-----------|-----------|---------------|
 | Performance Gap | [x] Ya / [ ] Tidak | *Alur voucher yang tidak intuitif memperlambat efisiensi user hingga 22.8% error rate.* |
 | Method Gap | [x] Ya / [ ] Tidak | *Kurangnya penggunaan metrik Dark Pattern yang terukur bersamaan dengan SUS.* |
-| Data Gap | [ ] Ya / [ ] Tidak | *Data responden mahasiswa sudah cukup solid.* |
+| Data Gap | [ ] Ya / [x] Tidak | *Data responden mahasiswa sudah cukup solid.* |
 | Context Gap | [x] Ya / [ ] Tidak | *Penelitian fokus di kota besar/universitas, belum menyentuh user di daerah pelosok.* |
 
-**Gap utama yang dipilih:** Pengaruh elemen Dark Patterns (seperti iklan pop-up berulang) terhadap persepsi kepuasan (SUS) pada segmen pengguna dengan frekuensi penggunaan tinggi.
+**Gap utama yang dipilih:** Pengaruh penumpukan fitur turunan (feature bloat) seperti Shopee Food terhadap degradasi tingkat kegunaan (SUS) aplikasi utama.
 **Mengapa gap ini penting (bukan sekadar "belum ada yang meneliti")?**
-> Gap ini penting karena skor SUS yang tinggi bisa menutupi masalah etika desain. Jika user merasa aplikasi "mudah" tapi "menjebak", kepuasan yang terukur melalui SUS mungkin bias oleh faktor kebiasaan (habit). Memahami hubungan ini akan membantu desainer menciptakan UI yang tidak hanya fungsional tapi juga etis.
+> Gap ini penting karena skor SUS yang tinggi di e-commerce bisa menutupi masalah beban kognitif. Jika user memaklumi kerumitan karena kebiasaan, evaluasi komparatif terpisah diperlukan untuk mengisolasi penurunan usability akibat fitur tambahan yang dipaksakan masuk dalam satu antarmuka.
 
 ---
 

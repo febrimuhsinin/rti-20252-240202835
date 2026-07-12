@@ -91,7 +91,7 @@ Gunakan RQ dari WS-04. Definisikan variabel dan metriknya.
 
 | Variabel | Tipe | Konsep Abstrak | Metrik Konkret | Skala (NOIR) | Satuan |
 |----------|------|---------------|----------------|-------------|--------|
-| *Jenis Layanan* | *IV* | *Pendekatan klasifikasi* | *Categorical: Shopee Mall vs Shopee Food* | *Nominal* | *—* |
+| *Jenis Layanan* | *IV* | *Alur Navigasi (Feature Bloat)* | *Categorical: Shopee Reguler vs Shopee Food* | *Nominal* | *—* |
 | *Kemudahan Penggunaan* | *DV* | *Usability* | *Skor Akhir SUS* | *Interval* | *Poin (0-100)* |
 | *Perangkat* | *CV* | *Lingkungan pengujian* | *Model Smartphone & OS* | *Nominal* | *—* |
 

@@ -148,8 +148,8 @@ Lengkapi rantai dari RQ hingga metode analisis.
 | Tahap | Isi |
 |-------|-----|
 | RQ | *Apakah alur transaksi Shopee Food menghasilkan skor SUS lebih rendah dari alur reguler?* |
-| Variable (IV) | *Contoh: Jenis algoritma (CNN vs RF)* |
-| Variable (DV) | *Fitur Aplikasi (Reguler vs Food).* |
+| Variable (IV) | *Fitur Aplikasi (Reguler vs Food).* |
+| Variable (DV) | *Tingkat Usability (Skor SUS).* |
 | Metric | *Tingkat Usability (Skor SUS).* |
 | Data source | *Pengujian langsung (UT) dan Kuesioner pasca-tugas (Post-task).* |
 | Analysis method | *Paired Sample T-Test (Uji beda rata-rata).* |

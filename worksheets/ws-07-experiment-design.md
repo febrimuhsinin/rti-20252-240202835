@@ -147,7 +147,7 @@ Identifikasi ancaman validitas untuk desain eksperimen ini.
 **Ancaman mana yang paling sulit dimitigasi?** Ancaman Eksternal (Generalisasi).
 Mengapa?
 **Mengapa?**
-> Karena Shopee berstatus sebagai super-app yang sudah digunakan bertahun-tahun oleh responden Gen Z, secara tidak sadar mereka sudah memaklumi kerumitan UI-nya. Menyadarkan responden untuk secara kritis menilai dark patterns (seperti hitung mundur promosi atau asuransi otomatis) melalui instrumen skala persepsional tanpa eye-tracking secara langsung merupakan tantangan terbesar yang dapat menimbulkan deviasi skor.
+> Karena Shopee berstatus sebagai super-app yang sudah digunakan bertahun-tahun oleh responden Gen Z, secara tidak sadar mereka sudah memaklumi kerumitan UI-nya. Menyadarkan responden untuk secara kritis menilai feature bloat (seperti menumpuknya banner promo dan navigasi pihak ketiga) melalui instrumen skala persepsional tanpa eye-tracking secara langsung merupakan tantangan terbesar yang dapat menimbulkan deviasi skor.
 
 ---
 

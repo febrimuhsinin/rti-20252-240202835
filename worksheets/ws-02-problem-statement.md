@@ -108,7 +108,7 @@ Pilih satu topik di bidang TI yang diminati. Transformasikan melalui 5 tahap Pro
 | Reality | *Aplikasi e-commerce saat ini berkembang menjadi super-app dengan banyak fitur tambahan.* |
 | Observed Issue (Symptom) | *Pengguna sering melaporkan kesulitan saat mencari menu spesifik atau menggunakan voucher promo yang bertumpuk.* |
 | Diagnosed Problem (Root Cause) | *Hirarki visual yang tidak jelas dan terlalu banyak interupsi (pop-up) yang mengganggu alur tugas utama.* |
-| Researchable Problem | *Sejauh mana pengaruh elemen dark patterns dan kepadatan informasi terhadap skor SUS pada alur transaksi kritis?* |
+| Researchable Problem | *Sejauh mana pengaruh feature bloat (integrasi layanan majemuk) terhadap tingkat kegunaan (SUS) antara Shopee Reguler dan Shopee Food?* |
 | Measurable Variable | *Skor SUS, Time on Task, dan Error Rate.* |
 
 **Apakah terjebak solution-first thinking?** [ ] Ya / [X] Tidak
