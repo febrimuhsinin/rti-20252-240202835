@@ -5,15 +5,11 @@ Dokumen perencanaan & panduan kerja penelitian.
 ## Isi
 
 - [rencana-penelitian.md](rencana-penelitian.md) — **indeks utama**, ringkasan topik & roadmap 5 tahap
-- [tahap-1-arsitektur-dan-skema-database.md](tahap-1-arsitektur-dan-skema-database.md) — arsitektur & skema DB (selesai)
-- [tahap-2-implementasi-gateway.md](tahap-2-implementasi-gateway.md) — rencana implementasi Gateway (Go)
-- [tahap-3-pengujian-k6.md](tahap-3-pengujian-k6.md) — rencana skrip pengujian k6
-- [tahap-4-analisis-data.md](tahap-4-analisis-data.md) — rencana ekstraksi data & visualisasi
-- [tahap-5-draf-paper.md](tahap-5-draf-paper.md) — rencana struktur draf paper
-- [archive/promt.md](archive/promt.md) — *(arsip)* prompt awal asisten riset, sudah dikonsolidasikan ke [.ai/research-context.md](../.ai/research-context.md)
+- [tahap-1-instrumen-dan-pengumpulan-data.md](tahap-1-instrumen-dan-pengumpulan-data.md) — dokumentasi penyebaran instrumen SUS (selesai)
+- [tahap-2-prapemrosesan-data-dan-imputasi.md](tahap-2-prapemrosesan-data-dan-imputasi.md) — dokumentasi pra-pemrosesan Python (selesai)
+- [tahap-3-komputasi-analisis-statistik.md](tahap-3-komputasi-analisis-statistik.md) — dokumentasi komputasi komparatif T-Test (selesai)
+- [tahap-4-ekstraksi-hasil.md](tahap-4-ekstraksi-hasil.md) — rencana ekstraksi & visualisasi data (selesai)
+- [tahap-5-penyusunan-manuskrip.md](tahap-5-penyusunan-manuskrip.md) — dokumentasi struktur naskah (selesai)
+- [archive/promt.md](archive/promt.md) — *(arsip)* prompt awal asisten riset.
 
-Deliverable konkret tiap tahap (kode, data, hasil, naskah) disimpan di folder bernomor terkait (lihat [README utama](../README.md)).
-
-## Knowledge & Instruksi AI
-
-Peran/persona AI, ringkasan penelitian, status roadmap, dan konvensi folder kini dikonsolidasikan di [.ai/](../.ai/) (dimuat otomatis oleh Claude Code via [CLAUDE.md](../CLAUDE.md) di root).
+Deliverable konkret tiap tahap (kode, data, hasil, naskah) disimpan di folder bernomor terkait.
