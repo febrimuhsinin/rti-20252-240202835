@@ -118,7 +118,7 @@ Transisi platform e-commerce konvensional menjadi *super-app* yang serba ada ter
 |---|---|---|
 | [01-proposal/](../01-proposal/) | Proposal riset dan template dasar. | Selesai |
 | [02-literatur/](../02-literatur/) | Matriks dan referensi literatur. | Selesai |
-| [03-teori/](../03-teori/) | Penjabaran teori SUS (Tidak dipakai). | Selesai |
+| [03-teori/](../03-teori/) | Penjabaran grand theory (Cognitive Load, Hick's Law) dan parameter SUS. | Selesai |
 | [04-data/](../04-data/) | Dataset observasi (`data_form.csv`) & Kamus Data. | Selesai |
 | [05-kode/](../05-kode/) | Skrip algoritma analisis Python (`analisis_sus.py`). | Selesai |
 | [06-output/](../06-output/) | Rekapitulasi hasil uji T-Test dan skor SUS. | Selesai |
