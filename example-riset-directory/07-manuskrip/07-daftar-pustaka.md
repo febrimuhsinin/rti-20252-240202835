@@ -10,13 +10,13 @@
 
 [5] R. Budiu, "Between-Subjects vs. Within-Subjects Study Design," *Nielsen Norman Group*, 2021. [Online]. Available: https://www.nngroup.com/articles/between-within-subjects/
 
-[6] M. A. Muhyidin, M. A. Sulhan, and A. Sevtiana, "Pengujian Usability Sistem Informasi Rekrutmen PT. Bawaslu Menggunakan System Usability Scale (SUS)," *Jurnal Informatika*, 2020.
+[6] A. T. Hidayat, M. Shania, and T. Tranggono, "Analisis Usability Pada Aplikasi Shopee Menggunakan Metode System Usability Scale (SUS)," *Briliant: Jurnal Riset dan Konseptual*, vol. 9, no. 2, pp. 452-465, 2024.
 
-[7] A. T. Hidayat, et al., "Analisis Usability Pada Aplikasi Shopee Menggunakan Metode System Usability Scale (SUS)," *Jurnal Ilmiah Komputasi*, vol. 20, no. 3, 2021.
+[7] M. A. Muhyidin, M. A. Sulhan, and A. Sevtiana, "Pengujian Usability Sistem Informasi Menggunakan System Usability Scale (SUS)," *Jurnal Informatika*, 2020.
 
-[8] R. A. Saputra and D. I. Sensuse, "Evaluasi Usabilitas Interaksi Pengguna Aplikasi Shopee Menggunakan System Usability Scale," *Jurnal Sistem Informasi*, 2022.
+[8] R. A. Saputra and D. I. Sensuse, "Evaluasi Usabilitas Interaksi Pengguna Aplikasi Shopee Menggunakan System Usability Scale," *Jurnal Komputer Antartika*, 2022.
 
-[9] N. F. Rozi, et al., "Analisis Usability Fitur Live Shopping pada Aplikasi Shopee Menggunakan Metode System Usability Scale (SUS)," *Jurnal RESTI (Rekayasa Sistem dan Teknologi Informasi)*, 2023.
+[9] N. F. Rozi, et al., "Analisis Usability Fitur Live Shopping pada Aplikasi Shopee Menggunakan Metode System Usability Scale (SUS)," *Jurnal Nasional Komputasi dan Teknologi Informasi*, 2023.
 
 [10] S. A. Saputri and M. A. Yaqin, "Evaluasi Kepuasan Pengguna Aplikasi Marketplace Shopee Berdasarkan Parameter System Usability Scale," *Jurnal Teknik Informatika*, 2022.
 
