@@ -152,7 +152,7 @@ Berdasarkan tabel di Latihan 1, identifikasi gap.
 | Jenis Gap | Ditemukan? | Gap Statement |
 |-----------|-----------|---------------|
 | Performance Gap | [x] Ya / [ ] Tidak | *Alur voucher yang tidak intuitif memperlambat efisiensi user hingga 22.8% error rate.* |
-| Method Gap | [x] Ya / [ ] Tidak | *Kurangnya penggunaan metrik Dark Pattern yang terukur bersamaan dengan SUS.* |
+| Method Gap | [x] Ya / [ ] Tidak | *Kurangnya pengukuran dampak Feature Bloat yang dilakukan bersamaan dengan SUS.* |
 | Data Gap | [ ] Ya / [x] Tidak | *Data responden mahasiswa sudah cukup solid.* |
 | Context Gap | [x] Ya / [ ] Tidak | *Penelitian fokus di kota besar/universitas, belum menyentuh user di daerah pelosok.* |
 

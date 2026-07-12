@@ -4,11 +4,10 @@ Kumpulan referensi & paper terkait untuk mendukung Tinjauan Pustaka (Tahap 5).
 
 ## Topik referensi yang relevan
 
-- Keamanan JWT/JWKS (termasuk kelas kerentanan JWKS Endpoint Flooding / CVE-2026-48524)
-- Strategi caching multi-layer (Redis sebagai L1, PostgreSQL sebagai L2/source of truth)
-- Negative caching untuk mitigasi flooding/cache-busting
-- Rate limiting pada API Gateway / microservices
-- Metodologi load testing dengan k6
+- Teori Cognitive Load dan dampaknya pada interaksi pengguna (Hick's Law)
+- Literatur pengukuran Usability menggunakan System Usability Scale (SUS)
+- Fenomena Feature Bloat dan integrasi layanan pada aplikasi Super-app (E-Commerce)
+- Studi komparatif evaluasi antarmuka pada segmentasi Generasi Z
 
 ## Isi yang diharapkan
 
@@ -17,5 +16,5 @@ Kumpulan referensi & paper terkait untuk mendukung Tinjauan Pustaka (Tahap 5).
 
 ## Berkas
 
-- [matriks-literatur.md](matriks-literatur.md) — matriks literatur lengkap (7 topik dipetakan ke 18 referensi terverifikasi; status verifikasi CVE-2026-48524)
+- [matriks-literatur.md](matriks-literatur.md) — matriks literatur lengkap referensi terverifikasi
 - [daftar-pustaka.bib](daftar-pustaka.bib) — bibliografi BibTeX (18 entri), siap diimpor ke Mendeley

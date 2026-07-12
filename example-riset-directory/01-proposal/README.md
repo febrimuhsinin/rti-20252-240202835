@@ -4,7 +4,7 @@ Dokumen proposal penelitian — versi draf maupun final.
 
 ## Isi yang diharapkan
 
-- Proposal penelitian (latar belakang, rumusan masalah, tujuan, urgensi JWKS Endpoint Flooding)
+- Proposal penelitian (latar belakang fenomena Super-app, rumusan masalah, hipotesis, dan urgensi evaluasi SUS)
 - Revisi proposal berdasarkan masukan pembimbing/reviewer
 
 ## Berkas
